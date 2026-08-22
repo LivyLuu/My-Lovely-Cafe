@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://briqqlmnhff5l"]
 
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_gwwsu"]
-[ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
+[ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/3D/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
+[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://SCENES/xr_origin.tscn" id="3_r8ipk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -43,3 +44,5 @@ mesh = SubResource("BoxMesh_te0up")
 
 [node name="coffee-cup_standalone" parent="." unique_id=1092249547 instance=ExtResource("2_v7qqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07253772)
+
+[node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]

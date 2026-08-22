@@ -15,6 +15,15 @@ run/main_scene="uid://briqqlmnhff5l"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://ASSETS/icon.svg"
 
+[autoload]
+
+XRToolsUserSettings="*uid://bqgb8i74tm0t"
+XRToolsRumbleManager="*uid://by853dk86g1qw"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
