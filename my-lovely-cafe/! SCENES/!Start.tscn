@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_gwwsu"]
 [ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/3D/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
-[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://SCENES/xr_origin.tscn" id="3_r8ipk"]
+[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/xr_origin.tscn" id="3_r8ipk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)

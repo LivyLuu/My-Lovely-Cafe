@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2iocwfr47kqp"
-path.s3tc="res://.godot/imported/glove_fingerless_occlusionRoughnessMetallic.png-52aa7e5ddb6da3a31a0befdf35dbe474.s3tc.ctex"
+path.s3tc="res://.godot/imported/glove_fingerless_occlusionRoughnessMetallic.png-441bf1f84442c3cd6ae3834c9c982565.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ADDONS/godot-xr-tools/hands/textures/glove_fingerless_occlusionRoughnessMetallic.png"
-dest_files=["res://.godot/imported/glove_fingerless_occlusionRoughnessMetallic.png-52aa7e5ddb6da3a31a0befdf35dbe474.s3tc.ctex"]
+source_file="res://addons/godot-xr-tools/hands/textures/glove_fingerless_occlusionRoughnessMetallic.png"
+dest_files=["res://.godot/imported/glove_fingerless_occlusionRoughnessMetallic.png-441bf1f84442c3cd6ae3834c9c982565.s3tc.ctex"]
 
 [params]
 

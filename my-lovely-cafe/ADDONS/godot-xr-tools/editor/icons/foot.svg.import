@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfkcd3fkyahqu"
-path="res://.godot/imported/foot.svg-0ed89377a8e0b92d34e3244ff2253800.ctex"
+path="res://.godot/imported/foot.svg-9e361563e010aa07be49bfb25fdb6639.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ADDONS/godot-xr-tools/editor/icons/foot.svg"
-dest_files=["res://.godot/imported/foot.svg-0ed89377a8e0b92d34e3244ff2253800.ctex"]
+source_file="res://addons/godot-xr-tools/editor/icons/foot.svg"
+dest_files=["res://.godot/imported/foot.svg-9e361563e010aa07be49bfb25fdb6639.ctex"]
 
 [params]
 

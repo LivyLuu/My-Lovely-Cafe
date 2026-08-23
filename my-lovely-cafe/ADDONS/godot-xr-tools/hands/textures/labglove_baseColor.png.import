@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4gbpgjwjuovb"
-path.s3tc="res://.godot/imported/labglove_baseColor.png-ba6e8989dec56b631ac4977d96186440.s3tc.ctex"
+path.s3tc="res://.godot/imported/labglove_baseColor.png-2eb9fa4d9955a5755a96f0663ee3ceb2.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ADDONS/godot-xr-tools/hands/textures/labglove_baseColor.png"
-dest_files=["res://.godot/imported/labglove_baseColor.png-ba6e8989dec56b631ac4977d96186440.s3tc.ctex"]
+source_file="res://addons/godot-xr-tools/hands/textures/labglove_baseColor.png"
+dest_files=["res://.godot/imported/labglove_baseColor.png-2eb9fa4d9955a5755a96f0663ee3ceb2.s3tc.ctex"]
 
 [params]
 

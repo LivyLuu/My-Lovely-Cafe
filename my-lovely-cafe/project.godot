@@ -20,6 +20,10 @@ config/icon="res://ASSETS/icon.svg"
 XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
 
+[debug]
+
+shader_language/warnings/treat_warnings_as_errors=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
@@ -27,9 +31,9 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://! SCENES/": "yellow",
 "res://ASSETS/": "pink",
 "res://RESOURCES/": "pink",
-"res://SCENES/": "yellow",
 "res://SCRIPTS/": "green"
 }
 

@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://uexyammaps33"]
 
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_i1iq5"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_2fjs1"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_playerbody"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_eqn6b"]
 size = Vector3(0.1, 0.1, 0.1)
 
@@ -11,6 +15,8 @@ size = Vector3(0.1, 0.1, 0.1)
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=701675855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
+[node name="PlayerBody" parent="." unique_id=1733916048 instance=ExtResource("3_playerbody")]
+
 [node name="LeftHand" type="XRController3D" parent="." unique_id=926970644]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
@@ -18,9 +24,16 @@ tracker = &"left_hand"
 [node name="Obj_LHand" type="MeshInstance3D" parent="LeftHand" unique_id=1148517130]
 mesh = SubResource("BoxMesh_eqn6b")
 
+[node name="MovementDirect" parent="LeftHand" unique_id=381327802 instance=ExtResource("1_i1iq5")]
+strafe = true
+
 [node name="RightHand" type="XRController3D" parent="." unique_id=518469543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 
 [node name="Obj_RHand" type="MeshInstance3D" parent="RightHand" unique_id=862951582]
 mesh = SubResource("BoxMesh_370i8")
+
+[node name="MovementTurn" parent="RightHand" unique_id=2081941065 instance=ExtResource("2_2fjs1")]
+turn_mode = 2
+step_turn_angle = 45.0

@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw8rmigwt5pr4"
-path.s3tc="res://.godot/imported/glove_fingerless_normal.png-8f11859db14a9acaaa10769782b024f7.s3tc.ctex"
+path.s3tc="res://.godot/imported/glove_fingerless_normal.png-46736b8f0a977e37b17257f7bbbb718f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ADDONS/godot-xr-tools/hands/textures/glove_fingerless_normal.png"
-dest_files=["res://.godot/imported/glove_fingerless_normal.png-8f11859db14a9acaaa10769782b024f7.s3tc.ctex"]
+source_file="res://addons/godot-xr-tools/hands/textures/glove_fingerless_normal.png"
+dest_files=["res://.godot/imported/glove_fingerless_normal.png-46736b8f0a977e37b17257f7bbbb718f.s3tc.ctex"]
 
 [params]
 

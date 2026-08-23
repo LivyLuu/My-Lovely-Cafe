@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bidphehpipwhg"
-path.s3tc="res://.godot/imported/glove_african_green_camo.png-ac1cba04e812858c9d4b2ae55b59d747.s3tc.ctex"
+path.s3tc="res://.godot/imported/glove_african_green_camo.png-b4a9e045aac0313108230034e03317fd.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ADDONS/godot-xr-tools/hands/textures/glove_african_green_camo.png"
-dest_files=["res://.godot/imported/glove_african_green_camo.png-ac1cba04e812858c9d4b2ae55b59d747.s3tc.ctex"]
+source_file="res://addons/godot-xr-tools/hands/textures/glove_african_green_camo.png"
+dest_files=["res://.godot/imported/glove_african_green_camo.png-b4a9e045aac0313108230034e03317fd.s3tc.ctex"]
 
 [params]
 
