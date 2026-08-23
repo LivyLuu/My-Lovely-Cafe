@@ -5,13 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_ay6f7"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_playerbody"]
 [ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="4_70ayc"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_sp8e5"]
 [ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="6_7vge4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_eqn6b"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_370i8"]
-size = Vector3(0.1, 0.1, 0.1)
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="8_12hxu"]
 
 [node name="XROrigin3D" type="XROrigin3D" unique_id=1179157175]
 
@@ -24,9 +20,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
-[node name="Obj_LHand" type="MeshInstance3D" parent="LeftHand" unique_id=1148517130]
-mesh = SubResource("BoxMesh_eqn6b")
-
 [node name="MovementDirect" parent="LeftHand" unique_id=381327802 instance=ExtResource("1_i1iq5")]
 strafe = true
 
@@ -34,12 +27,11 @@ strafe = true
 
 [node name="MovementSprint" parent="LeftHand" unique_id=1819208029 instance=ExtResource("4_70ayc")]
 
+[node name="LeftHand" parent="LeftHand" unique_id=130582469 instance=ExtResource("5_sp8e5")]
+
 [node name="RightHand" type="XRController3D" parent="." unique_id=518469543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
-
-[node name="Obj_RHand" type="MeshInstance3D" parent="RightHand" unique_id=862951582]
-mesh = SubResource("BoxMesh_370i8")
 
 [node name="MovementTurn" parent="RightHand" unique_id=2081941065 instance=ExtResource("2_2fjs1")]
 turn_mode = 2
@@ -49,3 +41,5 @@ step_turn_angle = 45.0
 
 [node name="MovementCrouch" parent="RightHand" unique_id=1572844532 instance=ExtResource("6_7vge4")]
 crouch_type = 1
+
+[node name="RightHand" parent="RightHand" unique_id=1636239549 instance=ExtResource("8_12hxu")]
