@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://2eunpo7spxvw"]
+
+[ext_resource type="PackedScene" uid="uid://d1wvjc5oo7pmg" path="res://ASSETS/3D/Environment/Cafe Interior/Outdoors.fbx" id="1_iyk6r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0kig"]
+albedo_color = Color(0.24313726, 0.827451, 0.45882353, 1)
+
+[node name="Outdoors" unique_id=789773746 instance=ExtResource("1_iyk6r")]
+
+[node name="Plane" parent="." index="0" unique_id=737409889]
+surface_material_override/0 = SubResource("StandardMaterial3D_g0kig")

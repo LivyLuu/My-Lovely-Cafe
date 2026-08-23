@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_gwwsu"]
 [ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/3D/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/xr_origin.tscn" id="3_r8ipk"]
+[ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://ASSETS/3D/Environment/Cafe Interior/outdoors.tscn" id="4_d1w3m"]
+[ext_resource type="PackedScene" uid="uid://1ikyjhgq5dvp" path="res://ASSETS/3D/Environment/Cafe Interior/House.fbx" id="5_gpino"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -30,6 +32,8 @@ environment = SubResource("Environment_r8ipk")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1715697911]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(1, 0.68235296, 0.5764706, 1)
+light_energy = 0.396
 shadow_enabled = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1408243442]
@@ -46,3 +50,8 @@ mesh = SubResource("BoxMesh_te0up")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07253772)
 
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
+
+[node name="Outdoors" parent="." unique_id=789773746 instance=ExtResource("4_d1w3m")]
+
+[node name="House" parent="." unique_id=1512135715 instance=ExtResource("5_gpino")]
