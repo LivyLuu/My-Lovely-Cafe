@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://bdtpjrjmf2w3t"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=910290986]
+
+[node name="Control" type="Control" parent="." unique_id=1655458640]
+custom_minimum_size = Vector2(550, 150)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 550.0
+offset_bottom = 150.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=590784138]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.81228566, 0.83199877, 0.88649696, 0.15686275)
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1943882524]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 45
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer2" unique_id=1897255709]
+layout_mode = 2
+
+[node name="dialogue_txt" type="Label" parent="Control/MarginContainer2/VBoxContainer" unique_id=250702207]
+custom_minimum_size = Vector2(550, 104.41)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 22
+text = "Hey you!
+Welcome to the tutorial!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1965232107]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 5
+
+[node name="speaker_name" type="Label" parent="Control/MarginContainer" unique_id=1381922249]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.54901963, 0.49411765, 0.74509805, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_font_sizes/font_size = 26
+text = "---   Grandfather Cat   ---"
+horizontal_alignment = 1
