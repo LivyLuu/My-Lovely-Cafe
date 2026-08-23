@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://uexyammaps33"]
 
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_i1iq5"]
-[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_2fjs1"]
-[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_ay6f7"]
+[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_2fjs1"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_ay6f7"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_playerbody"]
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="4_70ayc"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_sp8e5"]
@@ -47,6 +47,7 @@ step_turn_angle = 45.0
 [node name="FunctionPickup" parent="RightHand" unique_id=2126967562 instance=ExtResource("3_ay6f7")]
 
 [node name="MovementCrouch" parent="RightHand" unique_id=1572844532 instance=ExtResource("6_7vge4")]
+order = 1
 crouch_type = 1
 
 [node name="RightHand" parent="RightHand" unique_id=1636239549 instance=ExtResource("8_12hxu")]

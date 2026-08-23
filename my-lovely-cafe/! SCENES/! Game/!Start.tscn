@@ -66,7 +66,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
 [node name="PickableObject" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1729373, -9.4786)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1910163, -9.4786)
 
 [node name="Viewport2Din3D" parent="." unique_id=1046643593 instance=ExtResource("7_klqu3")]
 transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -6.6156797)
