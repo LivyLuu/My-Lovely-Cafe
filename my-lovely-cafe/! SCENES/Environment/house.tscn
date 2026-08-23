@@ -7,6 +7,7 @@ data = PackedVector3Array(-0.0072, 0.0077, 0.0036, -0.0072, 0.0042, 0.0036, -0.0
 
 [node name="House" unique_id=1668261757 instance=ExtResource("1_au8ig")]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_026" parent_id_path=PackedInt32Array(1972062456) index="0" unique_id=1518573088]
-transform = Transform3D(0.99999994, 0, -8.4703295e-22, 1.4210855e-14, 1, 0, 3.5527137e-15, 1.6873912e-15, 1, 0, 0, 0)
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_026" parent_id_path=PackedInt32Array(1972062456) index="0" unique_id=875556411]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_026/StaticBody3D" index="0" unique_id=1063704631]
 shape = SubResource("ConcavePolygonShape3D_wdmqm")

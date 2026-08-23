@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_gwwsu"]
 [ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/3D/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
+[ext_resource type="PackedScene" uid="uid://bn56reoabl3gf" path="res://! SCENES/Environment/house.tscn" id="3_n71f8"]
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
-[ext_resource type="PackedScene" uid="uid://1ikyjhgq5dvp" path="res://ASSETS/3D/Environment/Cafe Interior/House.fbx" id="5_gpino"]
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
@@ -33,7 +33,7 @@ script = ExtResource("1_gwwsu")
 [node name="Outdoors" parent="ENVIRONMENT" unique_id=789773746 instance=ExtResource("4_d1w3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
 
-[node name="House" parent="ENVIRONMENT" unique_id=1668261757 instance=ExtResource("5_gpino")]
+[node name="House" parent="ENVIRONMENT" unique_id=1668261757 instance=ExtResource("3_n71f8")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1213882274]
 environment = SubResource("Environment_r8ipk")
@@ -64,4 +64,4 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
 [node name="PickableObject" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.160333, -9.4786)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1729373, -9.4786)
