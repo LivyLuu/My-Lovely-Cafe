@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/xr_origin.tscn" id="3_r8ipk"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://ASSETS/3D/Environment/Cafe Interior/outdoors.tscn" id="4_d1w3m"]
 [ext_resource type="PackedScene" uid="uid://1ikyjhgq5dvp" path="res://ASSETS/3D/Environment/Cafe Interior/House.fbx" id="5_gpino"]
+[ext_resource type="PackedScene" uid="uid://d308osbwxv1gl" path="res://ASSETS/3D/Props/glass.tscn" id="6_w43g0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -53,5 +54,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
 
 [node name="Outdoors" parent="." unique_id=789773746 instance=ExtResource("4_d1w3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
 
-[node name="House" parent="." unique_id=1512135715 instance=ExtResource("5_gpino")]
+[node name="House" parent="." unique_id=700988639 instance=ExtResource("5_gpino")]
+
+[node name="glass" parent="." unique_id=1804803080 instance=ExtResource("6_w43g0")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.894849, 1.1594256, -9.401726)
