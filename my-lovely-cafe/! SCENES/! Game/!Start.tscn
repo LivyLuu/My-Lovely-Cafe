@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_gwwsu"]
 [ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/3D/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
-[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/xr_origin.tscn" id="3_r8ipk"]
-[ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://ASSETS/3D/Environment/Cafe Interior/outdoors.tscn" id="4_d1w3m"]
+[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
+[ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
 [ext_resource type="PackedScene" uid="uid://1ikyjhgq5dvp" path="res://ASSETS/3D/Environment/Cafe Interior/House.fbx" id="5_gpino"]
-[ext_resource type="PackedScene" uid="uid://d308osbwxv1gl" path="res://ASSETS/3D/Props/glass.tscn" id="6_w43g0"]
+[ext_resource type="PackedScene" uid="uid://d308osbwxv1gl" path="res://! SCENES/Props/glass.tscn" id="6_w43g0"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -28,6 +28,13 @@ size = Vector3(5, 0.1, 5)
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
 
+[node name="ENVIRONMENT" type="Node" parent="." unique_id=747379394]
+
+[node name="Outdoors" parent="ENVIRONMENT" unique_id=789773746 instance=ExtResource("4_d1w3m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
+
+[node name="House" parent="ENVIRONMENT" unique_id=1668261757 instance=ExtResource("5_gpino")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1213882274]
 environment = SubResource("Environment_r8ipk")
 
@@ -37,13 +44,14 @@ light_color = Color(1, 0.68235296, 0.5764706, 1)
 light_energy = 0.396
 shadow_enabled = true
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1408243442]
+[node name="floor collider" type="StaticBody3D" parent="." unique_id=1408243442]
+transform = Transform3D(3.2349145, 0, 0, 0, 1, 0, 0, 0, 6.5914683, -2.7394185, 0, -7.7705755)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=877637026]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor collider" unique_id=877637026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("BoxShape3D_6o114")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=1232879149]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="floor collider/CollisionShape3D" unique_id=1232879149]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0008060932, -0.046323705, 5.4314733e-05)
 mesh = SubResource("BoxMesh_te0up")
 
@@ -53,10 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
 
-[node name="Outdoors" parent="." unique_id=789773746 instance=ExtResource("4_d1w3m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
+[node name="PROPS" type="Node" parent="." unique_id=390270501]
 
-[node name="House" parent="." unique_id=700988639 instance=ExtResource("5_gpino")]
-
-[node name="glass" parent="." unique_id=1804803080 instance=ExtResource("6_w43g0")]
+[node name="glass" parent="PROPS" unique_id=1804803080 instance=ExtResource("6_w43g0")]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.894849, 1.1594256, -9.401726)

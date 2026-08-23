@@ -2,4 +2,4 @@
 
 [ext_resource type="PackedScene" uid="uid://1ikyjhgq5dvp" path="res://ASSETS/3D/Environment/Cafe Interior/House.fbx" id="1_au8ig"]
 
-[node name="House" unique_id=466284899 instance=ExtResource("1_au8ig")]
+[node name="House" unique_id=1668261757 instance=ExtResource("1_au8ig")]

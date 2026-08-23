@@ -2,7 +2,9 @@
 
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_i1iq5"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_2fjs1"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_ay6f7"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_playerbody"]
+[ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="4_70ayc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_eqn6b"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -27,6 +29,10 @@ mesh = SubResource("BoxMesh_eqn6b")
 [node name="MovementDirect" parent="LeftHand" unique_id=381327802 instance=ExtResource("1_i1iq5")]
 strafe = true
 
+[node name="FunctionPickup" parent="LeftHand" unique_id=927283283 instance=ExtResource("3_ay6f7")]
+
+[node name="MovementSprint" parent="LeftHand" unique_id=1819208029 instance=ExtResource("4_70ayc")]
+
 [node name="RightHand" type="XRController3D" parent="." unique_id=518469543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
@@ -37,3 +43,5 @@ mesh = SubResource("BoxMesh_370i8")
 [node name="MovementTurn" parent="RightHand" unique_id=2081941065 instance=ExtResource("2_2fjs1")]
 turn_mode = 2
 step_turn_angle = 45.0
+
+[node name="FunctionPickup" parent="RightHand" unique_id=2126967562 instance=ExtResource("3_ay6f7")]
