@@ -4,7 +4,7 @@ var xr_interface: XRInterface
 
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
-	if xr_interface and xr_interface.is_initialized():
+	if xr_interface and (xr_interface.is_initialized() or xr_interface.initialize()):
 		print("OpenXR initialized successfully")
 
 		# Turn off v-sync!
