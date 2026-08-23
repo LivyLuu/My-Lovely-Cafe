@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_ay6f7"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="3_playerbody"]
 [ext_resource type="PackedScene" uid="uid://drs4eeq721ojn" path="res://addons/godot-xr-tools/functions/movement_sprint.tscn" id="4_70ayc"]
+[ext_resource type="PackedScene" uid="uid://clt88d5d1dje4" path="res://addons/godot-xr-tools/functions/movement_crouch.tscn" id="6_7vge4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_eqn6b"]
 size = Vector3(0.1, 0.1, 0.1)
@@ -45,3 +46,6 @@ turn_mode = 2
 step_turn_angle = 45.0
 
 [node name="FunctionPickup" parent="RightHand" unique_id=2126967562 instance=ExtResource("3_ay6f7")]
+
+[node name="MovementCrouch" parent="RightHand" unique_id=1572844532 instance=ExtResource("6_7vge4")]
+crouch_type = 1

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
 [ext_resource type="PackedScene" uid="uid://1ikyjhgq5dvp" path="res://ASSETS/3D/Environment/Cafe Interior/House.fbx" id="5_gpino"]
-[ext_resource type="PackedScene" uid="uid://d308osbwxv1gl" path="res://! SCENES/Props/glass.tscn" id="6_w43g0"]
+[ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,5 +63,5 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2
 
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
-[node name="glass" parent="PROPS" unique_id=1804803080 instance=ExtResource("6_w43g0")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.894849, 1.1594256, -9.401726)
+[node name="PickableObject" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.160333, -9.4786)

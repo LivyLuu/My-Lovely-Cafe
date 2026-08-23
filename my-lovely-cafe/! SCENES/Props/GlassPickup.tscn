@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b68i3wvf247px"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_7tymd"]
+[ext_resource type="PackedScene" uid="uid://d308osbwxv1gl" path="res://! SCENES/Props/glass.tscn" id="2_habxx"]
+[ext_resource type="Material" uid="uid://dovn743u0iusn" path="res://ASSETS/Materials/Empty.material" id="2_v3j8j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgtcp"]
+size = Vector3(0.1, 0.13590088, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fgtcp"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="PickableObject" unique_id=1911124857 instance=ExtResource("1_7tymd")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06064622, 0)
+shape = SubResource("BoxShape3D_fgtcp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=590635065]
+transform = Transform3D(1, 0, 0, 0, 1.2113624, 0, 0, 0, 1, 0, 0.063023865, 0)
+material_override = ExtResource("2_v3j8j")
+mesh = SubResource("BoxMesh_fgtcp")
+
+[node name="glass" parent="." index="2" unique_id=1804803080 instance=ExtResource("2_habxx")]
