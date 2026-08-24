@@ -17,7 +17,7 @@ var customer_plans_to_walk: Array[Node3D] = []
 var current_index: int = 0
 var current_tile
 
-@export var step_delay: float = 0.6  # placeholder pacing between points; swap for a Tween later
+@export var move_speed: float = 2.0  # meters per second
 
 func place_order(possible_orders: Array[MenuItem]) -> void:
 	desired_item = possible_orders.pick_random()
@@ -26,7 +26,7 @@ func place_order(possible_orders: Array[MenuItem]) -> void:
 
 #func receive_item(served_item: MenuItem) -> void:
 	#state = State.VERIFYING
-	#var correct := served_item != null and served_item.id == desired_item.id
+	##var correct := served_item != null and served_item.id == desired_item.id
 	#state = State.LEAVING_HAPPY if correct else State.LEAVING_UPSET
 	#order_result.emit(correct, desired_item.price)
 
@@ -43,7 +43,13 @@ func _advance() -> void:
 		return
 
 	var next_tile = customer_plans_to_walk[current_index]
-	global_position = next_tile.global_position  # placeholder, swap for a Tween later
+	var distance := global_position.distance_to(next_tile.global_position)
+	var duration := distance / move_speed
+
+	var tween := create_tween()
+	tween.tween_property(self, "global_position", next_tile.global_position, duration)
+	await tween.finished
+
 	current_tile = next_tile
 	current_index += 1
 	waypoint_reached.emit(next_tile)
@@ -53,5 +59,4 @@ func _advance() -> void:
 		customer_stops_walking.emit()
 		return  # paused here — level manager / order system resumes it later
 
-	await get_tree().create_timer(step_delay).timeout
 	_advance()
