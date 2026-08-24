@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dblrvafjtw1lh"]
+
+[ext_resource type="PackedScene" uid="uid://cmkdyxyhncbvs" path="res://ASSETS/3D/Props/Coffe Maker.fbx" id="1_6mm8v"]
+[ext_resource type="PackedScene" uid="uid://d207nuttbqtyt" path="res://! SCENES/Props/coffe_maker_snap_zone.tscn" id="2_00h6v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00h6v"]
+size = Vector3(0.42114258, 0.049865723, 0.28690338)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_of14x"]
+size = Vector3(0.17805481, 0.4854126, 0.28442383)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ftowe"]
+size = Vector3(0.40161133, 0.14048767, 0.27453613)
+
+[node name="Coffe Maker" unique_id=787263129 instance=ExtResource("1_6mm8v")]
+
+[node name="SnapZone" parent="." index="1" unique_id=608416362 instance=ExtResource("2_00h6v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13206814, 0.09572746, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="2" unique_id=781378392]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" index="0" unique_id=2079464735]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027954102, 0.02835083, 0.0002784729)
+shape = SubResource("BoxShape3D_00h6v")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="1" unique_id=1306356827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101127625, 0.25674438, 0.0013427734)
+shape = SubResource("BoxShape3D_of14x")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D" index="2" unique_id=1535276366]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024047852, 0.42684174, -0.0018920898)
+shape = SubResource("BoxShape3D_ftowe")

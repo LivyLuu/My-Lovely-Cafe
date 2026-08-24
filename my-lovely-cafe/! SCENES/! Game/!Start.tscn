@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bn56reoabl3gf" path="res://! SCENES/Environment/house.tscn" id="3_n71f8"]
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
+[ext_resource type="PackedScene" uid="uid://dblrvafjtw1lh" path="res://! SCENES/Props/coffe_maker.tscn" id="4_mdm6u"]
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
-[ext_resource type="PackedScene" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
+[ext_resource type="PackedScene" uid="uid://cigov2dfubblr" path="res://addons/godot-xr-tools/objects/viewport_2_din_3d_priority_culling.tscn" id="7_yk7y5"]
 [ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="8_joe64"]
+[ext_resource type="PackedScene" uid="uid://d308osbwxv1gl" path="res://! SCENES/Props/glass.tscn" id="8_yk7y5"]
 [ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://! SCENES/UI/dialogue_popup.tscn" id="9_fllif"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
@@ -22,12 +25,6 @@ background_mode = 2
 sky = SubResource("Sky_v7qqp")
 tonemap_mode = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_6o114"]
-size = Vector3(5, 0.1, 5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_te0up"]
-size = Vector3(5, 0.1, 5)
-
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
 
@@ -38,6 +35,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
 
 [node name="House" parent="ENVIRONMENT" unique_id=1668261757 instance=ExtResource("3_n71f8")]
 
+[node name="Coffe Maker" parent="ENVIRONMENT" unique_id=787263129 instance=ExtResource("4_mdm6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1213882274]
 environment = SubResource("Environment_r8ipk")
 
@@ -47,27 +47,25 @@ light_color = Color(1, 0.68235296, 0.5764706, 1)
 light_energy = 0.396
 shadow_enabled = true
 
-[node name="floor collider" type="StaticBody3D" parent="." unique_id=1408243442]
-transform = Transform3D(3.2349145, 0, 0, 0, 1, 0, 0, 0, 6.5914683, -2.7394185, 0, -7.7705755)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor collider" unique_id=877637026]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
-shape = SubResource("BoxShape3D_6o114")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="floor collider/CollisionShape3D" unique_id=1232879149]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0008060932, -0.046323705, 5.4314733e-05)
-mesh = SubResource("BoxMesh_te0up")
-
 [node name="coffee-cup_standalone" parent="." unique_id=1092249547 instance=ExtResource("2_v7qqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07253772)
 
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
 
+[node name="Viewport2Din3D" parent="XROrigin3D" unique_id=1766791931 instance=ExtResource("7_yk7y5")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 1.076175, -1.9054441)
+screen_size = Vector2(550, 150)
+scene = ExtResource("9_fllif")
+viewport_size = Vector2(550, 150)
+
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
 [node name="PickableObject" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1910163, -9.339312)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1910163, -8.338217)
+
+[node name="glass" parent="PROPS" unique_id=1804803080 instance=ExtResource("8_yk7y5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0153065, 1.0488863, -9.225037)
 
 [node name="Viewport2Din3D" parent="." unique_id=1046643593 instance=ExtResource("7_klqu3")]
 transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -6.6156797)
@@ -75,7 +73,6 @@ screen_size = Vector2(640, 360)
 scene = ExtResource("8_joe64")
 viewport_size = Vector2(640, 360)
 transparent = 1
-unshaded = true
 scene_properties_keys = PackedStringArray()
 
 [node name="Viewport2Din3D2" parent="." unique_id=404985321 instance=ExtResource("7_klqu3")]
@@ -84,5 +81,4 @@ screen_size = Vector2(550, 150)
 scene = ExtResource("9_fllif")
 viewport_size = Vector2(550, 150)
 transparent = 1
-unshaded = true
 scene_properties_keys = PackedStringArray()

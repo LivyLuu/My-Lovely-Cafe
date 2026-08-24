@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d207nuttbqtyt"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_ed3lt"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="2_mnjrh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fpy2n"]
+resource_local_to_scene = true
+radius = 0.3
+
+[node name="SnapZone" unique_id=608416362 instance=ExtResource("2_ed3lt")]
+snap_mode = 1
+snap_require = "Glass"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_fpy2n")
+
+[node name="HighlightRing" parent="." index="2" unique_id=75305483 instance=ExtResource("2_mnjrh")]
