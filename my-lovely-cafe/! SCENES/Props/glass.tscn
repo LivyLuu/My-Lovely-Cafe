@@ -1,16 +1,7 @@
 [gd_scene format=3 uid="uid://d308osbwxv1gl"]
 
 [ext_resource type="PackedScene" uid="uid://bxl7x10pkaw2f" path="res://ASSETS/3D/Props/glass.fbx" id="1_kh7lw"]
-[ext_resource type="Shader" uid="uid://cyi5fjyw25ngo" path="res://ASSETS/Shaders/iridescent_glass.gdshader" id="2_3krr6"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjht3"]
-render_priority = 0
-shader = ExtResource("2_3krr6")
-shader_parameter/base_color = Color(0.9, 0.95, 1, 0.15)
-shader_parameter/roughness = 0.0
-shader_parameter/metallic = 0.9450000448875
-shader_parameter/iridescence_strength = 0.2210000104975
-shader_parameter/fresnel_power = 0.5
+[ext_resource type="Material" uid="uid://bm41pa800v0up" path="res://ASSETS/Materials/m_glass.tres" id="2_3krr6"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_kh7lw"]
 
@@ -21,7 +12,7 @@ albedo_color = Color(1, 1, 1, 0)
 [node name="glass" unique_id=1804803080 instance=ExtResource("1_kh7lw")]
 
 [node name="Cube_001" parent="." index="0" unique_id=268286480]
-material_override = SubResource("ShaderMaterial_mjht3")
+material_override = ExtResource("2_3krr6")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1" unique_id=1347346621]
 transform = Transform3D(0.12973672, 0, 0, 0, 0.11822109, 0, 0, 0, 0.14149237, 0, 0.06009984, 0)

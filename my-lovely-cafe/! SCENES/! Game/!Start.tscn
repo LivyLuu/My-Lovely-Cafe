@@ -17,12 +17,12 @@
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 
-[sub_resource type="Sky" id="Sky_v7qqp"]
+[sub_resource type="Sky" id="Sky_yk7y5"]
 sky_material = SubResource("ProceduralSkyMaterial_gwwsu")
 
 [sub_resource type="Environment" id="Environment_r8ipk"]
 background_mode = 2
-sky = SubResource("Sky_v7qqp")
+sky = SubResource("Sky_yk7y5")
 tonemap_mode = 2
 
 [node name="!Start" type="Node3D" unique_id=1824626723]
@@ -31,24 +31,26 @@ script = ExtResource("1_gwwsu")
 [node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439]
 script = ExtResource("2_yk7y5")
 
+[node name="💡" type="Node" parent="." unique_id=156462932]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="💡" unique_id=1715697911]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 1.7456923, -4.2149963)
+light_color = Color(1, 0.6039216, 0.3372549, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="💡" unique_id=1213882274]
+environment = SubResource("Environment_r8ipk")
+
 [node name="ENVIRONMENT" type="Node" parent="." unique_id=747379394]
 
 [node name="Outdoors" parent="ENVIRONMENT" unique_id=789773746 instance=ExtResource("4_d1w3m")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
+visible = false
 
 [node name="House" parent="ENVIRONMENT" unique_id=1668261757 instance=ExtResource("3_n71f8")]
 
 [node name="Coffe Maker" parent="ENVIRONMENT" unique_id=787263129 instance=ExtResource("4_mdm6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1213882274]
-environment = SubResource("Environment_r8ipk")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1715697911]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_color = Color(1, 0.68235296, 0.5764706, 1)
-light_energy = 0.396
-shadow_enabled = true
 
 [node name="coffee-cup_standalone" parent="." unique_id=1092249547 instance=ExtResource("2_v7qqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07253772)

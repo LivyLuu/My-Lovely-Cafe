@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cvll27x5wqgc6"]
+
+[ext_resource type="Shader" uid="uid://c40hgrguymwei" path="res://ASSETS/Shaders/anime_atmospheric.gdshader" id="1_pu3en"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pu3en")
+shader_parameter/base_color = Color(0.918151, 0.6499913, 0.632917, 1)
+shader_parameter/shade_color = Color(0.5762343, 0.3651351, 0.82597625, 1)
+shader_parameter/shade_threshold = 0.36700006493250004
+shader_parameter/shade_softness = 0.18000000785148
+shader_parameter/rim_color = Color(0.6339457, 0.6679829, 0.9388976, 1)
+shader_parameter/rim_power = 3.0
+shader_parameter/rim_strength = 0.578000027455
+shader_parameter/highlight_strength = 0.4650000220875
+shader_parameter/highlight_size = 60.8110028410225

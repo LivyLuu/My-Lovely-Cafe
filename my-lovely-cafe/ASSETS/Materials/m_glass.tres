@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bm41pa800v0up"]
+
+[ext_resource type="Shader" uid="uid://cyi5fjyw25ngo" path="res://ASSETS/Shaders/iridescent_glass.gdshader" id="1_sbaxx"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_sbaxx")
+shader_parameter/base_color = Color(0.9, 0.95, 1, 0.15)
+shader_parameter/roughness = 0.0
+shader_parameter/metallic = 0.9450000448875
+shader_parameter/iridescence_strength = 0.2210000104975
+shader_parameter/fresnel_power = 0.5
