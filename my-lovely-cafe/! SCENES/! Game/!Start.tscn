@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_gwwsu"]
 [ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/3D/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
+[ext_resource type="Script" uid="uid://23m2nc6ysn27" path="res://SCRIPTS/Managers/level_manager.gd" id="2_yk7y5"]
 [ext_resource type="PackedScene" uid="uid://bn56reoabl3gf" path="res://! SCENES/Environment/house.tscn" id="3_n71f8"]
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
@@ -26,6 +27,9 @@ tonemap_mode = 2
 
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
+
+[node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439]
+script = ExtResource("2_yk7y5")
 
 [node name="ENVIRONMENT" type="Node" parent="." unique_id=747379394]
 
