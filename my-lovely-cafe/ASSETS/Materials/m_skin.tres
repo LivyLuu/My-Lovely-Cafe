@@ -1,9 +1,17 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://cvll27x5wqgc6"]
 
+[ext_resource type="Shader" uid="uid://dppp6quig3sum" path="res://ASSETS/Shaders/anime_outline.gdshader" id="1_1cja6"]
 [ext_resource type="Shader" uid="uid://c40hgrguymwei" path="res://ASSETS/Shaders/anime_atmospheric.gdshader" id="1_pu3en"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_452x0"]
+render_priority = 0
+shader = ExtResource("1_1cja6")
+shader_parameter/outline_color = Color(0.24357852, 0.1267066, 0.14526567, 1)
+shader_parameter/outline_width = 0.0010000000475
 
 [resource]
 render_priority = 0
+next_pass = SubResource("ShaderMaterial_452x0")
 shader = ExtResource("1_pu3en")
 shader_parameter/base_color = Color(0.918151, 0.6499913, 0.632917, 1)
 shader_parameter/shade_color = Color(0.5762343, 0.3651351, 0.82597625, 1)
