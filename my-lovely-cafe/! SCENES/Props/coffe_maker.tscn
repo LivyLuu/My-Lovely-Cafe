@@ -30,18 +30,18 @@ coffee_item = ExtResource("3_2hks4")
 [node name="SnapZone" parent="." index="1" unique_id=608416362 instance=ExtResource("2_00h6v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13206814, 0.09572746, 0)
 
-[node name="RigidBody3D" type="RigidBody3D" parent="." index="2" unique_id=781378392]
+[node name="CollidersBody" type="RigidBody3D" parent="." index="2" unique_id=781378392]
 freeze = true
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" index="0" unique_id=2079464735]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="CollidersBody" index="0" unique_id=2079464735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027954102, 0.02835083, 0.0002784729)
 shape = SubResource("BoxShape3D_00h6v")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" index="1" unique_id=1306356827]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CollidersBody" index="1" unique_id=1306356827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.101127625, 0.25674438, 0.0013427734)
 shape = SubResource("BoxShape3D_of14x")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D" index="2" unique_id=1535276366]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="CollidersBody" index="2" unique_id=1535276366]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024047852, 0.42684174, -0.0018920898)
 shape = SubResource("BoxShape3D_ftowe")
 
@@ -52,7 +52,7 @@ freeze = true
 [node name="Button" parent="RigidBody3D2" index="0" unique_id=269045707 instance=ExtResource("4_2hks4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4565605, 0.4356412, 0)
 button = NodePath("../MeshInstance3D")
-displacement = Vector3(-0.02, 0, 0)
+displacement = Vector3(0.02, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2/Button" index="0" unique_id=961770700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112682596, -0.015721828, -0.0060420632)

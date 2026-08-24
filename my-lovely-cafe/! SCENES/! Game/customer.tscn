@@ -40,6 +40,9 @@ shader_parameter/rim_strength = 0.5
 shader_parameter/highlight_strength = 0.0
 shader_parameter/highlight_size = 48.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_h62jo"]
+size = Vector3(10.51062, 1, 7.2651978)
+
 [node name="Customer" unique_id=14940842 node_paths=PackedStringArray("face_marker") instance=ExtResource("1_jh3mv")]
 script = ExtResource("2_46yfw")
 face_marker = NodePath("Face")
@@ -49,5 +52,23 @@ transform = Transform3D(96.365, 0, 0, 0, -4.212248e-06, 96.365, 0, -96.365, -4.2
 surface_material_override/0 = SubResource("ShaderMaterial_cvpgf")
 surface_material_override/1 = SubResource("ShaderMaterial_4i3se")
 
-[node name="Face" type="Marker3D" parent="." index="1" unique_id=1733860465]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8104333, 0.26520586)
+[node name="Skeleton3D" type="Skeleton3D" parent="Customer" index="0" unique_id=330808840]
+transform = Transform3D(0.010377212, 0, 0, 0, -4.5360232e-10, -0.010377212, 0, 0.010377212, -4.5360232e-10, 0, 0, 0)
+
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="Customer/Skeleton3D" index="0" unique_id=392460498]
+transform = Transform3D(1, 0, 0, 0, 1, -3.5527137e-15, 0, 3.5527137e-15, 1, 0, 0, 0)
+
+[node name="CheckPlayerTimer" type="Timer" parent="." index="1" unique_id=57151323]
+wait_time = 0.5
+
+[node name="VisionArea" type="Area3D" parent="." index="2" unique_id=1970121786]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VisionArea" index="0" unique_id=461297682]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.062316895, 0, 3.7864685)
+shape = SubResource("BoxShape3D_h62jo")
+
+[node name="Face" type="Marker3D" parent="." index="3" unique_id=1021220888]
+transform = Transform3D(5.9604645e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 5.9604645e-08, 0, 1.75837, 0.15665442)
+
+[connection signal="timeout" from="CheckPlayerTimer" to="." method="_on_check_player_timer_timeout"]

@@ -1,6 +1,8 @@
 extends Node3D
 class_name Customer
 
+@onready var vision_area: Area3D = $VisionArea
+@onready var look_at_modifier_3d: LookAtModifier3D = $Customer/Skeleton3D/LookAtModifier3D
 enum State { ENTERING, WAITING_TO_ORDER, ORDERING, WAITING_FOR_ORDER, VERIFYING, LEAVING_HAPPY, LEAVING_UPSET }
 
 signal order_placed(item: MenuItem)
@@ -79,3 +81,13 @@ func _advance() -> void:
 		return  # paused here — level manager / order system resumes it later
  
 	_advance()
+
+
+func _on_check_player_timer_timeout() -> void:
+	var player = get_tree().get_first_node_in_group("player_body")
+	var bodies = vision_area.get_overlapping_bodies()
+	if player in bodies:
+		look_at_modifier_3d.target_node = player.get_path()
+		look_at_modifier_3d.active = true
+	else:
+		look_at_modifier_3d.active = false
