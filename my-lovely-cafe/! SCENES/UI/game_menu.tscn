@@ -1,6 +1,9 @@
 [gd_scene format=3 uid="uid://i4inpbewuy7o"]
 
+[ext_resource type="Script" uid="uid://wa5y1ypqy8g0" path="res://SCRIPTS/Managers/ui_manager.gd" id="1_13aul"]
+
 [node name="GameMenu" type="CanvasLayer" unique_id=351910339]
+script = ExtResource("1_13aul")
 
 [node name="Control" type="Control" parent="." unique_id=935908246]
 custom_minimum_size = Vector2(640, 360)
@@ -48,24 +51,23 @@ theme_override_font_sizes/font_size = 53
 text = "MENU"
 horizontal_alignment = 1
 
+[node name="Btn_Restart" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1125673895]
+custom_minimum_size = Vector2(297.625, 66.82)
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Restart Level"
+
 [node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=2122689570]
 custom_minimum_size = Vector2(297.625, 66.82)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Save"
-
-[node name="Button4" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=889659559]
-custom_minimum_size = Vector2(297.625, 66.82)
-layout_mode = 2
-theme_override_font_sizes/font_size = 36
-text = "Load
-"
+text = "Menu"
 
 [node name="Button5" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=471281037]
 custom_minimum_size = Vector2(297.625, 66.82)
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Exit
+text = "Save & Exit
 "
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1261622462]
@@ -83,3 +85,5 @@ theme_override_constants/margin_right = 14
 [node name="Btn_X" type="Button" parent="Control/MarginContainer2" unique_id=1435750823]
 layout_mode = 2
 text = "  X  "
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Btn_Restart" to="." method="_on_btn_restart_pressed"]
