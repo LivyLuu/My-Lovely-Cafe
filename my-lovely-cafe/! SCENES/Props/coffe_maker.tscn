@@ -21,6 +21,8 @@ size = Vector3(0.1, 0.1, 0.1)
 [sub_resource type="BoxMesh" id="BoxMesh_ftowe"]
 size = Vector3(0.1, 0.1, 0.1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hks4"]
+
 [node name="Coffe Maker" unique_id=787263129 instance=ExtResource("1_6mm8v")]
 script = ExtResource("2_ftowe")
 coffee_item = ExtResource("3_2hks4")
@@ -56,6 +58,7 @@ shape = SubResource("BoxShape3D_2hks4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" index="1" unique_id=804700113]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56889606, 0.41991937, -0.0060420632)
 mesh = SubResource("BoxMesh_ftowe")
+surface_material_override/0 = SubResource("StandardMaterial3D_2hks4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" index="2" unique_id=1800365733]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56844044, 0.41973957, -0.0060420632)

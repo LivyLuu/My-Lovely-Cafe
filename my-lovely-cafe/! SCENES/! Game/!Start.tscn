@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://! SCENES/UI/dialogue_popup.tscn" id="9_fllif"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
 [ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
+[ext_resource type="PackedScene" uid="uid://c6w2gprg28abo" path="res://! SCENES/Props/radio.tscn" id="20_hh6dn"]
 [ext_resource type="PackedScene" uid="uid://0jfnncekpoas" path="res://! SCENES/! Game/CafeTiles/ordering_station.tscn" id="20_l350j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
@@ -71,9 +72,6 @@ visible = false
 
 [node name="House" parent="ENVIRONMENT" unique_id=1829617261 instance=ExtResource("3_n71f8")]
 
-[node name="Coffe Maker" parent="ENVIRONMENT" unique_id=787263129 instance=ExtResource("4_mdm6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
-
 [node name="Glowy Dust" parent="ENVIRONMENT" unique_id=2031279548 instance=ExtResource("6_5ahwy")]
 
 [node name="coffee-cup_standalone" parent="." unique_id=1092249547 instance=ExtResource("2_v7qqp")]
@@ -82,9 +80,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
 
+[node name="STATIONS" type="Node" parent="." unique_id=486600263]
+
+[node name="Coffe Maker" parent="STATIONS" unique_id=787263129 instance=ExtResource("4_mdm6u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
+
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
-[node name="PickableObject" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
+[node name="GlassCup" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 1.7484555e-07, 0, -1.7484555e-07, 1, -5.9279537, 1.0447094, -9.351636)
 
 [node name="Viewport2Din3D" parent="." unique_id=1046643593 instance=ExtResource("7_klqu3")]
@@ -93,7 +96,7 @@ screen_size = Vector2(640, 360)
 scene = ExtResource("8_joe64")
 viewport_size = Vector2(640, 360)
 transparent = 1
-scene_properties_keys = PackedStringArray()
+scene_properties_keys = PackedStringArray("ui_manager.gd")
 
 [node name="Viewport2Din3D2" parent="." unique_id=404985321 instance=ExtResource("7_klqu3")]
 transform = Transform3D(-0.004330127, 0, 0.0024999995, 0, 0.005, 0, -0.0024999995, 0, -0.004330127, -7.009363, 1.444335, -3.3866198)
@@ -123,4 +126,7 @@ tile_data = SubResource("Resource_hh6dn")
 [node name="ordering_station" parent="CUSTOMERPATH" unique_id=1783014530 instance=ExtResource("20_l350j")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.905, 0, -6.606)
 
-[editable path="ENVIRONMENT/Coffe Maker"]
+[node name="Radio" parent="." unique_id=1297258118 instance=ExtResource("20_hh6dn")]
+transform = Transform3D(0.69049114, 0, 0.72334087, 0, 1, 0, -0.72334087, 0, 0.69049114, -7.8352427, 0.97562313, -3.970334)
+
+[editable path="STATIONS/Coffe Maker"]

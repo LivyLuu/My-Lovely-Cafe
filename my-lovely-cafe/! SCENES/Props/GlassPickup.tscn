@@ -60,7 +60,7 @@ shader_parameter/ring_frequency = 14.0
 shader_parameter/ring_speed = 8.0
 shader_parameter/splash_fade_radius = 0.5
 
-[node name="PickableObject" unique_id=1911124857 groups=["Glass"] instance=ExtResource("1_7tymd")]
+[node name="GlassCup" unique_id=1911124857 groups=["Glass"] instance=ExtResource("1_7tymd")]
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06064622, 0)
