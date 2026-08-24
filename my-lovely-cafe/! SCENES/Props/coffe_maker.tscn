@@ -14,6 +14,12 @@ size = Vector3(0.17805481, 0.4854126, 0.28442383)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ftowe"]
 size = Vector3(0.40161133, 0.14048767, 0.27453613)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_2hks4"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ftowe"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="Coffe Maker" unique_id=787263129 instance=ExtResource("1_6mm8v")]
 script = ExtResource("2_ftowe")
 
@@ -34,5 +40,21 @@ shape = SubResource("BoxShape3D_of14x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024047852, 0.42684174, -0.0018920898)
 shape = SubResource("BoxShape3D_ftowe")
 
-[node name="InteractableAreaButton" parent="." index="3" unique_id=269045707 instance=ExtResource("4_2hks4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34925616, 0.4356412, 0)
+[node name="RigidBody3D2" type="RigidBody3D" parent="." index="3" unique_id=1206400961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.80581665, 0, 0)
+
+[node name="InteractableAreaButton" parent="RigidBody3D2" index="0" unique_id=269045707 instance=ExtResource("4_2hks4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4565605, 0.4356412, 0)
+button = NodePath("../MeshInstance3D")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2/InteractableAreaButton" index="0" unique_id=961770700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112682596, -0.015721828, -0.0060420632)
+shape = SubResource("BoxShape3D_2hks4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" index="1" unique_id=804700113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56889606, 0.41991937, -0.0060420632)
+mesh = SubResource("BoxMesh_ftowe")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" index="2" unique_id=1800365733]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56844044, 0.41973957, -0.0060420632)
+shape = SubResource("BoxShape3D_2hks4")
