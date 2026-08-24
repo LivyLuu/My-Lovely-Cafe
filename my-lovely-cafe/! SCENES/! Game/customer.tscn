@@ -40,10 +40,14 @@ shader_parameter/rim_strength = 0.5
 shader_parameter/highlight_strength = 0.0
 shader_parameter/highlight_size = 48.0
 
-[node name="Customer" unique_id=14940842 instance=ExtResource("1_jh3mv")]
+[node name="Customer" unique_id=14940842 node_paths=PackedStringArray("face_marker") instance=ExtResource("1_jh3mv")]
 script = ExtResource("2_46yfw")
+face_marker = NodePath("Face")
 
 [node name="Customer" parent="." index="0" unique_id=1183846726]
 transform = Transform3D(96.365, 0, 0, 0, -4.212248e-06, 96.365, 0, -96.365, -4.212248e-06, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_cvpgf")
 surface_material_override/1 = SubResource("ShaderMaterial_4i3se")
+
+[node name="Face" type="Marker3D" parent="." index="1" unique_id=1733860465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8104333, 0.26520586)

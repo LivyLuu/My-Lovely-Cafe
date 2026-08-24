@@ -117,10 +117,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8662004, 0, 1.0875714)
 tile_data = SubResource("Resource_l350j")
 
 [node name="walkway2" parent="CUSTOMERPATH" unique_id=920072997 instance=ExtResource("18_hw7wb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0385113, 0, -3.3212442)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.039, 0, -3.321)
 tile_data = SubResource("Resource_hh6dn")
 
 [node name="ordering_station" parent="CUSTOMERPATH" unique_id=1783014530 instance=ExtResource("20_l350j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9046392, 0, -6.6063156)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.905, 0, -6.606)
 
 [editable path="ENVIRONMENT/Coffe Maker"]
