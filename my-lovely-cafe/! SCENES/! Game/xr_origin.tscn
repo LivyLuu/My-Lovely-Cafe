@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_12hxu"]
 [ext_resource type="Material" uid="uid://cvll27x5wqgc6" path="res://ASSETS/Materials/m_skin.tres" id="6_ix2tb"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="8_12hxu"]
+[ext_resource type="Material" uid="uid://vj858n7h74j" path="res://ASSETS/Materials/lazer_pointer.tres" id="9_1v7qx"]
 [ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="9_7yrv1"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ix2tb"]
@@ -144,10 +145,14 @@ tree_root = SubResource("AnimationNodeBlendTree_fnhvv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.02, 0.05, -0.1)
 show_laser = 2
 laser_length = 1
+laser_material = ExtResource("9_1v7qx")
+laser_hit_material = ExtResource("9_1v7qx")
 show_target = true
 
 [node name="Laser" parent="LeftHand/FunctionPointer" index="1"]
+visible = false
 mesh = SubResource("BoxMesh_485w4")
+surface_material_override/0 = ExtResource("9_1v7qx")
 
 [node name="RightHand" type="XRController3D" parent="." unique_id=518469543]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)

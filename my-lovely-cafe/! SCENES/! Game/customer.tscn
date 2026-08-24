@@ -44,6 +44,6 @@ shader_parameter/highlight_size = 48.0
 script = ExtResource("2_46yfw")
 
 [node name="Customer" parent="." index="0" unique_id=1183846726]
-transform = Transform3D(146.845, 0, 0, 0, -6.418799e-06, 146.845, 0, -146.845, -6.418799e-06, 0, 0, 0)
+transform = Transform3D(96.365, 0, 0, 0, -4.212248e-06, 96.365, 0, -96.365, -4.212248e-06, 0, 0, 0)
 surface_material_override/0 = SubResource("ShaderMaterial_cvpgf")
 surface_material_override/1 = SubResource("ShaderMaterial_4i3se")
