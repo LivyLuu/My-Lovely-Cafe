@@ -1,7 +1,5 @@
 extends Node
 
-enum DrinkType { NONE, COFFEE, MILK, LATTE }
-
 signal money_changed(new_total: int)
 
 var total_money: int = 0

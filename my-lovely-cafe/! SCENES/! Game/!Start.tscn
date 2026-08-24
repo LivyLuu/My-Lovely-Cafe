@@ -30,6 +30,8 @@ script = ExtResource("1_gwwsu")
 
 [node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439]
 script = ExtResource("2_yk7y5")
+customers_required = null
+spawn_interval_range = null
 
 [node name="💡" type="Node" parent="." unique_id=156462932]
 
@@ -47,7 +49,7 @@ environment = SubResource("Environment_r8ipk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
 visible = false
 
-[node name="House" parent="ENVIRONMENT" unique_id=1668261757 instance=ExtResource("3_n71f8")]
+[node name="House" parent="ENVIRONMENT" unique_id=1829617261 instance=ExtResource("3_n71f8")]
 
 [node name="Coffe Maker" parent="ENVIRONMENT" unique_id=787263129 instance=ExtResource("4_mdm6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)

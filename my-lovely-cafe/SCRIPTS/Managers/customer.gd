@@ -1,5 +1,7 @@
 extends Node3D
 
+@onready var level_manager: LevelManager = %LevelManager  # or however you wire it
+
 enum State { ENTERING, WAITING_TO_ORDER, ORDERING, WAITING_FOR_ORDER, VERIFYING, LEAVING_HAPPY, LEAVING_UPSET }
 
 signal order_placed(drink: GameManager.DrinkType)
