@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://0jfnncekpoas"]
+
+[ext_resource type="Script" uid="uid://o42xw7s1u0ui" path="res://SCRIPTS/Managers/tile_info.gd" id="1_322jm"]
+[ext_resource type="Script" uid="uid://dme7icbeo1uda" path="res://SCRIPTS/resources/tile_type.gd" id="2_musb5"]
+
+[sub_resource type="Resource" id="Resource_5t2hp"]
+script = ExtResource("2_musb5")
+tile_type = 1
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
+
+[node name="ordering_station" type="Marker3D" unique_id=665826547 node_paths=PackedStringArray("tile")]
+script = ExtResource("1_322jm")
+tile = NodePath(".")
+tile_data = SubResource("Resource_5t2hp")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bvfy22c28iyfi"]
+
+[ext_resource type="Script" uid="uid://o42xw7s1u0ui" path="res://SCRIPTS/Managers/tile_info.gd" id="1_5t2hp"]
+[ext_resource type="Script" uid="uid://dme7icbeo1uda" path="res://SCRIPTS/resources/tile_type.gd" id="2_ud7ui"]
+
+[sub_resource type="Resource" id="Resource_5t2hp"]
+script = ExtResource("2_ud7ui")
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
+
+[node name="walkway" type="Marker3D" unique_id=665826547 node_paths=PackedStringArray("tile")]
+script = ExtResource("1_5t2hp")
+tile = NodePath(".")
+tile_data = SubResource("Resource_5t2hp")

@@ -6,13 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://dewrxehv3x0uy" path="res://! SCENES/! Game/customer.tscn" id="3_5ahwy"]
 [ext_resource type="PackedScene" uid="uid://bn56reoabl3gf" path="res://! SCENES/Environment/house.tscn" id="3_n71f8"]
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
+[ext_resource type="Script" uid="uid://d2uuto752ydm6" path="res://SCRIPTS/resources/menu_items.gd" id="4_6g45d"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
 [ext_resource type="PackedScene" uid="uid://dblrvafjtw1lh" path="res://! SCENES/Props/coffe_maker.tscn" id="4_mdm6u"]
+[ext_resource type="Resource" uid="uid://bsutt8u2sh6xq" path="res://RESOURCES/coffee.tres" id="5_7wqft"]
 [ext_resource type="PackedScene" uid="uid://chuyfudf5f2tc" path="res://! SCENES/SFX/glowy_dust.tscn" id="6_5ahwy"]
+[ext_resource type="Script" uid="uid://dme7icbeo1uda" path="res://SCRIPTS/resources/tile_type.gd" id="6_7wqft"]
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
 [ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="8_joe64"]
 [ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://! SCENES/UI/dialogue_popup.tscn" id="9_fllif"]
+[ext_resource type="Script" uid="uid://b3rwyji6hnadw" path="res://SCRIPTS/Managers/customer_spawner.gd" id="14_yehrb"]
+[ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
+[ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
+[ext_resource type="PackedScene" uid="uid://0jfnncekpoas" path="res://! SCENES/! Game/CafeTiles/ordering_station.tscn" id="20_l350j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -26,13 +33,26 @@ background_mode = 2
 sky = SubResource("Sky_yk7y5")
 tonemap_mode = 2
 
+[sub_resource type="Resource" id="Resource_hw7wb"]
+script = ExtResource("6_7wqft")
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
+
+[sub_resource type="Resource" id="Resource_l350j"]
+script = ExtResource("6_7wqft")
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
+
+[sub_resource type="Resource" id="Resource_hh6dn"]
+script = ExtResource("6_7wqft")
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
+
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
 
-[node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439 node_paths=PackedStringArray("customer_spawn_point")]
+[node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439 node_paths=PackedStringArray("customer_path")]
 script = ExtResource("2_yk7y5")
-customer_spawn_point = [NodePath("../CUSTOMERSPAWN/spawn")]
 customer_scene = ExtResource("3_5ahwy")
+possible_orders = Array[ExtResource("4_6g45d")]([ExtResource("5_7wqft")])
+customer_path = [NodePath("../CUSTOMERPATH/spawn"), NodePath("../CUSTOMERPATH/walkway"), NodePath("../CUSTOMERPATH/walkway"), NodePath("../CUSTOMERPATH/walkway4"), NodePath("")]
 
 [node name="💡" type="Node" parent="." unique_id=156462932]
 
@@ -84,16 +104,23 @@ viewport_size = Vector2(550, 150)
 transparent = 1
 scene_properties_keys = PackedStringArray()
 
-[node name="CUSTOMERSPAWN" type="Node" parent="." unique_id=716826471]
+[node name="CUSTOMERPATH" type="Node" parent="." unique_id=716826471]
+script = ExtResource("14_yehrb")
 
-[node name="spawn" type="Marker3D" parent="CUSTOMERSPAWN" unique_id=58166624]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5589805, -0.2968017, 3.2483382)
+[node name="spawn" parent="CUSTOMERPATH" unique_id=665826547 instance=ExtResource("17_gwe36")]
+transform = Transform3D(0.9995012, 0.011998273, -0.029212054, -0.010776021, 0.99907446, 0.041644648, 0.029684678, -0.04130909, 0.9987053, 1.8639545, 0, 3.0544572)
 
-[node name="1" type="Marker3D" parent="CUSTOMERSPAWN" unique_id=405408933]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.067933, 0.19366932, 3.005913)
+[node name="walkway" parent="CUSTOMERPATH" unique_id=1234713635 instance=ExtResource("18_hw7wb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8148777, 0, 2.7700016)
+tile_data = SubResource("Resource_hw7wb")
 
-[node name="2" type="Marker3D" parent="CUSTOMERSPAWN" unique_id=877223727]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.067933, 0.19366932, -5.083348)
+[node name="walkway4" parent="CUSTOMERPATH" unique_id=144900921 instance=ExtResource("18_hw7wb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8662004, 0, 1.0875714)
+tile_data = SubResource("Resource_l350j")
 
-[node name="3" type="Marker3D" parent="CUSTOMERSPAWN" unique_id=534835044]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9077997, 0.19366932, -6.9158955)
+[node name="walkway2" parent="CUSTOMERPATH" unique_id=920072997 instance=ExtResource("18_hw7wb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0385113, 0, -3.3212442)
+tile_data = SubResource("Resource_hh6dn")
+
+[node name="ordering_station" parent="CUSTOMERPATH" unique_id=1783014530 instance=ExtResource("20_l350j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9046392, 0, -6.6063156)
