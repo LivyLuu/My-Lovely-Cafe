@@ -21,6 +21,12 @@ func _brew(glass: Node3D) -> void:
 
 
 func _on_button_button_pressed(button: Variant) -> void:
-	print("button pressed!")
+	#send signal saying coffee is brewing?
+	print("brewing start!")
 	$Pour.show()
 	$BrewTime.start()
+
+
+func _on_brew_time_timeout() -> void:
+	$Pour.hide()
+	print("brewing ended")
