@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MenuItem" format=3 uid="uid://bsutt8u2sh6xq"]
+
+[ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="1_n7u3l"]
+[ext_resource type="Script" uid="uid://d2uuto752ydm6" path="res://SCRIPTS/menu_items.gd" id="1_vg5ly"]
+
+[resource]
+script = ExtResource("1_vg5ly")
+name_in_code = &"coffee"
+display_name = "Coffee"
+price = 7
+icon = ExtResource("1_n7u3l")
+metadata/_custom_type_script = "uid://d2uuto752ydm6"

@@ -45,7 +45,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.80581665, 0, 0)
 
 [node name="Button" parent="RigidBody3D2" index="0" unique_id=269045707 instance=ExtResource("4_2hks4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4565605, 0.4356412, 0)
-button = NodePath("../MeshInstance3D")
+button = NodePath(".")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2/Button" index="0" unique_id=961770700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112682596, -0.015721828, -0.0060420632)
