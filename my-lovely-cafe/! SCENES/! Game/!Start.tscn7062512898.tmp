@@ -122,5 +122,3 @@ tile_data = SubResource("Resource_hh6dn")
 
 [node name="ordering_station" parent="CUSTOMERPATH" unique_id=1783014530 instance=ExtResource("20_l350j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9046392, 0, -6.6063156)
-
-[editable path="ENVIRONMENT/Coffe Maker"]

@@ -1,6 +1,6 @@
 extends Node3D
 @onready var snap_zone: XRToolsSnapZone = $SnapZone
-@onready var button: XRToolsInteractableAreaButton = $Button  # wherever you add it
+@onready var button: XRToolsInteractableAreaButton = $RigidBody3D2/Button
 @export var coffee_item: MenuItem
 
 func _ready() -> void:

@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
 [ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="8_joe64"]
 [ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://! SCENES/UI/dialogue_popup.tscn" id="9_fllif"]
+[ext_resource type="Script" uid="uid://b3rwyji6hnadw" path="res://SCRIPTS/Managers/customer_spawner.gd" id="14_yehrb"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
 [ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
 [ext_resource type="PackedScene" uid="uid://0jfnncekpoas" path="res://! SCENES/! Game/CafeTiles/ordering_station.tscn" id="20_l350j"]
@@ -104,6 +105,7 @@ transparent = 1
 scene_properties_keys = PackedStringArray()
 
 [node name="CUSTOMERPATH" type="Node" parent="." unique_id=716826471]
+script = ExtResource("14_yehrb")
 
 [node name="spawn" parent="CUSTOMERPATH" unique_id=665826547 instance=ExtResource("17_gwe36")]
 transform = Transform3D(0.9995012, 0.011998273, -0.029212054, -0.010776021, 0.99907446, 0.041644648, 0.029684678, -0.04130909, 0.9987053, 1.8639545, 0, 3.0544572)
@@ -122,5 +124,3 @@ tile_data = SubResource("Resource_hh6dn")
 
 [node name="ordering_station" parent="CUSTOMERPATH" unique_id=1783014530 instance=ExtResource("20_l350j")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9046392, 0, -6.6063156)
-
-[editable path="ENVIRONMENT/Coffe Maker"]
