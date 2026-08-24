@@ -18,3 +18,9 @@ func _brew(glass: Node3D) -> void:
 	# animate the "Coffee" mesh's liquid_fill shader (fill_amount 0 → 1) that's
 	# already sitting in GlassPickup.tscn, then mark the glass as filled
 	pass
+
+
+func _on_button_button_pressed(button: Variant) -> void:
+	print("button pressed!")
+	$Pour.show()
+	$BrewTime.start()

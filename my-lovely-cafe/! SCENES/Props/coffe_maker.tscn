@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://b3qqk1u54k5mh" path="res://SCRIPTS/Stations/coffe_maker.gd" id="2_ftowe"]
 [ext_resource type="Resource" uid="uid://bsutt8u2sh6xq" path="res://RESOURCES/coffee.tres" id="3_2hks4"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="4_2hks4"]
+[ext_resource type="Shader" uid="uid://c7tj7pybqon4n" path="res://ASSETS/Shaders/pour_effect.gdshader" id="6_uv1eb"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00h6v"]
 size = Vector3(0.42114258, 0.049865723, 0.28690338)
@@ -22,6 +23,20 @@ size = Vector3(0.1, 0.1, 0.1)
 size = Vector3(0.1, 0.1, 0.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hks4"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ru02a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2j42s"]
+render_priority = 0
+shader = ExtResource("6_uv1eb")
+shader_parameter/liquid_color = Color(0.32, 0.18, 0.08, 0.85)
+shader_parameter/flow_speed = 3.0
+shader_parameter/wobble_amount = 0.004
+shader_parameter/wobble_freq = 6.0
+shader_parameter/is_splash = false
+shader_parameter/ring_frequency = 14.0
+shader_parameter/ring_speed = 8.0
+shader_parameter/splash_fade_radius = 0.5
 
 [node name="Coffe Maker" unique_id=787263129 instance=ExtResource("1_6mm8v")]
 script = ExtResource("2_ftowe")
@@ -52,7 +67,7 @@ freeze = true
 [node name="Button" parent="RigidBody3D2" index="0" unique_id=269045707 instance=ExtResource("4_2hks4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4565605, 0.4356412, 0)
 button = NodePath("../MeshInstance3D")
-displacement = Vector3(0.02, 0, 0)
+displacement = Vector3(0.04, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2/Button" index="0" unique_id=961770700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112682596, -0.015721828, -0.0060420632)
@@ -67,3 +82,15 @@ surface_material_override/0 = SubResource("StandardMaterial3D_2hks4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.56844044, 0.41973957, -0.0060420632)
 shape = SubResource("BoxShape3D_2hks4")
 disabled = true
+
+[node name="Pour" type="MeshInstance3D" parent="." index="4" unique_id=1916074576]
+transform = Transform3D(0.02167148, 0, 0, 0, 1.0555751, 0, 0, 0, 0.024783084, -0.12150729, -0.678316, 0)
+visible = false
+mesh = SubResource("CylinderMesh_ru02a")
+surface_material_override/0 = SubResource("ShaderMaterial_2j42s")
+
+[node name="BrewTime" type="Timer" parent="." index="5" unique_id=903409120]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="button_pressed" from="RigidBody3D2/Button" to="." method="_on_button_button_pressed"]
