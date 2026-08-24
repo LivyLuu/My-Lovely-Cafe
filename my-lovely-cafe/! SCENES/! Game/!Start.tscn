@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
 [ext_resource type="PackedScene" uid="uid://cigov2dfubblr" path="res://addons/godot-xr-tools/objects/viewport_2_din_3d_priority_culling.tscn" id="7_yk7y5"]
 [ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="8_joe64"]
-[ext_resource type="PackedScene" uid="uid://d308osbwxv1gl" path="res://! SCENES/Props/glass.tscn" id="8_yk7y5"]
 [ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://! SCENES/UI/dialogue_popup.tscn" id="9_fllif"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
@@ -62,10 +61,7 @@ viewport_size = Vector2(550, 150)
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
 [node name="PickableObject" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1910163, -8.338217)
-
-[node name="glass" parent="PROPS" unique_id=1804803080 instance=ExtResource("8_yk7y5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0153065, 1.0488863, -9.225037)
+transform = Transform3D(1, 0, 0, 0, 1, 1.7484555e-07, 0, -1.7484555e-07, 1, -5.9279537, 1.0447094, -9.351636)
 
 [node name="Viewport2Din3D" parent="." unique_id=1046643593 instance=ExtResource("7_klqu3")]
 transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -6.6156797)
