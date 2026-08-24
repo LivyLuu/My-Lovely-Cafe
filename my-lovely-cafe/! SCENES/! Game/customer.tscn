@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dewrxehv3x0uy"]
+
+[ext_resource type="PackedScene" uid="uid://dgpan2chnf3xa" path="res://ASSETS/3D/customer.fbx" id="1_jh3mv"]
+[ext_resource type="Script" uid="uid://mlfwqgiy05de" path="res://SCRIPTS/Managers/customer.gd" id="2_46yfw"]
+[ext_resource type="Shader" uid="uid://dppp6quig3sum" path="res://ASSETS/Shaders/anime_outline.gdshader" id="2_h62jo"]
+[ext_resource type="Shader" uid="uid://c40hgrguymwei" path="res://ASSETS/Shaders/anime_atmospheric.gdshader" id="3_46yfw"]
+[ext_resource type="Texture2D" uid="uid://ctc54uquadm13" path="res://ASSETS/3D/Environment/textures/guy face.png" id="4_c8kl0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pr6eu"]
+render_priority = 0
+shader = ExtResource("2_h62jo")
+shader_parameter/outline_color = Color(0.05, 0.05, 0.08, 1)
+shader_parameter/outline_width = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cvpgf"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_pr6eu")
+shader = ExtResource("3_46yfw")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/albedo_texture = ExtResource("4_c8kl0")
+shader_parameter/shade_color = Color(0.55, 0.5, 0.68, 1)
+shader_parameter/shade_threshold = 0.0
+shader_parameter/shade_softness = 0.08
+shader_parameter/rim_color = Color(1, 0.85, 0.65, 1)
+shader_parameter/rim_power = 3.0
+shader_parameter/rim_strength = 0.5
+shader_parameter/highlight_strength = 0.0
+shader_parameter/highlight_size = 48.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4i3se"]
+render_priority = 0
+shader = ExtResource("3_46yfw")
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/shade_color = Color(0.55, 0.5, 0.68, 1)
+shader_parameter/shade_threshold = 0.0
+shader_parameter/shade_softness = 0.08
+shader_parameter/rim_color = Color(1, 0.85, 0.65, 1)
+shader_parameter/rim_power = 3.0
+shader_parameter/rim_strength = 0.5
+shader_parameter/highlight_strength = 0.0
+shader_parameter/highlight_size = 48.0
+
+[node name="Customer" unique_id=14940842 instance=ExtResource("1_jh3mv")]
+script = ExtResource("2_46yfw")
+
+[node name="Customer" parent="." index="0" unique_id=1183846726]
+transform = Transform3D(146.845, 0, 0, 0, -6.418799e-06, 146.845, 0, -146.845, -6.418799e-06, 0, 0, 0)
+surface_material_override/0 = SubResource("ShaderMaterial_cvpgf")
+surface_material_override/1 = SubResource("ShaderMaterial_4i3se")

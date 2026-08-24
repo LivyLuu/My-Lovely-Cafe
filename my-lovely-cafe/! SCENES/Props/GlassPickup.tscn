@@ -11,6 +11,8 @@
 [ext_resource type="Shader" uid="uid://dkrq7khks5i5" path="res://ASSETS/Shaders/liquid_fill.gdshader" id="9_rg0fl"]
 [ext_resource type="Script" uid="uid://0b7wkxi4vymb" path="res://addons/godot-xr-tools/objects/highlight/highlight_visible.gd" id="10_ks1b6"]
 [ext_resource type="Script" uid="uid://dn7grmvmgjiqv" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.gd" id="11_gywty"]
+[ext_resource type="Script" uid="uid://lb3cdvlvg2tg" path="res://SCRIPTS/Stations/item_container.gd" id="12_onmrm"]
+[ext_resource type="Shader" uid="uid://c7tj7pybqon4n" path="res://ASSETS/Shaders/pour_effect.gdshader" id="13_xqqwx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgtcp"]
 size = Vector3(0.1, 0.13590088, 0.1)
@@ -44,6 +46,20 @@ shader_parameter/slosh_speed = 1.118000053105
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_kljfu"]
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_m3gr8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4xv7v"]
+render_priority = 0
+shader = ExtResource("13_xqqwx")
+shader_parameter/liquid_color = Color(0.32, 0.18, 0.08, 0.85)
+shader_parameter/flow_speed = 3.0
+shader_parameter/wobble_amount = 0.004
+shader_parameter/wobble_freq = 6.0
+shader_parameter/is_splash = false
+shader_parameter/ring_frequency = 14.0
+shader_parameter/ring_speed = 8.0
+shader_parameter/splash_fade_radius = 0.5
+
 [node name="PickableObject" unique_id=1911124857 groups=["Glass"] instance=ExtResource("1_7tymd")]
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -67,6 +83,7 @@ hand_pose = SubResource("Resource_rg0fl")
 
 [node name="Coffee" type="MeshInstance3D" parent="." index="5" unique_id=879686374]
 transform = Transform3D(0.11232921, 0, 0, 0, 0.056164414, 0, 0, 0, 0.10691884, 0.00057548285, 0.074392885, 0)
+visible = false
 material_override = SubResource("ShaderMaterial_ks1b6")
 mesh = SubResource("CylinderMesh_kljfu")
 
@@ -79,3 +96,12 @@ metadata/_custom_type_script = "uid://0b7wkxi4vymb"
 [node name="XRToolsGrabPointSnap" type="Marker3D" parent="." index="7" unique_id=626232586 groups=["Glass"]]
 script = ExtResource("11_gywty")
 metadata/_custom_type_script = "uid://dn7grmvmgjiqv"
+
+[node name="Contents" type="Node" parent="." index="8" unique_id=262647925]
+script = ExtResource("12_onmrm")
+
+[node name="Pour" type="MeshInstance3D" parent="." index="9" unique_id=88606650]
+transform = Transform3D(0.02167148, 0, 0, 0, 1.0555751, 0, 0, 0, 0.024783084, 0, -1.0498717, 0)
+visible = false
+mesh = SubResource("CylinderMesh_m3gr8")
+surface_material_override/0 = SubResource("ShaderMaterial_4xv7v")

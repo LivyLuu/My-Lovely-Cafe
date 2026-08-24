@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cmkdyxyhncbvs" path="res://ASSETS/3D/Props/Coffe Maker.fbx" id="1_6mm8v"]
 [ext_resource type="PackedScene" uid="uid://d207nuttbqtyt" path="res://! SCENES/Props/coffe_maker_snap_zone.tscn" id="2_00h6v"]
 [ext_resource type="Script" uid="uid://b3qqk1u54k5mh" path="res://SCRIPTS/Stations/coffe_maker.gd" id="2_ftowe"]
+[ext_resource type="Resource" uid="uid://bsutt8u2sh6xq" path="res://RESOURCES/coffee.tres" id="3_2hks4"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="4_2hks4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_00h6v"]
@@ -22,6 +23,7 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Coffe Maker" unique_id=787263129 instance=ExtResource("1_6mm8v")]
 script = ExtResource("2_ftowe")
+coffee_item = ExtResource("3_2hks4")
 
 [node name="SnapZone" parent="." index="1" unique_id=608416362 instance=ExtResource("2_00h6v")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13206814, 0.09572746, 0)

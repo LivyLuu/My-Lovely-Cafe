@@ -1,6 +1,7 @@
 extends Node3D
 @onready var snap_zone: XRToolsSnapZone = $SnapZone
 @onready var button: XRToolsInteractableAreaButton = $Button  # wherever you add it
+@export var coffee_item: MenuItem
 
 func _ready() -> void:
 	button.button_pressed.connect(_on_button_pressed)
@@ -12,6 +13,8 @@ func _on_button_pressed(_button) -> void:
 	_brew(glass)
 
 func _brew(glass: Node3D) -> void:
+	var contents := glass.get_node("Contents") as ItemContainer
+	contents.current_item = coffee_item
 	# animate the "Coffee" mesh's liquid_fill shader (fill_amount 0 → 1) that's
 	# already sitting in GlassPickup.tscn, then mark the glass as filled
 	pass

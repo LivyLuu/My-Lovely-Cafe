@@ -1,24 +1,21 @@
 extends Node3D
 
-@onready var level_manager: LevelManager = %LevelManager  # or however you wire it
 
 enum State { ENTERING, WAITING_TO_ORDER, ORDERING, WAITING_FOR_ORDER, VERIFYING, LEAVING_HAPPY, LEAVING_UPSET }
+signal order_placed(item: MenuItem)
+signal order_result(correct: bool, payment: int)
 
-signal order_placed(drink: GameManager.DrinkType)
-
+@export var possible_orders: Array[MenuItem] = []   # drag coffee.tres in here
 var state: State = State.ENTERING
-var desired_drink: GameManager.DrinkType
+var desired_item: MenuItem
 
 func place_order() -> void:
-	desired_drink = [GameManager.DrinkType.COFFEE].pick_random()  # only one option for now
+	desired_item = possible_orders.pick_random()
 	state = State.WAITING_TO_ORDER
-	order_placed.emit(desired_drink)
+	order_placed.emit(desired_item)
 
-func receive_drink(made_drink: GameManager.DrinkType, payment: int) -> void:
+func receive_item(served_item: MenuItem) -> void:
 	state = State.VERIFYING
-	var correct := made_drink == desired_drink
-	if correct:
-		state = State.LEAVING_HAPPY
-	else:
-		state = State.LEAVING_UPSET
-	LevelManager.register_order_result(correct, payment)
+	var correct := served_item != null and served_item.id == desired_item.id
+	state = State.LEAVING_HAPPY if correct else State.LEAVING_UPSET
+	order_result.emit(correct, desired_item.price)
