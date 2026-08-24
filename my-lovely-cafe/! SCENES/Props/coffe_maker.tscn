@@ -31,6 +31,7 @@ coffee_item = ExtResource("3_2hks4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13206814, 0.09572746, 0)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." index="2" unique_id=781378392]
+freeze = true
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D" index="0" unique_id=2079464735]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027954102, 0.02835083, 0.0002784729)
@@ -46,10 +47,12 @@ shape = SubResource("BoxShape3D_ftowe")
 
 [node name="RigidBody3D2" type="RigidBody3D" parent="." index="3" unique_id=1206400961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.80581665, 0, 0)
+freeze = true
 
 [node name="Button" parent="RigidBody3D2" index="0" unique_id=269045707 instance=ExtResource("4_2hks4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4565605, 0.4356412, 0)
-button = NodePath(".")
+button = NodePath("../MeshInstance3D")
+displacement = Vector3(-0.02, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2/Button" index="0" unique_id=961770700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.112682596, -0.015721828, -0.0060420632)
