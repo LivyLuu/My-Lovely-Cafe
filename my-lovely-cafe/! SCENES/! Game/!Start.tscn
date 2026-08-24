@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
 [ext_resource type="PackedScene" uid="uid://dblrvafjtw1lh" path="res://! SCENES/Props/coffe_maker.tscn" id="4_mdm6u"]
+[ext_resource type="PackedScene" uid="uid://chuyfudf5f2tc" path="res://! SCENES/SFX/glowy_dust.tscn" id="6_5ahwy"]
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
 [ext_resource type="PackedScene" uid="uid://cigov2dfubblr" path="res://addons/godot-xr-tools/objects/viewport_2_din_3d_priority_culling.tscn" id="7_yk7y5"]
@@ -53,6 +54,8 @@ visible = false
 
 [node name="Coffe Maker" parent="ENVIRONMENT" unique_id=787263129 instance=ExtResource("4_mdm6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
+
+[node name="Glowy Dust" parent="ENVIRONMENT" unique_id=2031279548 instance=ExtResource("6_5ahwy")]
 
 [node name="coffee-cup_standalone" parent="." unique_id=1092249547 instance=ExtResource("2_v7qqp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07253772)
