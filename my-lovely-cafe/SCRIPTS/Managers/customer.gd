@@ -1,10 +1,11 @@
 extends Node3D
 class_name Customer
 
-@onready var vision_area: Area3D = $VisionArea
-@onready var look_at_modifier_3d: LookAtModifier3D = $Customer/Skeleton3D/LookAtModifier3D
 enum State { ENTERING, WAITING_TO_ORDER, ORDERING, WAITING_FOR_ORDER, VERIFYING, LEAVING_HAPPY, LEAVING_UPSET }
 
+
+@onready var vision_area: Area3D = $VisionArea
+@onready var look_at_modifier_3d: LookAtModifier3D = $Customer/Skeleton3D/LookAtModifier3D
 signal order_placed(item: MenuItem)
 signal order_result(correct: bool, payment: int)
 signal customer_starts_walking
@@ -33,6 +34,7 @@ func place_order(possible_orders: Array[MenuItem]) -> void:
 	#state = State.LEAVING_HAPPY if correct else State.LEAVING_UPSET
 	#order_result.emit(correct, desired_item.price)
 
+#region -----Customer WALK-----
 func start_walking(waypoints: Array[Node3D]) -> void:
 	customer_plans_to_walk = waypoints
 	current_index = 0
@@ -78,6 +80,8 @@ func _advance() -> void:
 	if next_tile.tile_type == CafeTile.TileType.ORDER:
 		state = State.ORDERING
 		customer_stops_walking.emit()
+		state = State.ORDERING
+		SignalBus.customer_is_ordering.emit() 
 		return  # paused here — level manager / order system resumes it later
  
 	_advance()
@@ -91,3 +95,4 @@ func _on_check_player_timer_timeout() -> void:
 		look_at_modifier_3d.active = true
 	else:
 		look_at_modifier_3d.active = false
+#endregion --------------------------------------

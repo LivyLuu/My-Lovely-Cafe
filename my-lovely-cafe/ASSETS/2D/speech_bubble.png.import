@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtli0hxctnp15"
-path.s3tc="res://.godot/imported/coffee_ico.png-8c6d576e7b1232e59b1492515e1c99c4.s3tc.ctex"
+uid="uid://db7leb75txeb2"
+path.s3tc="res://.godot/imported/speech_bubble.png-0c030a503f214b08debae14721539cbf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ASSETS/2D/coffee_ico.png"
-dest_files=["res://.godot/imported/coffee_ico.png-8c6d576e7b1232e59b1492515e1c99c4.s3tc.ctex"]
+source_file="res://ASSETS/2D/speech_bubble.png"
+dest_files=["res://.godot/imported/speech_bubble.png-0c030a503f214b08debae14721539cbf.s3tc.ctex"]
 
 [params]
 

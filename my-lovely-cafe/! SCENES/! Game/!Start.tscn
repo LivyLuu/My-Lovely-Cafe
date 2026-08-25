@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
 [ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="8_joe64"]
 [ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://! SCENES/UI/dialogue_popup.tscn" id="9_fllif"]
+[ext_resource type="Texture2D" uid="uid://db7leb75txeb2" path="res://ASSETS/2D/speech_bubble.png" id="9_hh6dn"]
+[ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="10_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
 [ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
 [ext_resource type="PackedScene" uid="uid://c6w2gprg28abo" path="res://! SCENES/Props/radio.tscn" id="20_hh6dn"]
@@ -41,6 +43,33 @@ customer_scene = ExtResource("3_5ahwy")
 possible_orders = Array[ExtResource("4_6g45d")]([ExtResource("5_7wqft")])
 customer_path = [NodePath("../CUSTOMERPATH/spawn"), NodePath("../CUSTOMERPATH/walkway"), NodePath("../CUSTOMERPATH/walkway4"), NodePath("../CUSTOMERPATH/walkway2"), NodePath("../CUSTOMERPATH/ordering_station")]
 coffee_maker = NodePath("../STATIONS/Coffee Maker")
+
+[node name="UI" type="Node" parent="." unique_id=45341639]
+
+[node name="Viewport2Din3D" parent="UI" unique_id=1046643593 instance=ExtResource("7_klqu3")]
+transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -6.6156797)
+screen_size = Vector2(640, 360)
+scene = ExtResource("8_joe64")
+viewport_size = Vector2(640, 360)
+transparent = 1
+scene_properties_keys = PackedStringArray("ui_manager.gd")
+
+[node name="Viewport2Din3D2" parent="UI" unique_id=404985321 instance=ExtResource("7_klqu3")]
+transform = Transform3D(-0.004330127, 0, 0.0024999995, 0, 0.005, 0, -0.0024999995, 0, -0.004330127, -7.009363, 1.444335, -3.3866198)
+screen_size = Vector2(550, 150)
+scene = ExtResource("9_fllif")
+viewport_size = Vector2(550, 150)
+transparent = 1
+scene_properties_keys = PackedStringArray()
+
+[node name="OrderBubble" type="Sprite3D" parent="UI" unique_id=1222743781]
+transform = Transform3D(-2.6226832e-09, 0, 0.06, 0, 0.06, 0, -0.06, 0, -2.6226832e-09, -5.39115, 1.882041, -7.923764)
+visible = false
+texture = ExtResource("9_hh6dn")
+
+[node name="OrderIco" type="Sprite3D" parent="UI/OrderBubble" unique_id=1732729946]
+transform = Transform3D(0.40000004, 0, 2.9081573e-08, 0, 0.40000004, 0, -2.9081573e-08, 0, 0.40000004, 0.06863403, 0.8729038, -0.94449997)
+texture = ExtResource("10_lcw5u")
 
 [node name="💡" type="Node" parent="." unique_id=156462932]
 
@@ -77,22 +106,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.7677
 
 [node name="GlassCup" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
 transform = Transform3D(1, 0, 0, 0, 1, 1.7484555e-07, 0, -1.7484555e-07, 1, -5.9279537, 1.0447094, -9.351636)
-
-[node name="Viewport2Din3D" parent="." unique_id=1046643593 instance=ExtResource("7_klqu3")]
-transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -6.6156797)
-screen_size = Vector2(640, 360)
-scene = ExtResource("8_joe64")
-viewport_size = Vector2(640, 360)
-transparent = 1
-scene_properties_keys = PackedStringArray("ui_manager.gd")
-
-[node name="Viewport2Din3D2" parent="." unique_id=404985321 instance=ExtResource("7_klqu3")]
-transform = Transform3D(-0.004330127, 0, 0.0024999995, 0, 0.005, 0, -0.0024999995, 0, -0.004330127, -7.009363, 1.444335, -3.3866198)
-screen_size = Vector2(550, 150)
-scene = ExtResource("9_fllif")
-viewport_size = Vector2(550, 150)
-transparent = 1
-scene_properties_keys = PackedStringArray()
 
 [node name="CUSTOMERPATH" type="Node" parent="." unique_id=716826471]
 

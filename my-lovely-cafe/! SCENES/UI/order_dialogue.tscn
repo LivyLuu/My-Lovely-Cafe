@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://c24l1vq2o8vvl"]
+
+[ext_resource type="Texture2D" uid="uid://db7leb75txeb2" path="res://ASSETS/2D/speech_bubble.png" id="2_sgy3k"]
+[ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="2_xvmr3"]
+
+[node name="Order_Dialogue" type="CanvasLayer" unique_id=351910339]
+
+[node name="Control" type="Control" parent="." unique_id=935908246]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Img_Bubble" type="TextureRect" parent="Control" unique_id=420111514]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_sgy3k")
+expand_mode = 3
+
+[node name="HFlowContainer" type="HFlowContainer" parent="Control" unique_id=1193535934]
+clip_contents = true
+custom_minimum_size = Vector2(500, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -80.0
+offset_right = 250.0
+offset_bottom = 170.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+last_wrap_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control/HFlowContainer" unique_id=802164651]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_xvmr3")
+expand_mode = 3

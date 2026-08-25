@@ -35,8 +35,11 @@ var money_earned_this_level: int = 0
 #endregion --------------
 
 func _ready() -> void:
+	#region ------ recieve signals ------------
 	SignalBus.brewing_started.connect(coffee_brewing)
 	SignalBus.brewing_ended.connect(coffee_stopped_brewing)
+	SignalBus.customer_is_ordering.connect(display_customer_order)
+	#endregion -------------------------------
 	day_timer = day_duration
 	spawn_timer = randf_range(spawn_interval_range.x, spawn_interval_range.y)
 	day_active = true
@@ -63,6 +66,7 @@ func _spawn_customer() -> void:
 	var walk_path: Array[Node3D] = customer_path.filter(func(t): return t.tile_type != CafeTile.TileType.SPAWN)
 	customer.start_walking(walk_path)
 	current_customer = customer
+	
 func get_spawn_point() -> Node3D:
 	for tile in customer_path:
 		if tile.tile_type == CafeTile.TileType.SPAWN:
@@ -88,6 +92,9 @@ func coffee_brewing() -> void:
 
 func coffee_stopped_brewing() -> void:
 	print("coffee stopped brewing!")
+
+func display_customer_order() -> void:
+	$"../UI/OrderBubble".show()
 	
 func end_level() -> void:
 	print("level ended!")
