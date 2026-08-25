@@ -8,6 +8,7 @@ render_priority = 0
 shader = ExtResource("1_1cja6")
 shader_parameter/outline_color = Color(0.24357852, 0.1267066, 0.14526567, 1)
 shader_parameter/outline_width = 0.0010000000475
+shader_parameter/outline_enabled = true
 
 [resource]
 render_priority = 0
