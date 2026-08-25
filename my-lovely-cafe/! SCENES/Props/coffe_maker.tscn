@@ -93,5 +93,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_2j42s")
 wait_time = 4.0
 one_shot = true
 
+[connection signal="has_picked_up" from="SnapZone" to="." method="_on_snap_zone_has_picked_up"]
 [connection signal="button_pressed" from="RigidBody3D2/Button" to="." method="_on_button_button_pressed"]
 [connection signal="timeout" from="BrewTime" to="." method="_on_brew_time_timeout"]
