@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c4di77hp5e04g"]
+
+[ext_resource type="Script" uid="uid://kgvik5md1c58" path="res://SCRIPTS/Stations/checkout.gd" id="1_qqfs8"]
+[ext_resource type="PackedScene" uid="uid://dsu344oaf77u5" path="res://! SCENES/Props/food_tray.tscn" id="2_jyb41"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh6dn"]
+size = Vector3(0.64958, 0.17089844, 1.0202103)
+
+[node name="Checkout Station" type="Node3D" unique_id=2032981734]
+
+[node name="Checkout" type="Area3D" parent="." unique_id=1061409102]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_qqfs8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Checkout" unique_id=193909210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.865964, 1.1296645, -6.507613)
+shape = SubResource("BoxShape3D_hh6dn")
+
+[node name="food_tray" parent="." unique_id=1961634695 instance=ExtResource("2_jyb41")]
+transform = Transform3D(1.145, 0, 0, 0, 1.145, 0, 0, 0, 1.145, -5.8786497, 1.0429322, -6.4999537)
+
+[connection signal="body_entered" from="Checkout" to="Checkout" method="_on_body_entered"]

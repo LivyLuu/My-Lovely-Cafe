@@ -4,7 +4,8 @@ var brewing_storage = false
 
 func update_brewing(brewing):
 	brewing_storage = brewing
-
+	
+signal coffee_ready_to_sell()
 signal brewing_started() 
 signal brewing_ended() 
 signal customer_is_ordering()

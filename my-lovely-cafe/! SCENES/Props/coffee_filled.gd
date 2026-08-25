@@ -7,5 +7,5 @@ func _ready() -> void:
 
 func fill_coffee():
 	$".".show()
-	root_glass.add_to_group("Coffee")
+	root_glass.add_to_group("coffee")
 	print("Glass is now consideredpart of coffee group!")

@@ -39,6 +39,7 @@ func _ready() -> void:
 	SignalBus.brewing_started.connect(coffee_brewing)
 	SignalBus.brewing_ended.connect(coffee_stopped_brewing)
 	SignalBus.customer_is_ordering.connect(display_customer_order)
+	SignalBus.coffee_ready_to_sell.connect(waiting_for_checkout)
 	#endregion -------------------------------
 	day_timer = day_duration
 	spawn_timer = randf_range(spawn_interval_range.x, spawn_interval_range.y)
@@ -95,6 +96,9 @@ func coffee_stopped_brewing() -> void:
 
 func display_customer_order() -> void:
 	$"../UI/OrderBubble".show()
+
+func waiting_for_checkout() -> void:
+	print("coffee ready to sell! waiting for checkout!")
 	
 func end_level() -> void:
 	print("level ended!")
