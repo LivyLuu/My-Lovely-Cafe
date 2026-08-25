@@ -75,7 +75,7 @@ func _advance() -> void:
 	current_index += 1
 	waypoint_reached.emit(next_tile)
  
-	if next_tile.tile_data.tile_type == CafeTile.TileType.ORDER:
+	if next_tile.tile_type == CafeTile.TileType.ORDER:
 		state = State.ORDERING
 		customer_stops_walking.emit()
 		return  # paused here — level manager / order system resumes it later

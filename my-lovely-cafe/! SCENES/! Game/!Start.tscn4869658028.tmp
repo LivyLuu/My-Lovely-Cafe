@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dblrvafjtw1lh" path="res://! SCENES/Props/coffe_maker.tscn" id="4_mdm6u"]
 [ext_resource type="Resource" uid="uid://bsutt8u2sh6xq" path="res://RESOURCES/coffee.tres" id="5_7wqft"]
 [ext_resource type="PackedScene" uid="uid://chuyfudf5f2tc" path="res://! SCENES/SFX/glowy_dust.tscn" id="6_5ahwy"]
+[ext_resource type="Script" uid="uid://dme7icbeo1uda" path="res://SCRIPTS/resources/tile_type.gd" id="6_7wqft"]
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
 [ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="8_joe64"]
@@ -31,6 +32,32 @@ sky_material = SubResource("ProceduralSkyMaterial_gwwsu")
 background_mode = 2
 sky = SubResource("Sky_yk7y5")
 tonemap_mode = 2
+
+[sub_resource type="GDScript" id="GDScript_l350j"]
+script/source = "extends Node3D
+class_name CafeTilePair
+
+@export var tile: Node3D = self
+
+@export var tile_data: CafeTile
+#@export var node: Node3D = my_path
+
+enum CharacterClass {
+	WARRIOR, MAGE, ARCHER
+	}
+"
+
+[sub_resource type="Resource" id="Resource_hw7wb"]
+script = ExtResource("6_7wqft")
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
+
+[sub_resource type="Resource" id="Resource_l350j"]
+script = ExtResource("6_7wqft")
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
+
+[sub_resource type="Resource" id="Resource_hh6dn"]
+script = ExtResource("6_7wqft")
+metadata/_custom_type_script = "uid://dme7icbeo1uda"
 
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
@@ -98,18 +125,28 @@ scene_properties_keys = PackedStringArray()
 
 [node name="spawn" parent="CUSTOMERPATH" unique_id=665826547 instance=ExtResource("17_gwe36")]
 transform = Transform3D(0.9995012, 0.011998273, -0.029212054, -0.010776021, 0.99907446, 0.041644648, 0.029684678, -0.04130909, 0.9987053, 1.8639545, 0, 3.0544572)
+script = SubResource("GDScript_l350j")
+tile_data = null
 
 [node name="walkway" parent="CUSTOMERPATH" unique_id=1234713635 instance=ExtResource("18_hw7wb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8148777, 0, 2.7700016)
+script = SubResource("GDScript_l350j")
+tile_data = SubResource("Resource_hw7wb")
 
 [node name="walkway4" parent="CUSTOMERPATH" unique_id=144900921 instance=ExtResource("18_hw7wb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8662004, 0, 1.0875714)
+script = SubResource("GDScript_l350j")
+tile_data = SubResource("Resource_l350j")
 
 [node name="walkway2" parent="CUSTOMERPATH" unique_id=920072997 instance=ExtResource("18_hw7wb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.039, 0, -3.321)
+script = SubResource("GDScript_l350j")
+tile_data = SubResource("Resource_hh6dn")
 
 [node name="ordering_station" parent="CUSTOMERPATH" unique_id=1783014530 instance=ExtResource("20_l350j")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.905, 0, -6.606)
+script = SubResource("GDScript_l350j")
+tile_data = null
 
 [node name="Radio" parent="." unique_id=1297258118 instance=ExtResource("20_hh6dn")]
 transform = Transform3D(0.69049114, 0, 0.72334087, 0, 1, 0, -0.72334087, 0, 0.69049114, -7.8352427, 0.97562313, -3.970334)

@@ -28,6 +28,5 @@ func _on_button_button_pressed(button: Variant) -> void:
 
 
 func _on_brew_time_timeout() -> void:
-	SignalBus.brewing_stopped.emit() 
-	$Pour.hide()
 	SignalBus.brewing_ended.emit() 
+	$Pour.hide()

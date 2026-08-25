@@ -1,14 +1,7 @@
 [gd_scene format=3 uid="uid://cqivpjcq0ya4h"]
 
-[ext_resource type="Script" uid="uid://o42xw7s1u0ui" path="res://SCRIPTS/Managers/tile_info.gd" id="1_ggpm3"]
 [ext_resource type="Script" uid="uid://dme7icbeo1uda" path="res://SCRIPTS/resources/tile_type.gd" id="2_ww3hj"]
 
-[sub_resource type="Resource" id="Resource_ggpm3"]
+[node name="spawn" type="Marker3D" unique_id=665826547]
 script = ExtResource("2_ww3hj")
 tile_type = 0
-metadata/_custom_type_script = "uid://dme7icbeo1uda"
-
-[node name="spawn" type="Marker3D" unique_id=665826547 node_paths=PackedStringArray("tile")]
-script = ExtResource("1_ggpm3")
-tile = NodePath(".")
-tile_data = SubResource("Resource_ggpm3")
