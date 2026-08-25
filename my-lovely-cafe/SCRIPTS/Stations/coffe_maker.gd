@@ -22,13 +22,12 @@ func _brew(glass: Node3D) -> void:
 
 
 func _on_button_button_pressed(button: Variant) -> void:
-	LevelManager.brewing_started.emit() 
-	print("brewing start!")
+	SignalBus.brewing_started.emit() 
 	$Pour.show()
 	$BrewTime.start()
 
 
 func _on_brew_time_timeout() -> void:
+	SignalBus.brewing_stopped.emit() 
 	$Pour.hide()
 	SignalBus.brewing_ended.emit() 
-	print("brewing ended")

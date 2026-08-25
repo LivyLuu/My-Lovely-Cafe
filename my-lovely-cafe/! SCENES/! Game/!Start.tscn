@@ -48,16 +48,11 @@ metadata/_custom_type_script = "uid://dme7icbeo1uda"
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
 
-[node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439 node_paths=PackedStringArray("customer_path")]
+[node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439 node_paths=PackedStringArray("coffee_maker")]
 script = ExtResource("2_yk7y5")
 customer_scene = ExtResource("3_5ahwy")
-day_duration = null
-customers_required = null
-move_speed = null
-arrival_threshold = null
 possible_orders = Array[ExtResource("4_6g45d")]([ExtResource("5_7wqft")])
-customer_path = [NodePath("../CUSTOMERPATH/spawn"), NodePath("../CUSTOMERPATH/walkway"), NodePath("../CUSTOMERPATH/walkway4"), NodePath("../CUSTOMERPATH/walkway2"), NodePath("../CUSTOMERPATH/ordering_station")]
-spawn_interval_range = null
+coffee_maker = NodePath("../STATIONS/Coffee Maker")
 
 [node name="💡" type="Node" parent="." unique_id=156462932]
 
@@ -87,7 +82,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2
 
 [node name="STATIONS" type="Node" parent="." unique_id=486600263]
 
-[node name="Coffe Maker" parent="STATIONS" unique_id=787263129 instance=ExtResource("4_mdm6u")]
+[node name="Coffee Maker" parent="STATIONS" unique_id=787263129 instance=ExtResource("4_mdm6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
 
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
@@ -134,4 +129,4 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.9
 [node name="Radio" parent="." unique_id=1297258118 instance=ExtResource("20_hh6dn")]
 transform = Transform3D(0.69049114, 0, 0.72334087, 0, 1, 0, -0.72334087, 0, 0.69049114, -7.8352427, 0.97562313, -3.970334)
 
-[editable path="STATIONS/Coffe Maker"]
+[editable path="STATIONS/Coffee Maker"]

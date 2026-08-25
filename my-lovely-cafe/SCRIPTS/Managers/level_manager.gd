@@ -4,6 +4,7 @@ class_name LevelManager
 # add point for
 # add point for table and you can edit so its next available table later
 # share time it took and score when you end level as well!
+
 #region ----VARIABLES----
 @export var customer_scene: PackedScene
 @export var day_duration: float = 180.0
@@ -13,6 +14,7 @@ class_name LevelManager
 @export var possible_orders: Array[MenuItem] = []
 @export var customer_path: Array[Node3D] = []
 @export var spawn_interval_range: Vector2 = Vector2(8.0, 15.0)
+@export var coffee_maker: CoffeeMaker
 #endregion --------------
 #region ----RECIEVER----
 
@@ -31,8 +33,9 @@ var money_earned_this_level: int = 0
 #signal level_complete(won: bool)
 #signal signal_customer_movement(customer_path: Array[Node3D] = []) 
 #endregion --------------
+
 func _ready() -> void:
-	CoffeeMaker.brewing_started.connect(coffee_signal_recieved) 
+	SignalBus.brewing_started.connect(coffee_brewing)
 	day_timer = day_duration
 	spawn_timer = randf_range(spawn_interval_range.x, spawn_interval_range.y)
 	day_active = true
@@ -78,7 +81,7 @@ func register_order_result(correct: bool, payment: int) -> void:
 		orders_correct += 1
 		money_earned_this_level += payment
 
-func coffee_signal_recieved() -> void:
+func coffee_brewing() -> void:
 	print("coffee signal recieved!")
 	
 func end_level() -> void:

@@ -38,7 +38,7 @@ shader_parameter/ring_frequency = 14.0
 shader_parameter/ring_speed = 8.0
 shader_parameter/splash_fade_radius = 0.5
 
-[node name="Coffe Maker" unique_id=787263129 instance=ExtResource("1_6mm8v")]
+[node name="Coffee Maker" unique_id=787263129 instance=ExtResource("1_6mm8v")]
 script = ExtResource("2_ftowe")
 coffee_item = ExtResource("3_2hks4")
 
