@@ -34,6 +34,9 @@ background_mode = 2
 sky = SubResource("Sky_yk7y5")
 tonemap_mode = 2
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hh6dn"]
+size = Vector3(0.64958, 0.17089844, 1.0202103)
+
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
 
@@ -101,6 +104,16 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2
 
 [node name="Coffee Maker" parent="STATIONS" unique_id=787263129 instance=ExtResource("4_mdm6u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
+
+[node name="Checkout Station" type="Node3D" parent="STATIONS" unique_id=1000245229]
+
+[node name="Checkout" type="Area3D" parent="STATIONS/Checkout Station" unique_id=1514235915]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="STATIONS/Checkout Station/Checkout" unique_id=1383747198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.865964, 1.132408, -6.507613)
+shape = SubResource("BoxShape3D_hh6dn")
 
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
