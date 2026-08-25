@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dblrvafjtw1lh"]
 
 [ext_resource type="PackedScene" uid="uid://cmkdyxyhncbvs" path="res://ASSETS/3D/Props/Coffe Maker.fbx" id="1_6mm8v"]
-[ext_resource type="PackedScene" uid="uid://d207nuttbqtyt" path="res://! SCENES/Props/coffe_maker_snap_zone.tscn" id="2_00h6v"]
+[ext_resource type="PackedScene" uid="uid://d207nuttbqtyt" path="res://! SCENES/Stations/coffe_maker_snap_zone.tscn" id="2_00h6v"]
 [ext_resource type="Script" uid="uid://b3qqk1u54k5mh" path="res://SCRIPTS/Stations/coffe_maker.gd" id="2_ftowe"]
 [ext_resource type="Resource" uid="uid://bsutt8u2sh6xq" path="res://RESOURCES/coffee.tres" id="3_2hks4"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="4_2hks4"]

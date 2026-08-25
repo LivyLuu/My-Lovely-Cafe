@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_r8ipk"]
 [ext_resource type="Script" uid="uid://d2uuto752ydm6" path="res://SCRIPTS/resources/menu_items.gd" id="4_6g45d"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="4_d1w3m"]
-[ext_resource type="PackedScene" uid="uid://dblrvafjtw1lh" path="res://! SCENES/Props/coffe_maker.tscn" id="4_mdm6u"]
+[ext_resource type="PackedScene" uid="uid://dblrvafjtw1lh" path="res://! SCENES/Stations/coffe_maker.tscn" id="4_mdm6u"]
 [ext_resource type="Resource" uid="uid://bsutt8u2sh6xq" path="res://RESOURCES/coffee.tres" id="5_7wqft"]
 [ext_resource type="PackedScene" uid="uid://chuyfudf5f2tc" path="res://! SCENES/SFX/glowy_dust.tscn" id="6_5ahwy"]
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
@@ -20,7 +20,8 @@
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
 [ext_resource type="PackedScene" uid="uid://c4di77hp5e04g" path="res://! SCENES/! Game/checkout_station.tscn" id="17_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
-[ext_resource type="PackedScene" uid="uid://c6w2gprg28abo" path="res://! SCENES/Props/radio.tscn" id="20_hh6dn"]
+[ext_resource type="PackedScene" uid="uid://bb05heqr85u2y" path="res://! SCENES/Stations/cash_register.tscn" id="18_pef44"]
+[ext_resource type="PackedScene" uid="uid://c6w2gprg28abo" path="res://! SCENES/Stations/radio.tscn" id="20_hh6dn"]
 [ext_resource type="PackedScene" uid="uid://0jfnncekpoas" path="res://! SCENES/! Game/CafeTiles/ordering_station.tscn" id="20_l350j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
@@ -104,6 +105,9 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
 
 [node name="Checkout Station" parent="STATIONS" unique_id=2032981734 instance=ExtResource("17_lcw5u")]
+
+[node name="Cash Register" parent="STATIONS" unique_id=237606051 instance=ExtResource("18_pef44")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8998575, 1.0492336, -7.3009725)
 
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 

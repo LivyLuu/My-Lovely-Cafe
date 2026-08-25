@@ -10,6 +10,8 @@ signal brewing_started()
 signal brewing_ended() 
 signal customer_is_ordering()
 signal cup_filled()
+	
+signal sell_items_checkout()
 
 func customer_starts_walking():
 	pass

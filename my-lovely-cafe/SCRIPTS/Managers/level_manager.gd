@@ -99,6 +99,10 @@ func display_customer_order() -> void:
 
 func waiting_for_checkout() -> void:
 	print("coffee ready to sell! waiting for checkout!")
+	_sell_items()
+	
+func _sell_items() -> void:
+	SignalBus.sell_items_checkout.emit()
 	
 func end_level() -> void:
 	print("level ended!")
