@@ -51,8 +51,13 @@ script = ExtResource("1_gwwsu")
 [node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439 node_paths=PackedStringArray("customer_path")]
 script = ExtResource("2_yk7y5")
 customer_scene = ExtResource("3_5ahwy")
+day_duration = null
+customers_required = null
+move_speed = null
+arrival_threshold = null
 possible_orders = Array[ExtResource("4_6g45d")]([ExtResource("5_7wqft")])
 customer_path = [NodePath("../CUSTOMERPATH/spawn"), NodePath("../CUSTOMERPATH/walkway"), NodePath("../CUSTOMERPATH/walkway4"), NodePath("../CUSTOMERPATH/walkway2"), NodePath("../CUSTOMERPATH/ordering_station")]
+spawn_interval_range = null
 
 [node name="💡" type="Node" parent="." unique_id=156462932]
 

@@ -1,4 +1,5 @@
 extends Node
+class_name LevelManager
 # update customer_location at the end of each task
 # add point for
 # add point for table and you can edit so its next available table later
@@ -14,6 +15,7 @@ extends Node
 @export var spawn_interval_range: Vector2 = Vector2(8.0, 15.0)
 #endregion --------------
 #region ----RECIEVER----
+
 #endregion --------------
 #region --HIDDEN VARIABLES--
 var day_timer: float
@@ -27,9 +29,10 @@ var money_earned_this_level: int = 0
 #endregion --------------
 #region -----SIGNALS-----
 #signal level_complete(won: bool)
-#signal signal_customer_movement(customer_path: Array[Node3D] = [])
+#signal signal_customer_movement(customer_path: Array[Node3D] = []) 
 #endregion --------------
 func _ready() -> void:
+	CoffeeMaker.brewing_started.connect(coffee_signal_recieved) 
 	day_timer = day_duration
 	spawn_timer = randf_range(spawn_interval_range.x, spawn_interval_range.y)
 	day_active = true
@@ -74,6 +77,10 @@ func register_order_result(correct: bool, payment: int) -> void:
 	if correct:
 		orders_correct += 1
 		money_earned_this_level += payment
+
+func coffee_signal_recieved() -> void:
+	print("coffee signal recieved!")
+	
 func end_level() -> void:
 	print("level ended!")
 	#var did_win := orders_correct >= customers_required

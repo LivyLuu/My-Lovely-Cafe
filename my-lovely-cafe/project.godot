@@ -21,6 +21,7 @@ XRToolsUserSettings="*uid://bqgb8i74tm0t"
 XRToolsRumbleManager="*uid://by853dk86g1qw"
 GameManager="*uid://bm8nflabedmk3"
 UiManager="*uid://wa5y1ypqy8g0"
+SignalBus="*uid://jy6fjmw8adnp"
 
 [debug]
 

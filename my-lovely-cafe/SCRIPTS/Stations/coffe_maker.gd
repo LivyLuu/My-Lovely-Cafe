@@ -1,4 +1,5 @@
 extends Node3D
+class_name CoffeeMaker
 @onready var snap_zone: XRToolsSnapZone = $SnapZone
 @onready var button: XRToolsInteractableAreaButton = $RigidBody3D2/Button
 @export var coffee_item: MenuItem
@@ -21,7 +22,7 @@ func _brew(glass: Node3D) -> void:
 
 
 func _on_button_button_pressed(button: Variant) -> void:
-	#send signal saying coffee is brewing?
+	LevelManager.brewing_started.emit() 
 	print("brewing start!")
 	$Pour.show()
 	$BrewTime.start()
@@ -29,4 +30,5 @@ func _on_button_button_pressed(button: Variant) -> void:
 
 func _on_brew_time_timeout() -> void:
 	$Pour.hide()
+	SignalBus.brewing_ended.emit() 
 	print("brewing ended")
