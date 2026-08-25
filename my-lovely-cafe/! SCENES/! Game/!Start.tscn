@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bb05heqr85u2y" path="res://! SCENES/Stations/cash_register.tscn" id="18_pef44"]
 [ext_resource type="PackedScene" uid="uid://c6w2gprg28abo" path="res://! SCENES/Stations/radio.tscn" id="20_hh6dn"]
 [ext_resource type="PackedScene" uid="uid://0jfnncekpoas" path="res://! SCENES/! Game/CafeTiles/ordering_station.tscn" id="20_l350j"]
+[ext_resource type="PackedScene" uid="uid://dhmc7wmref8bc" path="res://! SCENES/Environment/World_music.tscn" id="24_xfgne"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -38,6 +39,23 @@ tonemap_mode = 2
 
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
+
+[node name="💡" type="Node" parent="." unique_id=156462932]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="💡" unique_id=1715697911]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 1.7456923, -4.2149963)
+light_color = Color(1, 0.6039216, 0.3372549, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="💡" unique_id=1213882274]
+environment = SubResource("Environment_r8ipk")
+
+[node name="♫" type="Node" parent="." unique_id=149998679]
+
+[node name="AudioStreamPlayer3D" parent="♫" unique_id=73031278 instance=ExtResource("24_xfgne")]
+volume_db = -51.915
+max_db = -13.755
+area_mask = 0
 
 [node name="LEVELMANAGER" type="Node" parent="." unique_id=876711439 node_paths=PackedStringArray("customer_path", "coffee_maker")]
 script = ExtResource("2_yk7y5")
@@ -72,16 +90,6 @@ texture = ExtResource("9_hh6dn")
 [node name="OrderIco" type="Sprite3D" parent="UI/OrderBubble" unique_id=1732729946]
 transform = Transform3D(0.40000004, 0, 2.9081573e-08, 0, 0.40000004, 0, -2.9081573e-08, 0, 0.40000004, 0.06863403, 0.8729038, -0.94449997)
 texture = ExtResource("10_lcw5u")
-
-[node name="💡" type="Node" parent="." unique_id=156462932]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="💡" unique_id=1715697911]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 1.7456923, -4.2149963)
-light_color = Color(1, 0.6039216, 0.3372549, 1)
-shadow_enabled = true
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="💡" unique_id=1213882274]
-environment = SubResource("Environment_r8ipk")
 
 [node name="ENVIRONMENT" type="Node" parent="." unique_id=747379394]
 
@@ -133,6 +141,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.9
 
 [node name="Radio" parent="." unique_id=1297258118 instance=ExtResource("20_hh6dn")]
 transform = Transform3D(0.69049114, 0, 0.72334087, 0, 1, 0, -0.72334087, 0, 0.69049114, -7.8352427, 0.97562313, -3.970334)
+
+[node name="AudioStreamPlayer3D" parent="." unique_id=2099111245 instance=ExtResource("24_xfgne")]
 
 [editable path="STATIONS/Coffee Maker"]
 [editable path="STATIONS/Checkout Station"]

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dhmc7wmref8bc"]
+
+[ext_resource type="AudioStream" uid="uid://cd6vln0fdk53w" path="res://ASSETS/Audio/Royalty Free Menu Music.mp3" id="1_3f2ya"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" unique_id=73031278]
+stream = ExtResource("1_3f2ya")
+autoplay = true
