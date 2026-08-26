@@ -10,3 +10,9 @@ func _on_btn_start_pressed() -> void:
 
 func new_game() -> void:
 	get_tree().change_scene_to_file(new_game_scene)
+
+
+
+func _on_btn_exit_pressed() -> void:
+	# exit out of game no save
+	get_tree().quit()
