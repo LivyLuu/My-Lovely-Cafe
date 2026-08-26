@@ -27,6 +27,11 @@ SignalBus="*uid://jy6fjmw8adnp"
 
 shader_language/warnings/treat_warnings_as_errors=true
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1832
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addons/dialogue_editor/plugin.cfg")
