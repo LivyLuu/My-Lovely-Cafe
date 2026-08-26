@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://cbohsvo48qf2e"]
 
-[ext_resource type="Script" uid="uid://wa5y1ypqy8g0" path="res://SCRIPTS/Managers/ui_manager.gd" id="1_8ovlg"]
+[ext_resource type="Script" uid="uid://cbx3feidt5rg6" path="res://SCRIPTS/main_menu.gd" id="1_8ovlg"]
 
-[node name="GameMenu" type="CanvasLayer" unique_id=351910339]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ovlg"]
+
+[node name="Main_Menu" type="CanvasLayer" unique_id=351910339]
 script = ExtResource("1_8ovlg")
 
 [node name="Control" type="Control" parent="." unique_id=935908246]
@@ -66,23 +68,41 @@ theme_override_font_sizes/font_size = 50
 text = "MENU"
 horizontal_alignment = 1
 
-[node name="Button3" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=203564372]
+[node name="btn_start" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=203564372]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Start"
 
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=2122689570]
+[node name="btn_level_select" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=2122689570]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Level Select"
 
-[node name="Button2" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1330974779]
+[node name="btn_new_game" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1330974779]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "New Game"
 
-[node name="Button5" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=471281037]
+[node name="betn_exit" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=471281037]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "Exit
 "
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1144429002]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_right = -1.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+
+[node name="btn_settings" type="Button" parent="Control/MarginContainer2" unique_id=1879596239]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8ovlg")
+text = "⚙️"
