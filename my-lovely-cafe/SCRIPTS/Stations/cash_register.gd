@@ -7,11 +7,12 @@ func _ready() -> void:
 	self.set_collision_layer_value(21, false)
 	pointer_event.connect(_on_pointer_event)
 	SignalBus.coffee_ready_to_sell.connect(_ready_to_sell)
-	$"..".mesh_instance.get_surface_override_material(0).next_pass.set_shader_parameter("outline_enabled", false)
+	
+	$"..".get_surface_override_material(0).next_pass.set_shader_parameter("outline_enabled", false)
 
 func _ready_to_sell(_item = null) -> void:
 	self.set_collision_layer_value(21, true)
-	$"..".mesh_instance.get_surface_override_material(0).next_pass.set_shader_parameter("outline_enabled", true)
+	$"..".get_surface_override_material(0).next_pass.set_shader_parameter("outline_enabled", true)
 
 func _on_pointer_event(event: XRToolsPointerEvent) -> void:
 	if event.event_type == XRToolsPointerEvent.Type.PRESSED:
