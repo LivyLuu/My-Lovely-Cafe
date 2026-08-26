@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dm2iavxvo5ekq"]
 
-[ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="0_intro"]
+[ext_resource type="Script" uid="uid://cir45wnxgj34s" path="res://! SCENES/Cutscenes/splash_screen.gd" id="0_intro"]
 [ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="1_fade"]
 [ext_resource type="Environment" uid="uid://ckiwtcdsam7ed" path="res://addons/godot-xr-tools/staging/staging_env.tres" id="2_env"]
 [ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="3_shader"]
