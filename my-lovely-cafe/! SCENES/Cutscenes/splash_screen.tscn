@@ -10,6 +10,7 @@
 
 [node name="SplashScreen" type="Node3D" unique_id=501812798]
 script = ExtResource("0_intro")
+next_scene = "uid://d1apa1g8fi2yy"
 
 [node name="Fade" parent="." unique_id=1077017914 instance=ExtResource("1_fade")]
 

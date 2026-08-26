@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://d1apa1g8fi2yy"]
+
+[ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_wbxwd"]
+[ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="2_3g4sa"]
+[ext_resource type="PackedScene" uid="uid://dhmc7wmref8bc" path="res://! SCENES/Environment/World_music.tscn" id="3_qs8to"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="8_t10yn"]
+[ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="9_hxl6i"]
+[ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! SCENES/Environment/outdoors.tscn" id="13_t15s7"]
+[ext_resource type="PackedScene" uid="uid://bn56reoabl3gf" path="res://! SCENES/Environment/house.tscn" id="14_1k7mb"]
+[ext_resource type="PackedScene" uid="uid://chuyfudf5f2tc" path="res://! SCENES/SFX/glowy_dust.tscn" id="15_8ekww"]
+[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="17_qk58y"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_yk7y5"]
+sky_material = SubResource("ProceduralSkyMaterial_gwwsu")
+
+[sub_resource type="Environment" id="Environment_r8ipk"]
+background_mode = 2
+sky = SubResource("Sky_yk7y5")
+tonemap_mode = 2
+
+[node name="!Start" type="Node3D" unique_id=1824626723]
+script = ExtResource("1_wbxwd")
+
+[node name="💡" type="Node" parent="." unique_id=156462932]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="💡" unique_id=1715697911]
+transform = Transform3D(-0.74557614, -0.36207867, 0.5594776, 0.15864986, 0.7189542, 0.6767091, -0.64726055, 0.59329903, -0.47859126, -5.78261, 1.7456923, -4.2149963)
+light_color = Color(1, 0.6039216, 0.3372549, 1)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="💡" unique_id=1213882274]
+environment = SubResource("Environment_r8ipk")
+
+[node name="♫" type="Node" parent="." unique_id=149998679]
+
+[node name="AudioStreamPlayer3D" parent="♫" unique_id=73031278 instance=ExtResource("3_qs8to")]
+volume_db = -51.915
+max_db = -13.755
+area_mask = 0
+
+[node name="UI" type="Node" parent="." unique_id=45341639]
+
+[node name="Viewport2Din3D" parent="UI" unique_id=1046643593 instance=ExtResource("8_t10yn")]
+transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -6.6156797)
+screen_size = Vector2(640, 360)
+scene = ExtResource("9_hxl6i")
+viewport_size = Vector2(640, 360)
+transparent = 1
+scene_properties_keys = PackedStringArray("ui_manager.gd")
+
+[node name="Fade" parent="UI" unique_id=1192562254 instance=ExtResource("2_3g4sa")]
+
+[node name="ENVIRONMENT" type="Node" parent="." unique_id=747379394]
+
+[node name="Outdoors" parent="ENVIRONMENT" unique_id=789773746 instance=ExtResource("13_t15s7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
+
+[node name="House" parent="ENVIRONMENT" unique_id=1829617261 instance=ExtResource("14_1k7mb")]
+
+[node name="Glowy Dust" parent="ENVIRONMENT" unique_id=2031279548 instance=ExtResource("15_8ekww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.184461)
+
+[node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("17_qk58y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5615357, 0, 13.514746)
