@@ -35,12 +35,13 @@ func _on_xr_started() -> void:
 	# headset started tracking.
 	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
 
-	var tween := create_tween()
-	tween.tween_property(splash_mesh, "position", _rest_position, slide_duration) \
-		.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	tween.tween_interval(hold_duration)
-	tween.tween_method(_set_fade, 0.0, 1.0, fade_duration)
-	tween.tween_callback(_go_to_next_scene)
+# THIS IS FOR CHANGING SCENES HOLD IT FOR A SEC
+	#var tween := create_tween()
+	#tween.tween_property(splash_mesh, "position", _rest_position, slide_duration) \
+		#.set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	#tween.tween_interval(hold_duration)
+	#tween.tween_method(_set_fade, 0.0, 1.0, fade_duration)
+	#tween.tween_callback(_go_to_next_scene)
 
 
 func _go_to_next_scene() -> void:

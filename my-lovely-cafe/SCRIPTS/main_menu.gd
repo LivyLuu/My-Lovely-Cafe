@@ -23,3 +23,6 @@ func _on_btn_level_select_pressed() -> void:
 func _on_btn_exit_pressed() -> void:
 	# exit out of game no save
 	get_tree().quit()
+
+func _on_btn_back_to_main_menu_pressed() -> void:
+	$"Level Select".hide()
