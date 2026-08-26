@@ -15,4 +15,4 @@ func _ready():
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 		
-	$UI/OrderBubble.hide()
+	#$UI/OrderBubble.hide()
