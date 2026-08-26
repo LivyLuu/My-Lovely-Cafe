@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cbohsvo48qf2e"]
+
+[ext_resource type="Script" uid="uid://wa5y1ypqy8g0" path="res://SCRIPTS/Managers/ui_manager.gd" id="1_8ovlg"]
+
+[node name="GameMenu" type="CanvasLayer" unique_id=351910339]
+script = ExtResource("1_8ovlg")
+
+[node name="Control" type="Control" parent="." unique_id=935908246]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -125.0
+offset_right = 100.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=970646663]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -125.0
+offset_right = 100.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.54908705, 0.38551006, 0.28854892, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=119222409]
+clip_contents = true
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -44.0
+offset_top = -86.0
+offset_right = 192.0
+offset_bottom = 161.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64, 0.64)
+theme_override_constants/margin_left = 119
+theme_override_constants/margin_top = 164
+theme_override_constants/margin_right = 106
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=1376705558]
+custom_minimum_size = Vector2(200, 250)
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=745490306]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="Button3" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=203564372]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Start"
+
+[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=2122689570]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Level Select"
+
+[node name="Button2" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=1330974779]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "New Game"
+
+[node name="Button5" type="Button" parent="Control/MarginContainer/VBoxContainer" unique_id=471281037]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Exit
+"
