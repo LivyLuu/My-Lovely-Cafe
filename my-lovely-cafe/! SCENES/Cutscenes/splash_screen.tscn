@@ -4,8 +4,24 @@
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="2_1k38v"]
 [ext_resource type="PackedScene" uid="uid://bqumugyvkct4r" path="res://addons/godot-xr-tools/staging/loading_screen.tscn" id="3_ek6pb"]
 [ext_resource type="Texture2D" uid="uid://cb7yttoq4dvwy" path="res://ASSETS/2D/splash.png" id="4_1k38v"]
+[ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="5_ek6pb"]
+[ext_resource type="Shader" uid="uid://crgou0mlv2l0s" path="res://addons/godot-xr-tools/effects/fade.gdshader" id="6_i3tmq"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_m03n1"]
+custom_aabb = AABB(-4921.745, -4921.745, -4921.745, 10000, 10000, 10000)
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rlir3"]
+render_priority = 0
+shader = ExtResource("6_i3tmq")
+shader_parameter/albedo = Color(0, 0, 0, 1)
 
 [node name="SplashScreen" type="Node2D" unique_id=1076269648]
+
+[node name="SpectatorCamera" type="Camera3D" parent="." unique_id=532597127]
+transform = Transform3D(0.9947028, -0.016080296, 0.10152699, 0, 0.98768836, 0.15643448, -0.10279253, -0.15560581, 0.9824564, 0.5, 1.5, 1)
+visible = false
+cull_mask = 1048573
 
 [node name="HMDViewport" type="SubViewport" parent="." unique_id=246799684]
 
@@ -19,3 +35,11 @@ visible = false
 [node name="LoadingScreen" parent="HMDViewport/SplashScreenStage" unique_id=716171501 instance=ExtResource("3_ek6pb")]
 splash_screen = ExtResource("4_1k38v")
 progress = 0.0
+
+[node name="StartXR" parent="HMDViewport/SplashScreenStage" unique_id=1745680912 instance=ExtResource("5_ek6pb")]
+
+[node name="Black BKGRD" type="MeshInstance3D" parent="HMDViewport" unique_id=901214865]
+layers = 2
+mesh = SubResource("QuadMesh_m03n1")
+skeleton = NodePath("..")
+surface_material_override/0 = SubResource("ShaderMaterial_rlir3")
