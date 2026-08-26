@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dli75j2fadyfd"]
+
+[ext_resource type="PackedScene" uid="uid://dok785v77631k" path="res://ASSETS/3D/Environment/sky_orb.fbx" id="1_fh55f"]
+[ext_resource type="Shader" uid="uid://bbxi021xkh1sh" path="res://ASSETS/Materials/m_black.tres" id="2_q75rd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bkaso"]
+render_priority = 0
+shader = ExtResource("2_q75rd")
+shader_parameter/base_color = Color(0, 0, 0, 1)
+shader_parameter/shade_color = Color(0.55, 0.5, 0.68, 1)
+shader_parameter/shade_threshold = 0.0
+shader_parameter/shade_softness = 0.00999999977648
+shader_parameter/rim_color = Color(1, 0.85, 0.65, 1)
+shader_parameter/rim_power = 8.0
+shader_parameter/rim_strength = 0.0
+shader_parameter/highlight_strength = 0.0
+shader_parameter/highlight_size = 1.0
+
+[node name="sky_orb" unique_id=110645099 instance=ExtResource("1_fh55f")]
+
+[node name="Sphere_001" parent="." index="0" unique_id=620048458]
+surface_material_override/0 = SubResource("ShaderMaterial_bkaso")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="My Lovely Cafe"
-run/main_scene="uid://dm2iavxvo5ekq"
+run/main_scene="uid://dg8kcfxni5bjm"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://ASSETS/icon.svg"
 
@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg", "res://addon
 [file_customization]
 
 folder_colors={
+"res://! PREFABS/": "yellow",
 "res://! SCENES/": "yellow",
 "res://ASSETS/": "pink",
 "res://RESOURCES/": "pink",
