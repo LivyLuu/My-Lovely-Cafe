@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cp5eb1wmc16vx"]
+
+[ext_resource type="Script" uid="uid://eavk7267igp7" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.gd" id="1_nw0lc"]
+[ext_resource type="Script" uid="uid://cpl5yiyf1ypft" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d_body.gd" id="2_ci85k"]
+[ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://UI/dialogue_ui.tscn" id="2_k2ipm"]
+
+[sub_resource type="QuadMesh" id="1"]
+resource_local_to_scene = true
+size = Vector2(550, 150)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_k2ipm"]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_suv88"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_k2ipm")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="4"]
+resource_local_to_scene = true
+size = Vector3(550, 150, 0.02)
+
+[node name="DialogueBox" type="Node3D" unique_id=1155546257]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+script = ExtResource("1_nw0lc")
+screen_size = Vector2(550, 150)
+scene = ExtResource("2_k2ipm")
+viewport_size = Vector2(550, 150)
+transparent = 1
+alpha_scissor_threshold = 0.25
+unshaded = false
+filter = true
+scene_properties_keys = PackedStringArray()
+
+[node name="Viewport" type="SubViewport" parent="." unique_id=1007884353]
+disable_3d = true
+transparent_bg = true
+gui_embed_subwindows = true
+size = Vector2i(550, 150)
+render_target_update_mode = 1
+
+[node name="Screen" type="MeshInstance3D" parent="." unique_id=627885523]
+mesh = SubResource("1")
+surface_material_override/0 = SubResource("StandardMaterial3D_suv88")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1272808325]
+collision_layer = 5242881
+collision_mask = 0
+script = ExtResource("2_ci85k")
+screen_size = Vector2(550, 150)
+viewport_size = Vector2(550, 150)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1147967094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.01)
+shape = SubResource("4")

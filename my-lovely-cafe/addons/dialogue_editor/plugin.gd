@@ -26,7 +26,7 @@ func _make_visible(next_visible: bool) -> void:
 
 
 func _get_plugin_name() -> String:
-	return "Dialogue"
+	return "💬Dialogue"
 
 
 func _build_panel() -> Control:
@@ -36,6 +36,7 @@ func _build_panel() -> Control:
 
 	var label := Label.new()
 	label.text = "Dialogue Editor — coming soon"
+	label.add_theme_color_override("font_color", Color.PURPLE)
 	label.set_anchors_preset(Control.PRESET_CENTER)
 	panel.add_child(label)
 

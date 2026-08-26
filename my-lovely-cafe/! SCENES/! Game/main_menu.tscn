@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_wbxwd"]
 [ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="2_3g4sa"]
 [ext_resource type="PackedScene" uid="uid://dhmc7wmref8bc" path="res://! PREFABS/World_music.tscn" id="3_qs8to"]
-[ext_resource type="PackedScene" uid="uid://cbohsvo48qf2e" path="res://! SCENES/UI/main_menu.tscn" id="4_nbsme"]
+[ext_resource type="PackedScene" uid="uid://cbohsvo48qf2e" path="res://UI/main_menu.tscn" id="4_nbsme"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="8_t10yn"]
 [ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="10_nbsme"]
 [ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! PREFABS/Environment/outdoors.tscn" id="13_t15s7"]

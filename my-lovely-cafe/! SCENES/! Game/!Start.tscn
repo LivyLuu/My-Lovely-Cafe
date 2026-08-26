@@ -13,8 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://chuyfudf5f2tc" path="res://! SCENES/SFX/glowy_dust.tscn" id="6_5ahwy"]
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
-[ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://! SCENES/UI/game_menu.tscn" id="8_joe64"]
-[ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://! SCENES/UI/dialogue_popup.tscn" id="9_fllif"]
+[ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://UI/game_menu.tscn" id="8_joe64"]
+[ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://UI/dialogue_ui.tscn" id="9_fllif"]
 [ext_resource type="Texture2D" uid="uid://db7leb75txeb2" path="res://ASSETS/2D/speech_bubble.png" id="9_hh6dn"]
 [ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="10_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
@@ -41,7 +41,7 @@ tonemap_mode = 2
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
 
-[node name="Fade" parent="." instance=ExtResource("25_fade")]
+[node name="Fade" parent="." unique_id=538961830 instance=ExtResource("25_fade")]
 
 [node name="💡" type="Node" parent="." unique_id=156462932]
 
