@@ -108,4 +108,5 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8ovlg")
 text = "⚙️"
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_new_game" to="." method="_on_btn_new_game_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
