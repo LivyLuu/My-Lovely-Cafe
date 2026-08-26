@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dm2iavxvo5ekq"]
+
+[ext_resource type="PackedScene" uid="uid://co185jjecuc0w" path="res://! SCENES/Cutscenes/ui_fade.tscn" id="1_1k38v"]
+[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="2_1k38v"]
+[ext_resource type="PackedScene" uid="uid://bqumugyvkct4r" path="res://addons/godot-xr-tools/staging/loading_screen.tscn" id="3_ek6pb"]
+[ext_resource type="Texture2D" uid="uid://cb7yttoq4dvwy" path="res://ASSETS/2D/splash.png" id="4_1k38v"]
+
+[node name="SplashScreen" type="Node2D" unique_id=1076269648]
+
+[node name="HMDViewport" type="SubViewport" parent="." unique_id=246799684]
+
+[node name="SplashScreenStage" type="Node3D" parent="HMDViewport" unique_id=251131417]
+
+[node name="Fade" parent="HMDViewport/SplashScreenStage" unique_id=120462345 instance=ExtResource("1_1k38v")]
+visible = false
+
+[node name="XROrigin3D" parent="HMDViewport/SplashScreenStage" unique_id=1179157175 instance=ExtResource("2_1k38v")]
+
+[node name="LoadingScreen" parent="HMDViewport/SplashScreenStage" unique_id=716171501 instance=ExtResource("3_ek6pb")]
+splash_screen = ExtResource("4_1k38v")
+progress = 0.0

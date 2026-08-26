@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://co185jjecuc0w"]
+
+[ext_resource type="Script" uid="uid://ook5rcwquue" path="res://addons/godot-xr-tools/effects/fade.gd" id="1_pv7x8"]
+[ext_resource type="Shader" uid="uid://crgou0mlv2l0s" path="res://addons/godot-xr-tools/effects/fade.gdshader" id="2_6sncv"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_pv7x8"]
+custom_aabb = AABB(-5000, -5000, -5000, 10000, 10000, 10000)
+size = Vector2(2, 2)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tk3ma"]
+render_priority = 0
+shader = ExtResource("2_6sncv")
+shader_parameter/albedo = Color(0, 0, 0, 1)
+
+[node name="Fade" type="Node3D" unique_id=120462345]
+script = ExtResource("1_pv7x8")
+metadata/_custom_type_script = "uid://ook5rcwquue"
+
+[node name="FadeMesh" type="MeshInstance3D" parent="." unique_id=1845806734]
+mesh = SubResource("QuadMesh_pv7x8")
+skeleton = NodePath("..")
+surface_material_override/0 = SubResource("ShaderMaterial_tk3ma")

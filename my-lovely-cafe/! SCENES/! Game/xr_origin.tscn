@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://uexyammaps33"]
 
+[ext_resource type="PackedScene" uid="uid://btknduttnmoxf" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_1v7qx"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="1_i1iq5"]
 [ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="2_2fjs1"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_ay6f7"]
@@ -86,6 +87,8 @@ node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &
 
 [node name="XRCamera3D" type="XRCamera3D" parent="." unique_id=701675855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="VRCommonShaderCache" parent="XRCamera3D" unique_id=2135247008 instance=ExtResource("1_1v7qx")]
 
 [node name="PlayerBody" parent="." unique_id=1733916048 instance=ExtResource("3_playerbody")]
 

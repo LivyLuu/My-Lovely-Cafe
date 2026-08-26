@@ -8,7 +8,7 @@ render_priority = 0
 shader = ExtResource("1_rplg3")
 shader_parameter/outline_color = Color(0.8117647, 0.6431373, 0.078431375, 1)
 shader_parameter/outline_width = 0.0010000000475
-shader_parameter/outline_enabled = false
+shader_parameter/outline_enabled = true
 
 [resource]
 render_priority = 0

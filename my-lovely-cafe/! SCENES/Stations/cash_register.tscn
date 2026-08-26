@@ -16,7 +16,7 @@ size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Cash Register" unique_id=237606051 instance=ExtResource("1_3lbie")]
 
-[node name="Cash Register" parent="." index="0" unique_id=848097534]
+[node name="Cash Register" parent="." index="0" unique_id=897259062]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0, 0)
 surface_material_override/0 = ExtResource("2_p48jp")
 
