@@ -6,7 +6,6 @@ signal money_changed(new_total: int)
 #region ---------GAME SAVE DATA ---------
 @export var levels: Array[PackedScene] = []
 
-
 #endregion ------------------------------
 var total_money: int = 0
 var current_level: int = 1
