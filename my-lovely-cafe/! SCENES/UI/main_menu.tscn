@@ -106,3 +106,5 @@ theme_override_constants/margin_right = 0
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8ovlg")
 text = "⚙️"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
