@@ -107,6 +107,29 @@ layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8ovlg")
 text = "⚙️"
 
+[node name="Level Select" type="CanvasLayer" parent="." unique_id=1875649075]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Level Select" unique_id=752631749]
+custom_minimum_size = Vector2(200, 250)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -125.0
+offset_right = 100.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8417351, 0.5058176, 0.5545934, 1)
+
+[node name="VScrollBar" type="VScrollBar" parent="Level Select" unique_id=2060022305]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_start" to="." method="_on_btn_start_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_level_select" to="." method="_on_btn_level_select_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_new_game" to="." method="_on_btn_new_game_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/btn_exit" to="." method="_on_btn_exit_pressed"]
