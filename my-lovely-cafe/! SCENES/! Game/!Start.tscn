@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://briqqlmnhff5l"]
 
 [ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_gwwsu"]
-[ext_resource type="PackedScene" uid="uid://bpobsha7og5uf" path="res://ASSETS/3D/coffee/coffee-cup_standalone.fbx" id="2_v7qqp"]
 [ext_resource type="Script" uid="uid://23m2nc6ysn27" path="res://SCRIPTS/Managers/level_manager.gd" id="2_yk7y5"]
 [ext_resource type="PackedScene" uid="uid://dewrxehv3x0uy" path="res://! SCENES/! Game/customer.tscn" id="3_5ahwy"]
 [ext_resource type="PackedScene" uid="uid://bn56reoabl3gf" path="res://! PREFABS/Environment/house.tscn" id="3_n71f8"]
@@ -94,9 +93,6 @@ visible = false
 [node name="House" parent="ENVIRONMENT" unique_id=1829617261 instance=ExtResource("3_n71f8")]
 
 [node name="Glowy Dust" parent="ENVIRONMENT" unique_id=2031279548 instance=ExtResource("6_5ahwy")]
-
-[node name="coffee-cup_standalone" parent="." unique_id=1092249547 instance=ExtResource("2_v7qqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.785619, 0.009905881, -0.07253772)
 
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
