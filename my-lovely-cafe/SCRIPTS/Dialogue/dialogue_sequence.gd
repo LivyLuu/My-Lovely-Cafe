@@ -2,4 +2,5 @@
 extends Resource
 class_name DialogueSequence
 
+
 @export var events: Array[DialogueEvent] = []
