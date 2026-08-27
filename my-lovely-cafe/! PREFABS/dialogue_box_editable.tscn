@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://b0xx2pnchg1xb"]
 
-[ext_resource type="Script" uid="uid://bt7drcp3xa7e3" path="res://SCRIPTS/Managers/dialogue_box_manager.gd" id="1_8gdjv"]
-[ext_resource type="PackedScene" uid="uid://cp5eb1wmc16vx" path="res://! PREFABS/dialogue_box.tscn" id="2_jl6gb"]
+[ext_resource type="Script" uid="uid://d2cup2qk8ypkn" path="res://SCRIPTS/Dialogue/dialogue_sequence.gd" id="1_w1tiq"]
+[ext_resource type="PackedScene" uid="uid://cp5eb1wmc16vx" path="res://! SCENES/dialogue_box.tscn" id="2_jl6gb"]
 
 [node name="DialogueBoxEDITABLE" type="Node" unique_id=738431224]
-script = ExtResource("1_8gdjv")
+script = ExtResource("1_w1tiq")
 
 [node name="DialogueBox" parent="." unique_id=1155546257 instance=ExtResource("2_jl6gb")]

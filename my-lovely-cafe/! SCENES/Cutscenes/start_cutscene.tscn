@@ -4,8 +4,57 @@
 [ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="2_jrayf"]
 [ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="3_i86ei"]
 [ext_resource type="PackedScene" uid="uid://dli75j2fadyfd" path="res://! PREFABS/Environment/sky_orb.tscn" id="5_23fgt"]
-[ext_resource type="PackedScene" uid="uid://cp5eb1wmc16vx" path="res://! PREFABS/dialogue_box.tscn" id="6_1awao"]
+[ext_resource type="PackedScene" uid="uid://b0xx2pnchg1xb" path="res://! PREFABS/dialogue_box_editable.tscn" id="6_ssj38"]
 [ext_resource type="PackedScene" uid="uid://clc5dre31iskm" path="res://addons/godot-xr-tools/xr/start_xr.tscn" id="7_116h5"]
+[ext_resource type="Script" uid="uid://b0827lr2sis" path="res://SCRIPTS/Dialogue/dialogue_event.gd" id="7_cbsiy"]
+[ext_resource type="Script" uid="uid://ceuedwpotbi47" path="res://SCRIPTS/Dialogue/text_event.gd" id="8_ls45p"]
+[ext_resource type="Script" uid="uid://g0csxix1r3gj" path="res://SCRIPTS/Dialogue/dialogue_option.gd" id="9_116h5"]
+[ext_resource type="Script" uid="uid://b6ioey1ftm82u" path="res://SCRIPTS/Dialogue/dialogue_options.gd" id="10_e31qu"]
+
+[sub_resource type="Resource" id="Resource_xculm"]
+script = ExtResource("8_ls45p")
+character_id = &"player_character"
+events = Array[String](["My grandpa died several days ago", "Ma said he left me some things, I'm not sure why though we we're never very close.", "Maybe he was lonely? no point wondering what's dead is dead"])
+metadata/_custom_type_script = "uid://ceuedwpotbi47"
+
+[sub_resource type="Resource" id="Resource_wjwnr"]
+script = ExtResource("8_ls45p")
+character_id = &"grandfather_cat"
+events = Array[String](["Hey", "Hey Kid"])
+metadata/_custom_type_script = "uid://ceuedwpotbi47"
+
+[sub_resource type="Resource" id="Resource_t32gl"]
+script = ExtResource("8_ls45p")
+character_id = &"player_character"
+events = Array[String](["??"])
+metadata/_custom_type_script = "uid://ceuedwpotbi47"
+
+[sub_resource type="Resource" id="Resource_yfmf0"]
+script = ExtResource("8_ls45p")
+character_id = &"grandfather_cat"
+events = Array[String](["down here"])
+metadata/_custom_type_script = "uid://ceuedwpotbi47"
+
+[sub_resource type="Resource" id="Resource_yo067"]
+script = ExtResource("8_ls45p")
+character_id = &"grandfather_cat"
+events = Array[String](["Man you aged like milk", "don't remember me do ya?", "man times done a number on you", "did you even open what he sent you", "...", "didn't think so"])
+metadata/_custom_type_script = "uid://ceuedwpotbi47"
+
+[sub_resource type="Resource" id="Resource_060br"]
+script = ExtResource("9_116h5")
+option_text = "open envelope"
+metadata/_custom_type_script = "uid://g0csxix1r3gj"
+
+[sub_resource type="Resource" id="Resource_gqhh8"]
+script = ExtResource("9_116h5")
+option_text = "leave the cat"
+metadata/_custom_type_script = "uid://g0csxix1r3gj"
+
+[sub_resource type="Resource" id="Resource_wnxe3"]
+script = ExtResource("10_e31qu")
+options = Array[ExtResource("9_116h5")]([SubResource("Resource_060br"), SubResource("Resource_gqhh8")])
+metadata/_custom_type_script = "uid://b6ioey1ftm82u"
 
 [node name="Start_Cutscene" type="Node3D" unique_id=501812798]
 script = ExtResource("1_i86ei")
@@ -23,5 +72,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.857302)
 
 [node name="darkness" parent="." unique_id=110645099 instance=ExtResource("5_23fgt")]
 
-[node name="DialogueBox" parent="." unique_id=1155546257 instance=ExtResource("6_1awao")]
-transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0.6608031, -2.944448)
+[node name="DialogueBoxEDITABLE" parent="." unique_id=738431224 instance=ExtResource("6_ssj38")]
+events = Array[ExtResource("7_cbsiy")]([SubResource("Resource_xculm"), SubResource("Resource_wjwnr"), SubResource("Resource_t32gl"), SubResource("Resource_yfmf0"), SubResource("Resource_yo067"), SubResource("Resource_wnxe3")])
