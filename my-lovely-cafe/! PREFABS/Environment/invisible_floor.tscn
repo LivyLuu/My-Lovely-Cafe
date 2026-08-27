@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bl4y2vyn8p3nb"]
+
+[ext_resource type="Material" uid="uid://dovn743u0iusn" path="res://ASSETS/Materials/Empty.material" id="1_5extc"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_1awao"]
+size = Vector2(40, 40)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1awao"]
+material = ExtResource("1_5extc")
+
+[node name="InvisibleFloor" type="Node3D" unique_id=802506138]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1864968138]
+mesh = SubResource("PlaneMesh_1awao")
+surface_material_override/0 = ExtResource("1_5extc")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=31755609]
+transform = Transform3D(41.458107, 0, 0, 0, 16.563066, 0, 0, 0, 1, 0, 8.096214, 20.389782)
+mesh = SubResource("BoxMesh_1awao")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=604910044]
+transform = Transform3D(41.458107, 0, 0, 0, 16.563066, 0, 0, 0, 1, 0, 8.096214, -19.6983)
+mesh = SubResource("BoxMesh_1awao")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="." unique_id=2057275491]
+transform = Transform3D(-1.8121914e-06, 0, 1, 0, 16.563066, 0, -41.458107, 0, -4.371139e-08, -19.871418, 8.096214, -0.34430122)
+mesh = SubResource("BoxMesh_1awao")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=437746648]
+transform = Transform3D(-1.8121914e-06, 0, 1, 0, 16.563066, 0, -41.458107, 0, -4.371139e-08, 20.115412, 8.096214, -0.34430122)
+mesh = SubResource("BoxMesh_1awao")

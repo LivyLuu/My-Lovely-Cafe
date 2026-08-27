@@ -52,8 +52,34 @@ script = ExtResource("5_tc250")
 options = Array[ExtResource("4_mpso1")]([SubResource("Resource_060br"), SubResource("Resource_gqhh8")])
 metadata/_custom_type_script = "uid://b6ioey1ftm82u"
 
+[sub_resource type="QuadMesh" id="QuadMesh_w1tiq"]
+resource_local_to_scene = true
+size = Vector2(550, 150)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mp6r0"]
+viewport_path = NodePath("DialogueBox/Viewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j1yoe"]
+transparency = 1
+cull_mode = 2
+albedo_texture = SubResource("ViewportTexture_mp6r0")
+texture_filter = 1
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mpso1"]
+resource_local_to_scene = true
+size = Vector3(550, 150, 0.02)
+
 [node name="DialogueBoxEDITABLE" type="Node3D" unique_id=749628244]
 script = ExtResource("1_w1tiq")
 events = Array[ExtResource("2_mp6r0")]([SubResource("Resource_xculm"), SubResource("Resource_wjwnr"), SubResource("Resource_t32gl"), SubResource("Resource_yfmf0"), SubResource("Resource_yo067"), SubResource("Resource_wnxe3")])
 
 [node name="DialogueBox" parent="." unique_id=1155546257 instance=ExtResource("2_jl6gb")]
+
+[node name="Screen" parent="DialogueBox" index="1" unique_id=627885523]
+mesh = SubResource("QuadMesh_w1tiq")
+surface_material_override/0 = SubResource("StandardMaterial3D_j1yoe")
+
+[node name="CollisionShape3D" parent="DialogueBox/StaticBody3D" parent_id_path=PackedInt32Array(1155546257, 1272808325) index="0" unique_id=1147967094]
+shape = SubResource("BoxShape3D_mpso1")
+
+[editable path="DialogueBox"]

@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://ddcmqqev03o4o"]
 
 [ext_resource type="Texture2D" uid="uid://ckca2d1ga8q6q" path="res://ASSETS/2D/Characters/ico_grandpa_cat.png" id="1_phtye"]
-[ext_resource type="Script" uid="uid://b8mtkdr422cct" path="res://SCRIPTS/resources/character_state.gd" id="3_cmgas"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_sjo7t"]
 
@@ -16,5 +15,3 @@ albedo_texture = ExtResource("1_phtye")
 transform = Transform3D(1, 0, 0, 0, 1.1698166, 0, 0, 0, 1, 0, 0.41775125, 0)
 mesh = SubResource("QuadMesh_sjo7t")
 surface_material_override/0 = SubResource("StandardMaterial3D_oqhdx")
-script = ExtResource("3_cmgas")
-relationship_points = 40
