@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://b68i3wvf247px" path="res://! SCENES/Props/GlassPickup.tscn" id="6_n71f8"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="7_klqu3"]
 [ext_resource type="PackedScene" uid="uid://i4inpbewuy7o" path="res://UI/game_menu.tscn" id="8_joe64"]
-[ext_resource type="PackedScene" uid="uid://bdtpjrjmf2w3t" path="res://UI/dialogue_ui.tscn" id="9_fllif"]
 [ext_resource type="Texture2D" uid="uid://db7leb75txeb2" path="res://ASSETS/2D/speech_bubble.png" id="9_hh6dn"]
 [ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="10_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
@@ -76,14 +75,6 @@ scene = ExtResource("8_joe64")
 viewport_size = Vector2(640, 360)
 transparent = 1
 scene_properties_keys = PackedStringArray("ui_manager.gd")
-
-[node name="Viewport2Din3D2" parent="UI" unique_id=404985321 instance=ExtResource("7_klqu3")]
-transform = Transform3D(-0.004330127, 0, 0.0024999995, 0, 0.005, 0, -0.0024999995, 0, -0.004330127, -7.009363, 1.444335, -3.3866198)
-screen_size = Vector2(550, 150)
-scene = ExtResource("9_fllif")
-viewport_size = Vector2(550, 150)
-transparent = 1
-scene_properties_keys = PackedStringArray()
 
 [node name="OrderBubble" type="Sprite3D" parent="UI" unique_id=1222743781]
 transform = Transform3D(-2.6226832e-09, 0, 0.06, 0, 0.06, 0, -0.06, 0, -2.6226832e-09, -5.39115, 1.882041, -7.923764)
