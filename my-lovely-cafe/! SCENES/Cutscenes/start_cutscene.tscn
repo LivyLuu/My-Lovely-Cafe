@@ -21,71 +21,71 @@ background_mode = 1
 sky = SubResource("Sky_yk7y5")
 tonemap_mode = 2
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jrayf"]
+animation = &"Grip"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h8eww"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ssj38"]
-animation = &"Grip"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_cbsiy"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ssj38"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ls45p"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cbsiy"]
 animation = &"Default pose"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_116h5"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ls45p"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_e31qu"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_116h5"]
 graph_offset = Vector2(-536, 11)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_h8eww")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_jrayf")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_ssj38")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_h8eww")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_cbsiy")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_ssj38")
 nodes/Grip/position = Vector2(0, 20)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_ls45p")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_cbsiy")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_116h5")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_ls45p")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_injm0"]
+[sub_resource type="BoxMesh" id="BoxMesh_e31qu"]
 resource_local_to_scene = true
 material = ExtResource("4_jrayf")
 size = Vector3(0.002, 0.002, 10)
 subdivide_depth = 20
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_injm0"]
+animation = &"Grip"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uyi5i"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6rlgk"]
-animation = &"Grip"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_pkw5v"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6rlgk"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8wspb"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pkw5v"]
 animation = &"Default pose"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_nfkm3"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_8wspb"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vpknu"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_nfkm3"]
 graph_offset = Vector2(-552.664, 107.301)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_uyi5i")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_injm0")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_6rlgk")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_uyi5i")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_pkw5v")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_6rlgk")
 nodes/Grip/position = Vector2(0, 40)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_8wspb")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_pkw5v")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_nfkm3")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_8wspb")
 nodes/Trigger/position = Vector2(-360, 40)
 node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
 
@@ -109,13 +109,13 @@ environment = SubResource("Environment_h8eww")
 [node name="XROrigin3D" parent="Player" unique_id=1179157175 instance=ExtResource("3_i86ei")]
 
 [node name="AnimationTree" parent="Player/XROrigin3D/LeftHand/LeftHand" parent_id_path=PackedInt32Array(1179157175, 130582469) index="1"]
-tree_root = SubResource("AnimationNodeBlendTree_e31qu")
+tree_root = SubResource("AnimationNodeBlendTree_116h5")
 
 [node name="Laser" parent="Player/XROrigin3D/LeftHand/FunctionPointer" parent_id_path=PackedInt32Array(1179157175, 624210100) index="1"]
-mesh = SubResource("BoxMesh_injm0")
+mesh = SubResource("BoxMesh_e31qu")
 
 [node name="AnimationTree" parent="Player/XROrigin3D/RightHand/RightHand" parent_id_path=PackedInt32Array(1179157175, 1636239549) index="1"]
-tree_root = SubResource("AnimationNodeBlendTree_vpknu")
+tree_root = SubResource("AnimationNodeBlendTree_nfkm3")
 
 [node name="starting_direction" type="Marker3D" parent="Player" unique_id=890751889]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8.857302)

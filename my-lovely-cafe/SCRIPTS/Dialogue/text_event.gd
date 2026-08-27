@@ -24,4 +24,4 @@ func _set(property: StringName, value) -> bool:
 	return false
 
 #@export var character_expression: Expression = Expression.NEUTRAL
-#@export var skip_ahead: int = 1
+@export var skip_ahead: int = 1
