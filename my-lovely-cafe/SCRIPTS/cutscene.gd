@@ -1,14 +1,18 @@
 extends Node3D
 
-var _rest_position: Vector3
-# spawn in facing marker 3d direction
+@onready var xr_origin: XROrigin3D = $Player/XROrigin3D
+@onready var start_xr: XRToolsStartXR = $Player/StartXR
 @onready var spawn_direction: Marker3D = $Player/starting_direction
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	_rest_position = spawn_direction.position
+	start_xr.xr_started.connect(_on_xr_started)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_xr_started() -> void:
+	# Rotate the play space to face the marker's direction ;— position is left
+	# untouched, only facing changes. Then recenter so the player's real-world
+	# orientation lines up with it, no matter which way they were physically
+	# standing when the headset started tracking.
+	xr_origin.global_rotation = spawn_direction.global_rotation
+	XRServer.center_on_hmd(XRServer.RESET_BUT_KEEP_TILT, true)
