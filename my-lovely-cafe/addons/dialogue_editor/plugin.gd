@@ -34,10 +34,27 @@ func _build_panel() -> Control:
 	panel.name = "DialoguePanel"
 	panel.set_anchors_preset(Control.PRESET_FULL_RECT)
 
+	var margin := MarginContainer.new()
+	margin.set_anchors_preset(Control.PRESET_FULL_RECT)
+	margin.add_theme_constant_override("margin_left", 12)
+	margin.add_theme_constant_override("margin_top", 12)
+	margin.add_theme_constant_override("margin_right", 12)
+	margin.add_theme_constant_override("margin_bottom", 12)
+	panel.add_child(margin)
+
+	var layout := VBoxContainer.new()
+	layout.add_theme_constant_override("separation", 8)
+	margin.add_child(layout)
+
 	var label := Label.new()
-	label.text = "Dialogue Editor — coming soon"
+	label.text = "Dialogue Editor"
 	label.add_theme_color_override("font_color", Color.PURPLE)
-	label.set_anchors_preset(Control.PRESET_CENTER)
-	panel.add_child(label)
+	layout.add_child(label)
+
+	var text_edit := TextEdit.new()
+	text_edit.name = "DialogueText"
+	text_edit.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	text_edit.placeholder_text = "Write your dialogue here..."
+	layout.add_child(text_edit)
 
 	return panel

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c5hx4q86gnj4g"]
+
+[ext_resource type="Script" uid="uid://b0827lr2sis" path="res://SCRIPTS/Dialogue/dialogue_event.gd" id="1_thyv5"]
+[ext_resource type="Script" uid="uid://d2cup2qk8ypkn" path="res://SCRIPTS/Dialogue/dialogue_sequence.gd" id="1_xculm"]
+[ext_resource type="Script" uid="uid://ceuedwpotbi47" path="res://SCRIPTS/Dialogue/text_event.gd" id="3_wjwnr"]
+
+[sub_resource type="Resource" id="Resource_xculm"]
+script = ExtResource("3_wjwnr")
+metadata/_custom_type_script = "uid://ceuedwpotbi47"
+
+[sub_resource type="Resource" id="Resource_wjwnr"]
+script = ExtResource("1_thyv5")
+events = Array[ExtResource("3_wjwnr")]([SubResource("Resource_xculm"), null, null, null])
+metadata/_custom_type_script = "uid://b0827lr2sis"
+
+[node name="Node" type="Node" unique_id=322672586]
+script = ExtResource("1_xculm")
+events = Array[ExtResource("1_thyv5")]([SubResource("Resource_wjwnr"), null, null, null])
