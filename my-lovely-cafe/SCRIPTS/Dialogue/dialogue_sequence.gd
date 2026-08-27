@@ -4,15 +4,21 @@ class_name DialogueSequence
 @export var events: Array[DialogueEvent] = []
 @onready var speaker_label: Label3D = $DialogueDisplay/SpeakerName
 @onready var dialogue_label: Label3D = $DialogueDisplay/DialogueText
+@export var left_controller: XRController3D
+@export var right_controller: XRController3D
 
 var _event_index: int = 0
 var _line_index: int = 0
 
 
 func _ready() -> void:
+	left_controller.button_pressed.connect(_on_button_pressed)
+	right_controller.button_pressed.connect(_on_button_pressed)
 	_show_current_beat()
 
-
+func _on_button_pressed(action_name: String) -> void:
+	if action_name == "trigger_click":
+		advance()
 func _show_current_beat() -> void:
 	if _event_index >= events.size():
 		return
