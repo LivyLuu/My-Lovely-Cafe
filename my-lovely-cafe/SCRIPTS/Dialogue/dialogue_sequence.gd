@@ -6,6 +6,7 @@ class_name DialogueSequence
 @onready var dialogue_label: Label3D = $DialogueDisplay/DialogueText
 @export var left_controller: XRController3D
 @export var right_controller: XRController3D
+@export var characters_per_second: float = 30.0
 
 var _event_index: int = 0
 var _line_index: int = 0
@@ -26,9 +27,21 @@ func _show_current_beat() -> void:
 	var event := events[_event_index]
 	if event is TextEvent:
 		speaker_label.text = event.character_id
-		dialogue_label.text = event.events[_line_index]
+		_type_line(event.events[_line_index])
 	elif event is OptionsEvent:
 		pass
+
+
+func _type_line(line: String) -> void:
+	dialogue_label.text = ""
+
+	var duration := line.length() / characters_per_second
+	var tween := create_tween()
+	tween.tween_method(_reveal_up_to.bind(line), 0, line.length(), duration)
+
+
+func _reveal_up_to(char_count: int, full_line: String) -> void:
+	dialogue_label.text = full_line.substr(0, char_count)
 
 
 func advance() -> void:

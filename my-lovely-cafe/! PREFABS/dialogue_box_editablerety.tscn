@@ -1,38 +1,6 @@
 [gd_scene format=3 uid="uid://b7y8048afn1vj"]
 
 [ext_resource type="Script" uid="uid://d2cup2qk8ypkn" path="res://SCRIPTS/Dialogue/dialogue_sequence.gd" id="1_84erl"]
-[ext_resource type="Script" uid="uid://b0827lr2sis" path="res://SCRIPTS/Dialogue/dialogue_event.gd" id="2_r40yg"]
-[ext_resource type="Script" uid="uid://ceuedwpotbi47" path="res://SCRIPTS/Dialogue/text_event.gd" id="3_mye88"]
-
-[sub_resource type="Resource" id="Resource_xculm"]
-script = ExtResource("3_mye88")
-character_id = &"Player Character"
-events = Array[String](["My grandpa died several days ago", "Ma said he left me some things, I'm not sure why though we we're never very close.", "Maybe he was lonely? no point wondering what's dead is dead"])
-metadata/_custom_type_script = "uid://ceuedwpotbi47"
-
-[sub_resource type="Resource" id="Resource_wjwnr"]
-script = ExtResource("3_mye88")
-character_id = &"Grandfather Cat"
-events = Array[String](["Hey", "Hey Kid"])
-metadata/_custom_type_script = "uid://ceuedwpotbi47"
-
-[sub_resource type="Resource" id="Resource_t32gl"]
-script = ExtResource("3_mye88")
-character_id = &"Player Character"
-events = Array[String](["??"])
-metadata/_custom_type_script = "uid://ceuedwpotbi47"
-
-[sub_resource type="Resource" id="Resource_yfmf0"]
-script = ExtResource("3_mye88")
-character_id = &"Grandfather Cat"
-events = Array[String](["down here"])
-metadata/_custom_type_script = "uid://ceuedwpotbi47"
-
-[sub_resource type="Resource" id="Resource_yo067"]
-script = ExtResource("3_mye88")
-character_id = &"Grandfather Cat"
-events = Array[String](["Man you aged like milk", "don't remember me do ya?", "man times done a number on you", "did you even open what he sent you", "...", "didn't think so"])
-metadata/_custom_type_script = "uid://ceuedwpotbi47"
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_84erl"]
 size = Vector2(2.75, 0.73)
@@ -45,7 +13,6 @@ albedo_color = Color(1, 1, 1, 0.21176471)
 
 [node name="DialogueBoxEDITABLE" type="Node3D" unique_id=749628244]
 script = ExtResource("1_84erl")
-events = Array[ExtResource("2_r40yg")]([SubResource("Resource_xculm"), SubResource("Resource_wjwnr"), SubResource("Resource_t32gl"), SubResource("Resource_yfmf0"), SubResource("Resource_yo067")])
 
 [node name="DialogueDisplay" type="Node3D" parent="." unique_id=2033840207]
 
