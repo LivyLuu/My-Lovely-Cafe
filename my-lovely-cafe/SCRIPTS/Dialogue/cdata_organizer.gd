@@ -5,7 +5,7 @@ static func get_property(property_name: StringName) -> Dictionary:
 	var ids := PackedStringArray()
 	for character in Characters.characters:
 		if character:
-			ids.append(character.id_name)
+			ids.append(character.display_name)
 	return {
 		"name": property_name,
 		"type": TYPE_STRING_NAME,
