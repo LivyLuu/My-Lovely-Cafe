@@ -11,6 +11,13 @@ display_name = "Grandfather Cat"
 portrait = ExtResource("3_fln6s")
 metadata/_custom_type_script = "uid://0udydmoqas0c"
 
+[sub_resource type="Resource" id="Resource_fln6s"]
+script = ExtResource("2_4i8mg")
+unlocked = true
+id_name = &"player_character"
+display_name = "Player Character"
+metadata/_custom_type_script = "uid://0udydmoqas0c"
+
 [node name="Characters" type="Node" unique_id=1825367966]
 script = ExtResource("1_t2ai0")
-characters = Array[ExtResource("2_4i8mg")]([SubResource("Resource_wwp6f")])
+characters = Array[ExtResource("2_4i8mg")]([SubResource("Resource_wwp6f"), SubResource("Resource_fln6s")])

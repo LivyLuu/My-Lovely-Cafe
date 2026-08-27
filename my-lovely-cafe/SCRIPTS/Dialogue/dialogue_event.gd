@@ -2,4 +2,4 @@
 extends Resource
 class_name DialogueEvent
 
-@export var events: Array[TextEvent] = []
+@export var events: Array[String] = []

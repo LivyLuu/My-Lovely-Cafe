@@ -3,4 +3,4 @@ extends Resource
 class_name DialogueOption
 
 @export var option_text: String
-@export var skip_ahead: int = 0
+#@export var skip_ahead: int = 0
