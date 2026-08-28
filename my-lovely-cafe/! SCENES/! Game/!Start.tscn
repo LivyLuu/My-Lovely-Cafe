@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://db7leb75txeb2" path="res://ASSETS/2D/speech_bubble.png" id="9_hh6dn"]
 [ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="10_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://dw8id1l0s3lnn" path="res://! PREFABS/Environment/counter.tscn" id="15_xfgne"]
+[ext_resource type="PackedScene" uid="uid://m6qsjew3vqki" path="res://! PREFABS/Environment/bean_grinder.tscn" id="16_cly2e"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
 [ext_resource type="PackedScene" uid="uid://c4di77hp5e04g" path="res://! SCENES/! Game/checkout_station.tscn" id="17_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
@@ -97,13 +98,16 @@ visible = false
 
 [node name="Counter" parent="ENVIRONMENT" unique_id=1533794548 instance=ExtResource("15_xfgne")]
 
+[node name="bean_grinder" parent="ENVIRONMENT" unique_id=1058923279 instance=ExtResource("16_cly2e")]
+transform = Transform3D(-0.47846204, 0, 0.8781084, 0, 1, 0, -0.8781084, 0, -0.47846204, -6.0678253, 1.0467942, -9.578053)
+
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
 
 [node name="STATIONS" type="Node" parent="." unique_id=486600263]
 
 [node name="Coffee Maker" parent="STATIONS" unique_id=787263129 instance=ExtResource("4_mdm6u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.860114, 1.0493252, -8.76775)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.4532275, 1.0493252, -9.772242)
 
 [node name="Checkout Station" parent="STATIONS" unique_id=2032981734 instance=ExtResource("17_lcw5u")]
 
@@ -113,16 +117,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8998575, 1.0492336, -7.300
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
 [node name="GlassCup" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1684233, -9.351636)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.854649, 1.1684233, -9.351636)
 
 [node name="GlassCup2" parent="PROPS" unique_id=1249351289 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -5.9279537, 1.1684233, -9.5006275)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.854649, 1.1684233, -9.5006275)
 
 [node name="GlassCup3" parent="PROPS" unique_id=1798922772 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -6.0602965, 1.1684233, -9.5006275)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.986992, 1.1684233, -9.5006275)
 
 [node name="GlassCup4" parent="PROPS" unique_id=1608591009 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -6.0602965, 1.1684233, -9.353153)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.986992, 1.1684233, -9.353153)
 
 [node name="CUSTOMERPATH" type="Node" parent="." unique_id=716826471]
 

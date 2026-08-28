@@ -48,6 +48,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://ASSETS/Materials/m_glass.tres",
 "use_external/path": "uid://bm41pa800v0up"
+},
+"Silver": {
+"use_external/enabled": true,
+"use_external/fallback_path": "",
+"use_external/path": "uid://dso055he17jwi"
 }
 }
 }
