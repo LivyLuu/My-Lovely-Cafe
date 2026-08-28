@@ -70,7 +70,7 @@ coffee_maker = NodePath("../STATIONS/Coffee Maker")
 [node name="UI" type="Node" parent="." unique_id=45341639]
 
 [node name="Viewport2Din3D" parent="UI" unique_id=1046643593 instance=ExtResource("7_klqu3")]
-transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -6.6156797)
+transform = Transform3D(-2.1855694e-10, 0, 0.005, 0, 0.005, 0, -0.005, 0, -2.1855694e-10, -8.110741, 2.177468, -5.964712)
 screen_size = Vector2(640, 360)
 scene = ExtResource("8_joe64")
 viewport_size = Vector2(640, 360)
@@ -114,16 +114,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8998575, 1.0492336, -7.300
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
 [node name="GlassCup" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.854649, 1.1684233, -9.642379)
+transform = Transform3D(0.9999854, -0.004819765, 0.0024411702, -0.0047877426, -0.9999046, -0.012956255, 0.0025033923, 0.012944377, -0.9999131, -7.9905653, 1.1751981, -8.848898)
 
 [node name="GlassCup2" parent="PROPS" unique_id=1249351289 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.854649, 1.1684233, -9.5006275)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.9905653, 1.1751981, -8.707147)
 
 [node name="GlassCup3" parent="PROPS" unique_id=1798922772 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.986992, 1.1684233, -9.5006275)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -8.122908, 1.1751981, -8.707147)
 
 [node name="GlassCup4" parent="PROPS" unique_id=1608591009 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.986992, 1.1684233, -9.643896)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -8.122908, 1.1751981, -8.850415)
 
 [node name="Bean_Grinder" parent="PROPS" unique_id=1114308332 instance=ExtResource("22_upc1c")]
 transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, -6.158388, 1.0538868, -8.0528)
