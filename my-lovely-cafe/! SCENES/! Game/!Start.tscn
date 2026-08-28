@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bb05heqr85u2y" path="res://! SCENES/Stations/cash_register.tscn" id="18_pef44"]
 [ext_resource type="PackedScene" uid="uid://c6w2gprg28abo" path="res://! SCENES/Stations/radio.tscn" id="20_hh6dn"]
 [ext_resource type="PackedScene" uid="uid://0jfnncekpoas" path="res://! SCENES/! Game/CafeTiles/ordering_station.tscn" id="20_l350j"]
+[ext_resource type="PackedScene" uid="uid://bfcju6pxct8lq" path="res://! SCENES/Props/bean_grinder.tscn" id="22_upc1c"]
 [ext_resource type="PackedScene" uid="uid://dhmc7wmref8bc" path="res://! PREFABS/World_music.tscn" id="24_xfgne"]
 [ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="25_fade"]
 
@@ -99,7 +100,7 @@ visible = false
 [node name="Counter" parent="ENVIRONMENT" unique_id=1533794548 instance=ExtResource("15_xfgne")]
 
 [node name="bean_grinder" parent="ENVIRONMENT" unique_id=1058923279 instance=ExtResource("16_cly2e")]
-transform = Transform3D(-0.47846204, 0, 0.8781084, 0, 1, 0, -0.8781084, 0, -0.47846204, -6.0678253, 1.0467942, -9.578053)
+transform = Transform3D(-0.47846204, 0, 0.8781084, 0, 1, 0, -0.8781084, 0, -0.47846204, -6.1298914, 1.0467942, -8.607855)
 
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
@@ -117,7 +118,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8998575, 1.0492336, -7.300
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
 
 [node name="GlassCup" parent="PROPS" unique_id=1911124857 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.854649, 1.1684233, -9.351636)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.854649, 1.1684233, -9.642379)
 
 [node name="GlassCup2" parent="PROPS" unique_id=1249351289 instance=ExtResource("6_n71f8")]
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.854649, 1.1684233, -9.5006275)
@@ -126,7 +127,10 @@ transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.8
 transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.986992, 1.1684233, -9.5006275)
 
 [node name="GlassCup4" parent="PROPS" unique_id=1608591009 instance=ExtResource("6_n71f8")]
-transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.986992, 1.1684233, -9.353153)
+transform = Transform3D(1, 0, 0, 0, -1, -8.742278e-08, 0, 8.742278e-08, -1, -7.986992, 1.1684233, -9.643896)
+
+[node name="Bean_Grinder" parent="PROPS" unique_id=1114308332 instance=ExtResource("22_upc1c")]
+transform = Transform3D(-0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710677, -6.158388, 1.0538868, -8.0528)
 
 [node name="CUSTOMERPATH" type="Node" parent="." unique_id=716826471]
 
