@@ -1,0 +1,639 @@
+[gd_scene format=3 uid="uid://cl2uwk6nssoiw"]
+
+[ext_resource type="Shader" uid="uid://dx7r82mnd4qgu" path="res://ASSETS/Shaders/fur_shell2.gdshader" id="1_clrw1"]
+[ext_resource type="Texture2D" uid="uid://bod457w5oqn21" path="res://ASSETS/Shaders/cheetah_print.png" id="2_7cc3i"]
+[ext_resource type="Script" uid="uid://dwyav7xy66rd6" path="res://ASSETS/Shaders/fur_shell_shader.gd" id="2_clrw1"]
+[ext_resource type="Script" uid="uid://kvff0sahbdxf" path="res://ASSETS/Shaders/Final_fur.gd" id="4_d5pme"]
+[ext_resource type="Shader" uid="uid://b67o37p7dffrr" path="res://ASSETS/Shaders/FINAL_fur.gdshader" id="4_q1ij2"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_d5pme"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7cc3i"]
+width = 1000
+height = 1000
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q1ij2"]
+render_priority = 0
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 1.0
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7n3ce"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_q1ij2")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.9285714285714286
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5diat"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_7n3ce")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.8571428571428571
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_blddn"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_5diat")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.7857142857142857
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ls233"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_blddn")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.7142857142857143
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7jyvj"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_ls233")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.6428571428571429
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_82s6b"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_7jyvj")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.5714285714285714
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n8fhx"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_82s6b")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.5
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ok5xh"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_n8fhx")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.42857142857142855
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_km5ue"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_ok5xh")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.35714285714285715
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ji3j3"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_km5ue")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.2857142857142857
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fntio"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_ji3j3")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.21428571428571427
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_81pol"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_fntio")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.14285714285714285
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b2uo3"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_81pol")
+shader = ExtResource("1_clrw1")
+shader_parameter/shell_index = 0.07142857142857142
+shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_strength = 0.88
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+shader_parameter/fur_tiling = Vector2(15, 15)
+shader_parameter/fur_density = 1.0
+shader_parameter/fur_thickness = 0.1
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_strength = 0.0
+shader_parameter/sheen_power = 6.254
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jyvj"]
+next_pass = SubResource("ShaderMaterial_b2uo3")
+albedo_color = Color(0.35, 0.25, 0.18, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nja45"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nja45"]
+render_priority = 0
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 1.0
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gvcsd"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_nja45")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.9285714285714286
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_osyvo"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_gvcsd")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.8571428571428571
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vd20e"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_osyvo")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.7857142857142857
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jwswc"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_vd20e")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.7142857142857143
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t528q"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_jwswc")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.6428571428571429
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ae8d7"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_t528q")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.5714285714285714
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nd0em"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_ae8d7")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.5
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqe6c"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_nd0em")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.42857142857142855
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_55jhd"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_dqe6c")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.35714285714285715
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_asn2d"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_55jhd")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.2857142857142857
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_byy6j"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_asn2d")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.21428571428571427
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0wdc"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_byy6j")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.14285714285714285
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ghk3"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_e0wdc")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.07142857142857142
+shader_parameter/root_color = Color(0.79, 0.51903003, 0.4029, 1)
+shader_parameter/tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+shader_parameter/pattern_texture = ExtResource("2_7cc3i")
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.895
+shader_parameter/fur_pattern = SubResource("NoiseTexture2D_nja45")
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.71
+shader_parameter/fur_thickness = 0.3
+shader_parameter/fur_lean = Vector3(0.2, -0.66, 0)
+shader_parameter/sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+shader_parameter/sheen_strength = 0.267
+shader_parameter/sheen_power = 7.457
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+shader_parameter/rim_power = 5.154
+shader_parameter/rim_strength = 0.915
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8yhgc"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_4ghk3")
+shader = ExtResource("4_q1ij2")
+shader_parameter/shell_index = 0.2
+shader_parameter/root_color = Color(0.35, 0.25, 0.18, 1)
+shader_parameter/tip_color = Color(0.6, 0.5, 0.42, 1)
+shader_parameter/pattern_tiling = Vector2(4, 4)
+shader_parameter/pattern_strength = 0.6
+shader_parameter/fur_tiling = Vector2(12, 12)
+shader_parameter/fur_density = 0.55
+shader_parameter/fur_thickness = 0.02
+shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
+shader_parameter/sheen_color = Color(1, 1, 1, 1)
+shader_parameter/sheen_strength = 0.4
+shader_parameter/sheen_power = 12.0
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(1, 0.9, 0.75, 1)
+shader_parameter/rim_power = 3.0
+shader_parameter/rim_strength = 0.5
+
+[node name="Node3D" type="Node3D" unique_id=538109977]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=375926004]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47160113, -1)
+mesh = SubResource("SphereMesh_d5pme")
+surface_material_override/0 = SubResource("StandardMaterial3D_7jyvj")
+script = ExtResource("2_clrw1")
+fur_shader = ExtResource("1_clrw1")
+shell_count = 14
+total_thickness = 0.1
+root_color = Color(0.7, 0.57143337, 0.294, 1)
+pattern_texture = ExtResource("2_7cc3i")
+pattern_strength = 0.88
+fur_pattern = SubResource("NoiseTexture2D_7cc3i")
+fur_tiling = Vector2(15, 15)
+fur_density = 1.0
+sheen_strength = 0.0
+sheen_power = 6.254
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=985537280]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47160113, 1)
+mesh = SubResource("SphereMesh_d5pme")
+surface_material_override/0 = SubResource("ShaderMaterial_8yhgc")
+script = ExtResource("4_d5pme")
+fur_shader = ExtResource("4_q1ij2")
+shell_count = 14
+total_thickness = 0.3
+root_color = Color(0.79, 0.51903003, 0.4029, 1)
+tip_color = Color(0.7554905, 0.6768661, 0.47733045, 1)
+pattern_texture = ExtResource("2_7cc3i")
+pattern_strength = 0.895
+fur_pattern = SubResource("NoiseTexture2D_nja45")
+fur_density = 0.71
+fur_lean = Vector3(0.2, -0.66, 0)
+sheen_color = Color(0.6416445, 0.38412523, 9.62615e-08, 0.5058824)
+sheen_strength = 0.267
+sheen_power = 7.457
+rim_color = Color(0.56, 0.3109867, 0.23520002, 1)
+rim_power = 5.154
+rim_strength = 0.915

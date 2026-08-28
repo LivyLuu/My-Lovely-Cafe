@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://m6qsjew3vqki"]
+
+[ext_resource type="PackedScene" uid="uid://dm5ln7ddpje67" path="res://ASSETS/blend/bean_grinder.fbx" id="1_2hpq6"]
+[ext_resource type="Shader" uid="uid://38t140ai36td" path="res://ASSETS/Shaders/silver_metal.gdshader" id="2_3f5hl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3f5hl"]
+metallic = 1.0
+metallic_specular = 0.97
+
+[sub_resource type="SphereMesh" id="SphereMesh_npaq5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gyvk5"]
+render_priority = 0
+shader = ExtResource("2_3f5hl")
+shader_parameter/base_color = Color(0.75, 0.76, 0.78, 1)
+shader_parameter/metallic_amount = 1.0
+shader_parameter/roughness_amount = 0.322000015295
+shader_parameter/detail_tiling = Vector2(1, 1)
+shader_parameter/brushed_streaks_enabled = true
+shader_parameter/streak_frequency = 120.0
+shader_parameter/streak_strength = 0.06
+shader_parameter/rim_enabled = true
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/rim_power = 3.0
+shader_parameter/rim_strength = 0.12800000608
+
+[node name="bean_grinder" unique_id=1090177476 instance=ExtResource("1_2hpq6")]
+
+[node name="Handle" parent="." index="1" unique_id=1040026998]
+material_override = SubResource("StandardMaterial3D_3f5hl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="4" unique_id=981802566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = SubResource("SphereMesh_npaq5")
+surface_material_override/0 = SubResource("ShaderMaterial_gyvk5")

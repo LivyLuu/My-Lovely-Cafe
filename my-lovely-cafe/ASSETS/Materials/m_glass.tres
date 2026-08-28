@@ -8,5 +8,5 @@ shader = ExtResource("1_sbaxx")
 shader_parameter/base_color = Color(0.9, 0.95, 1, 0.15)
 shader_parameter/roughness = 0.0
 shader_parameter/metallic = 0.9450000448875
-shader_parameter/iridescence_strength = 0.2210000104975
-shader_parameter/fresnel_power = 0.5
+shader_parameter/iridescence_strength = 0.14400000684
+shader_parameter/fresnel_power = 1.9800000703
