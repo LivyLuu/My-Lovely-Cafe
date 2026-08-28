@@ -270,9 +270,8 @@ shape = SubResource("ConvexPolygonShape3D_bdvdr")
 transform = Transform3D(6.676482e-14, 1.5274009e-06, 34.94286, 34.94286, -1.5274009e-06, 0, 1.5274009e-06, 34.94286, -1.5274009e-06, 0, 0, 0)
 
 [node name="InteractableHinge" parent="HingeOrigin" index="0" unique_id=498789849 instance=ExtResource("10_7v0ry")]
-transform = Transform3D(1, 0, 0, 0, -4.3711385e-08, 0.99999994, 0, -0.99999994, -4.3711385e-08, 0, 0, 0)
-hinge_limit_min = -360.0
-hinge_limit_max = 360.0
+hinge_limit_min = -1000000.0
+hinge_limit_max = 1000000.0
 
 [node name="Handle2" type="MeshInstance3D" parent="HingeOrigin/InteractableHinge" index="0" unique_id=1122398719]
 transform = Transform3D(-4.3711374e-08, -1.9102863e-15, 0.9999997, -1.9496996e-15, 0.9999997, 1.9102865e-15, -0.9999997, -1.9496996e-15, -4.3711374e-08, 0.000324517, 6.200489e-19, -1.16244014e-10)
@@ -287,6 +286,12 @@ freeze = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HingeOrigin/InteractableHinge/Handle/InteractableHandle" index="0" unique_id=806351869]
 transform = Transform3D(15.384616, 0, 0, 0, 15.384618, 2.2737368e-13, 0, -2.2737368e-13, 15.384618, 0, 0, -1.4901161e-08)
 shape = SubResource("SphereShape3D_s8akj")
+
+[node name="GrabPointHandLeft" parent="HingeOrigin/InteractableHinge/Handle/InteractableHandle" index="1" instance=ExtResource("4_tavi6")]
+hand_pose = SubResource("Resource_4btnc")
+
+[node name="GrabPointHandRight" parent="HingeOrigin/InteractableHinge/Handle/InteractableHandle" index="2" instance=ExtResource("7_kuupj")]
+hand_pose = SubResource("Resource_rg0fl")
 
 [node name="Lid" type="MeshInstance3D" parent="." index="6" unique_id=1380437589]
 transform = Transform3D(34.94286, 0, 0, 0, -4.1655135e-06, 34.942856, 0, -34.942856, -4.1655135e-06, 0, 0, 0)
