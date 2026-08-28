@@ -16,7 +16,6 @@
 [ext_resource type="Texture2D" uid="uid://db7leb75txeb2" path="res://ASSETS/2D/speech_bubble.png" id="9_hh6dn"]
 [ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="10_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://dw8id1l0s3lnn" path="res://! PREFABS/Environment/counter.tscn" id="15_xfgne"]
-[ext_resource type="PackedScene" uid="uid://m6qsjew3vqki" path="res://! PREFABS/Environment/bean_grinder.tscn" id="16_cly2e"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
 [ext_resource type="PackedScene" uid="uid://c4di77hp5e04g" path="res://! SCENES/! Game/checkout_station.tscn" id="17_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
@@ -98,9 +97,6 @@ visible = false
 [node name="Glowy Dust" parent="ENVIRONMENT" unique_id=2031279548 instance=ExtResource("6_5ahwy")]
 
 [node name="Counter" parent="ENVIRONMENT" unique_id=1533794548 instance=ExtResource("15_xfgne")]
-
-[node name="bean_grinder" parent="ENVIRONMENT" unique_id=1058923279 instance=ExtResource("16_cly2e")]
-transform = Transform3D(-0.47846204, 0, 0.8781084, 0, 1, 0, -0.8781084, 0, -0.47846204, -6.1298914, 1.0467942, -8.607855)
 
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
