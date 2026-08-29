@@ -3,6 +3,7 @@ render_mode cull_front, unshaded;
 
 uniform vec4 outline_color : source_color;
 uniform float outline_width = 1.0;
+uniform bool outline_enabled = true;
 
 void vertex() {
 	vec4 clip_position = PROJECTION_MATRIX * (MODELVIEW_MATRIX * vec4(VERTEX, 1.0));
@@ -16,6 +17,9 @@ void vertex() {
 }
 
 void fragment() {
+	if (!outline_enabled) {
+		discard;
+	}
 	ALBEDO = outline_color.rgb;
 	if (outline_color.a < 1.0) {
 		ALPHA = outline_color.a;

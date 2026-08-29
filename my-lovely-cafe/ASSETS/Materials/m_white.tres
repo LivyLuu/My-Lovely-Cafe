@@ -6,7 +6,7 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_sp0tb"]
 render_priority = 0
 shader = ExtResource("1_rplg3")
-shader_parameter/outline_color = Color(0.95, 0.91833335, 0, 1)
+shader_parameter/outline_color = Color(1, 1, 1, 1)
 shader_parameter/outline_width = 2.96
 
 [resource]
