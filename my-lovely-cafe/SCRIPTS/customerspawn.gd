@@ -4,7 +4,7 @@ extends Node
 @export var customer_spawn_point: Array[Node3D] = []
 @export var spawn_interval_range: Vector2 = Vector2(8.0, 15.0)
 @export var day_duration: float = 180.0
-@export var level_manager: $"../LEVELMANAGER"
+@onready var level_manager: LevelManager = $"../LEVELMANAGER"
 
 var day_timer: float
 var spawn_timer: float
