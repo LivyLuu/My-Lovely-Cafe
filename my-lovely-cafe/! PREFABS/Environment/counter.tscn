@@ -41,6 +41,9 @@ shader_parameter/ring_frequency = 14.0
 shader_parameter/ring_speed = 8.0
 shader_parameter/splash_fade_radius = 0.5
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhygc"]
+size = Vector3(0.446279, 0.18170166, 0.96274996)
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_g122q"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lpupp"]
@@ -102,7 +105,16 @@ cast_shadow = 0
 mesh = SubResource("PlaneMesh_njs5c")
 surface_material_override/0 = SubResource("ShaderMaterial_bhygc")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="5" unique_id=1762191180]
+[node name="Area3D" type="Area3D" parent="." index="5" unique_id=797984625]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9158993, 0.9945344, -8.120264)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1742686415]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.027338982, -0.07180786, 0.012765884)
+shape = SubResource("BoxShape3D_bhygc")
+
+[node name="Water" type="MeshInstance3D" parent="." index="6" unique_id=1762191180]
 transform = Transform3D(0.3186808, 0, 0, 0, 1, 0, 0, 0, 0.5984316, -7.9158993, 0.9945344, -8.120264)
 mesh = SubResource("PlaneMesh_g122q")
 surface_material_override/0 = SubResource("ShaderMaterial_lpupp")
