@@ -25,3 +25,13 @@ func _set(property: StringName, value) -> bool:
 
 #@export var character_expression: Expression = Expression.NEUTRAL
 @export var skip_ahead: int = 1
+@export var player_focus_location: int = 1
+@export var player_focus: bool = false:
+	set(value):
+		player_focus = value
+		notify_property_list_changed()
+		
+	#THING THAT SHOWS THE SETTING ON TOGGLE TRUE
+func _validate_property(property: Dictionary) -> void:
+	if property.name == "player_focus_location" and not player_focus:
+		property.usage &= ~PROPERTY_USAGE_EDITOR

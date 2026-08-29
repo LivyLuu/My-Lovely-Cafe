@@ -60,7 +60,7 @@ shader_parameter/ripple_speed = 1.5
 shader_parameter/ripple_wavelength = 0.3
 shader_parameter/ripple_amplitude = 0.03
 shader_parameter/ripple_lifetime = 3.0
-shader_parameter/ring_highlight_color = Color(1, 1, 1, 1)
+shader_parameter/ring_highlight_color = Color(2.5027991e-06, 0.86975795, 0.89837414, 1)
 shader_parameter/ring_threshold = 0.6
 shader_parameter/sparkle_enabled = true
 shader_parameter/sparkle_color = Color(1, 1, 1, 1)
@@ -68,7 +68,7 @@ shader_parameter/sparkle_density = 78.726003691985
 shader_parameter/sparkle_speed = 4.2210002004975
 shader_parameter/sparkle_chance = 0.99899998086064
 shader_parameter/rim_enabled = true
-shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/rim_color = Color(0.37, 0.76900005, 1, 1)
 shader_parameter/rim_power = 3.0
 shader_parameter/rim_strength = 0.6
 
