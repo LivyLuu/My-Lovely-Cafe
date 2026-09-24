@@ -1,0 +1,11 @@
+Narrator: Welcome to the Dialogic test, running inside My Lovely Cafe's VR dialogue box.
+"Grandpa Cat": Deez nutz
+"Grandpa Cat": This line proves that inline effect tags get cleaned up. [pause=0.5!] See? No stray brackets.
+"Grandpa Cat": Grandpa Cat\: Hey kid. Been a while, hasn't it?
+- Say hello back
+	Grandpa Cat\: Good to see you too.
+- Stay quiet
+	"Grandpa Cat": Grandpa Cat\: Still the quiet type, huh.
+"Grandpa Cat": Grandpa Cat\: Either way, welcome home.
+[wait time="1.0"]
+Narrator: That's the whole test. Pull the trigger one more time to close it out.
