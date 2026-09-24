@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://btvglqo84su41"]
+
+[ext_resource type="PackedScene" uid="uid://5kn76f5ry5w4" path="res://ASSETS/3D/CatBase.fbx" id="1_1vl5p"]
+[ext_resource type="Script" uid="uid://kvff0sahbdxf" path="res://ASSETS/Shaders/Final_fur.gd" id="2_1vl5p"]
+[ext_resource type="Texture2D" uid="uid://bod457w5oqn21" path="res://ASSETS/Shaders/cheetah_print.png" id="3_0oybq"]
+[ext_resource type="Material" uid="uid://c8o0t53o1svd1" path="res://ASSETS/Materials/M_cat_eyewhites.tres" id="3_hm0kn"]
+
+[sub_resource type="Shader" id="Shader_ee5nc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcj6w"]
+render_priority = 0
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pbh6y"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_pcj6w")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ocbwh"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_pbh6y")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6mjo2"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_ocbwh")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8fxjg"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_6mjo2")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3dtp0"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_8fxjg")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aa8jp"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_3dtp0")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4erfw"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_aa8jp")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bi7fu"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_4erfw")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_br05u"]
+render_priority = 0
+next_pass = SubResource("ShaderMaterial_bi7fu")
+shader = SubResource("Shader_ee5nc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clo58"]
+next_pass = SubResource("ShaderMaterial_br05u")
+albedo_texture = ExtResource("3_0oybq")
+uv1_scale = Vector3(4, 4, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hnq5v"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_h07yf"]
+
+[node name="CatBase" unique_id=492346989 instance=ExtResource("1_1vl5p")]
+
+[node name="Cat Base Merged_001" parent="." index="0" unique_id=421380860]
+surface_material_override/0 = SubResource("StandardMaterial3D_clo58")
+surface_material_override/1 = SubResource("StandardMaterial3D_hnq5v")
+surface_material_override/2 = ExtResource("3_hm0kn")
+script = ExtResource("2_1vl5p")
+fur_shader = SubResource("Shader_ee5nc")
+shell_count = 10
+total_thickness = 0.3
+pattern_texture = ExtResource("3_0oybq")
+pattern_strength = 0.302
+fur_pattern = SubResource("NoiseTexture2D_h07yf")
+fur_tiling = Vector2(14.04, 12.925)
+fur_density = 0.825

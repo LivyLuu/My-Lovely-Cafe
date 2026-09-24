@@ -1,0 +1,294 @@
+[gd_scene format=3 uid="uid://oq23iwidqjrb"]
+
+[ext_resource type="Script" uid="uid://dq40b6xbvapk3" path="res://SCRIPTS/!start.gd" id="1_357oh"]
+[ext_resource type="PackedScene" uid="uid://dhmc7wmref8bc" path="res://! PREFABS/World_music.tscn" id="2_goku5"]
+[ext_resource type="PackedScene" uid="uid://wtpox7m5vu2b" path="res://addons/godot-xr-tools/effects/fade.tscn" id="5_jc7lf"]
+[ext_resource type="PackedScene" uid="uid://2eunpo7spxvw" path="res://! PREFABS/Environment/outdoors.tscn" id="6_5tsti"]
+[ext_resource type="PackedScene" uid="uid://bn56reoabl3gf" path="res://! PREFABS/Environment/house.tscn" id="7_6qld3"]
+[ext_resource type="PackedScene" uid="uid://chuyfudf5f2tc" path="res://! SCENES/SFX/glowy_dust.tscn" id="8_335j7"]
+[ext_resource type="PackedScene" uid="uid://uexyammaps33" path="res://! SCENES/! Game/xr_origin.tscn" id="9_6fkgs"]
+[ext_resource type="Material" path="res://addons/godot-xr-tools/materials/pointer.tres" id="10_sgid1"]
+[ext_resource type="Shader" uid="uid://cr15ldcsf7un2" path="res://ASSETS/Shaders/rain.gdshader" id="20_rain"]
+[ext_resource type="Shader" uid="uid://nhigdd1i5du6" path="res://ASSETS/Shaders/rain_splash.gdshader" id="21_splash"]
+[ext_resource type="Shader" uid="uid://csuwjlfwcufvm" path="res://ASSETS/Shaders/rain_droplet.gdshader" id="22_droplet"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gwwsu"]
+sky_top_color = Color(0.05229719, 0.11843046, 0.23613003, 1)
+sky_horizon_color = Color(0.020295221, 0.03466887, 0.11643007, 1)
+sky_curve = 0.52233005
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.01974909, 0.085855834, 0.14539912, 1)
+use_debanding = false
+
+[sub_resource type="Sky" id="Sky_yk7y5"]
+sky_material = SubResource("ProceduralSkyMaterial_gwwsu")
+
+[sub_resource type="Environment" id="Environment_r8ipk"]
+background_mode = 2
+background_energy_multiplier = 0.57
+sky = SubResource("Sky_yk7y5")
+tonemap_mode = 2
+
+[sub_resource type="BoxMesh" id="BoxMesh_357oh"]
+size = Vector3(11.795, 18.61, 10.09)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rain"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 0.05, 3)
+direction = Vector3(0, -1, 0)
+spread = 2.0
+initial_velocity_min = 4.0
+initial_velocity_max = 6.0
+scale_min = 0.8
+scale_max = 1.3
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rain"]
+render_priority = 0
+shader = ExtResource("20_rain")
+shader_parameter/rain_color = Color(0.75, 0.92, 1, 0.35)
+shader_parameter/holo_tint_a = Color(0.55, 1, 1, 1)
+shader_parameter/holo_tint_b = Color(1, 0.65, 1, 1)
+shader_parameter/scroll_speed = 5.0
+shader_parameter/edge_softness = 0.35
+shader_parameter/glow_strength = 1.2
+shader_parameter/streak_length = 1.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_rain"]
+material = SubResource("ShaderMaterial_rain")
+size = Vector2(0.03, 0.4)
+
+[sub_resource type="Gradient" id="Gradient_splash"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_splash"]
+gradient = SubResource("Gradient_splash")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_splash"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 0.01, 3)
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_max = 0.2
+gravity = Vector3(0, 0, 0)
+scale_min = 0.6
+scale_max = 1.1
+color_ramp = SubResource("GradientTexture1D_splash")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_splash"]
+render_priority = 0
+shader = ExtResource("21_splash")
+shader_parameter/splash_color = Color(0.6, 0.95, 1, 1)
+shader_parameter/ring_thickness = 0.12
+shader_parameter/ring_radius = 0.75
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_splash"]
+material = SubResource("ShaderMaterial_splash")
+size = Vector2(0.25, 0.25)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_droplets"]
+emission_shape = 3
+emission_box_extents = Vector3(3, 0.01, 3)
+direction = Vector3(0, 1, 0)
+spread = 35.0
+initial_velocity_min = 0.8
+initial_velocity_max = 1.6
+scale_min = 0.7
+scale_max = 1.3
+color_ramp = SubResource("GradientTexture1D_splash")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_droplet"]
+render_priority = 0
+shader = ExtResource("22_droplet")
+shader_parameter/droplet_color = Color(0.65, 0.95, 1, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_droplet"]
+material = SubResource("ShaderMaterial_droplet")
+size = Vector2(0.03, 0.03)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_goku5"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sladx"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_h1w4f"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jc7lf"]
+animation = &"Default pose"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5tsti"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6qld3"]
+graph_offset = Vector2(-536, 11)
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_goku5")
+nodes/ClosedHand1/position = Vector2(-600, 300)
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_sladx")
+nodes/ClosedHand2/position = Vector2(-360, 300)
+nodes/Grip/node = SubResource("AnimationNodeBlend2_h1w4f")
+nodes/Grip/position = Vector2(0, 20)
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_jc7lf")
+nodes/OpenHand/position = Vector2(-600, 100)
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_5tsti")
+nodes/Trigger/position = Vector2(-360, 20)
+node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_335j7"]
+resource_local_to_scene = true
+material = ExtResource("10_sgid1")
+size = Vector3(0.002, 0.002, 10)
+subdivide_depth = 20
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6fkgs"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sgid1"]
+animation = &"Grip"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_un2do"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Little_Distal_R", "Armature/Skeleton3D:Little_Intermediate_R", "Armature/Skeleton3D:Little_Metacarpal_R", "Armature/Skeleton3D:Little_Proximal_R", "Armature/Skeleton3D:Middle_Distal_R", "Armature/Skeleton3D:Middle_Intermediate_R", "Armature/Skeleton3D:Middle_Metacarpal_R", "Armature/Skeleton3D:Middle_Proximal_R", "Armature/Skeleton3D:Ring_Distal_R", "Armature/Skeleton3D:Ring_Intermediate_R", "Armature/Skeleton3D:Ring_Metacarpal_R", "Armature/Skeleton3D:Ring_Proximal_R", "Armature/Skeleton3D:Thumb_Distal_R", "Armature/Skeleton3D:Thumb_Metacarpal_R", "Armature/Skeleton3D:Thumb_Proximal_R", "Armature/Skeleton:Little_Distal_R", "Armature/Skeleton:Little_Intermediate_R", "Armature/Skeleton:Little_Proximal_R", "Armature/Skeleton:Middle_Distal_R", "Armature/Skeleton:Middle_Intermediate_R", "Armature/Skeleton:Middle_Proximal_R", "Armature/Skeleton:Ring_Distal_R", "Armature/Skeleton:Ring_Intermediate_R", "Armature/Skeleton:Ring_Proximal_R", "Armature/Skeleton:Thumb_Distal_R", "Armature/Skeleton:Thumb_Proximal_R"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ruh7c"]
+animation = &"Default pose"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_ko6xp"]
+filter_enabled = true
+filters = ["Armature/Skeleton3D:Index_Distal_R", "Armature/Skeleton3D:Index_Intermediate_R", "Armature/Skeleton3D:Index_Metacarpal_R", "Armature/Skeleton3D:Index_Proximal_R", "Armature/Skeleton:Index_Distal_R", "Armature/Skeleton:Index_Intermediate_R", "Armature/Skeleton:Index_Proximal_R"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u77bx"]
+graph_offset = Vector2(-552.664, 107.301)
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_6fkgs")
+nodes/ClosedHand1/position = Vector2(-600, 300)
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_sgid1")
+nodes/ClosedHand2/position = Vector2(-360, 300)
+nodes/Grip/node = SubResource("AnimationNodeBlend2_un2do")
+nodes/Grip/position = Vector2(0, 40)
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_ruh7c")
+nodes/OpenHand/position = Vector2(-600, 100)
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_ko6xp")
+nodes/Trigger/position = Vector2(-360, 40)
+node_connections = [&"output", 0, &"Grip", &"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1"]
+
+[node name="!Start" type="Node3D" unique_id=1824626723]
+script = ExtResource("1_357oh")
+
+[node name="💡" type="Node" parent="." unique_id=156462932]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="💡" unique_id=1715697911]
+transform = Transform3D(-0.74557614, -0.36207867, 0.5594776, 0.15864986, 0.7189542, 0.6767091, -0.64726055, 0.59329903, -0.47859126, -5.78261, 1.7456923, -4.2149963)
+light_color = Color(0.16883388, 0.13550991, 0.3474771, 1)
+light_energy = 0.788
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="💡" unique_id=1213882274]
+environment = SubResource("Environment_r8ipk")
+
+[node name="Street Light" type="OmniLight3D" parent="💡" unique_id=1033601414]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.997175, 3.4614673, -22.0198)
+light_color = Color(1, 0.31666666, 0, 1)
+light_energy = 2.345
+light_indirect_energy = 1.05
+light_volumetric_fog_energy = 1.92
+light_size = 0.102
+omni_range = 5.187
+omni_attenuation = 0.823
+
+[node name="Street Light2" type="OmniLight3D" parent="💡" unique_id=1968952671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.942699, 1.4295144, -18.51339)
+light_color = Color(0.33, 0.2145, 0, 1)
+light_energy = 2.345
+light_indirect_energy = 1.05
+light_volumetric_fog_energy = 1.92
+light_size = 0.102
+omni_range = 5.187
+omni_attenuation = 1.885
+
+[node name="♫" type="Node" parent="." unique_id=149998679]
+
+[node name="AudioStreamPlayer3D" parent="♫" unique_id=73031278 instance=ExtResource("2_goku5")]
+volume_db = -51.915
+max_db = -13.755
+area_mask = 0
+
+[node name="UI" type="Node" parent="." unique_id=45341639]
+
+[node name="Fade" parent="UI" unique_id=1192562254 instance=ExtResource("5_jc7lf")]
+
+[node name="ENVIRONMENT" type="Node" parent="." unique_id=747379394]
+
+[node name="Outdoors" parent="ENVIRONMENT" unique_id=789773746 instance=ExtResource("6_5tsti")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4612856, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ENVIRONMENT/Outdoors" unique_id=614218330]
+transform = Transform3D(2.7569058, 0, 0, 0, 1, 0, 0, 0, 1, 7.6411037, 9.229409, -26.255304)
+mesh = SubResource("BoxMesh_357oh")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="ENVIRONMENT/Outdoors" unique_id=1122042814]
+transform = Transform3D(2.7569058, 0, 0, 0, 1, 0, 0, 0, 1, -31.818003, 9.229409, -26.255304)
+mesh = SubResource("BoxMesh_357oh")
+
+[node name="House" parent="ENVIRONMENT" unique_id=1829617261 instance=ExtResource("7_6qld3")]
+
+[node name="Glowy Dust" parent="ENVIRONMENT" unique_id=2031279548 instance=ExtResource("8_335j7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 15.184461)
+
+[node name="Rain" type="Node3D" parent="ENVIRONMENT" unique_id=1050950824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5691805, 0, -17.485254)
+
+[node name="RainFall" type="GPUParticles3D" parent="ENVIRONMENT/Rain" unique_id=1978115248]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 5, 0)
+amount = 1892
+amount_ratio = 0.5301
+lifetime = 2.5
+speed_scale = 0.95
+randomness = 0.4
+visibility_aabb = AABB(-4, -6, -4, 8, 8, 8)
+process_material = SubResource("ParticleProcessMaterial_rain")
+draw_pass_1 = SubResource("QuadMesh_rain")
+
+[node name="RainSplash" type="GPUParticles3D" parent="ENVIRONMENT/Rain" unique_id=1724440427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.47865486, -0.67082787)
+amount = 40
+lifetime = 0.4
+randomness = 1.0
+visibility_aabb = AABB(-4, -1, -4, 8, 2, 8)
+process_material = SubResource("ParticleProcessMaterial_splash")
+draw_pass_1 = SubResource("PlaneMesh_splash")
+
+[node name="RainSplashDroplets" type="GPUParticles3D" parent="ENVIRONMENT/Rain" unique_id=999605397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.44470453, -2.2493858)
+amount = 25
+lifetime = 0.45
+randomness = 1.0
+visibility_aabb = AABB(-4, -1, -4, 8, 2, 8)
+process_material = SubResource("ParticleProcessMaterial_droplets")
+draw_pass_1 = SubResource("QuadMesh_droplet")
+
+[node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("9_6fkgs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5691805, 0, -17.485254)
+
+[node name="MovementDirect" parent="XROrigin3D/LeftHand" parent_id_path=PackedInt32Array(1179157175, 926970644) index="0" unique_id=381327802]
+enabled = false
+
+[node name="MovementSprint" parent="XROrigin3D/LeftHand" parent_id_path=PackedInt32Array(1179157175, 926970644) index="2" unique_id=1819208029]
+enabled = false
+
+[node name="AnimationTree" parent="XROrigin3D/LeftHand/LeftHand" parent_id_path=PackedInt32Array(1179157175, 130582469) index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_6qld3")
+
+[node name="Laser" parent="XROrigin3D/LeftHand/FunctionPointer" parent_id_path=PackedInt32Array(1179157175, 624210100) index="1"]
+mesh = SubResource("BoxMesh_335j7")
+
+[node name="AnimationTree" parent="XROrigin3D/RightHand/RightHand" parent_id_path=PackedInt32Array(1179157175, 1636239549) index="1"]
+tree_root = SubResource("AnimationNodeBlendTree_u77bx")
+
+[editable path="XROrigin3D"]
+[editable path="XROrigin3D/LeftHand/LeftHand"]
+[editable path="XROrigin3D/LeftHand/LeftHand/Hand_Nails_low_L"]
+[editable path="XROrigin3D/LeftHand/FunctionPointer"]
+[editable path="XROrigin3D/RightHand/RightHand"]
+[editable path="XROrigin3D/RightHand/RightHand/Hand_Nails_low_R"]

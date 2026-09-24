@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c8o0t53o1svd1"]
+
+[resource]
+specular_mode = 1
+disable_fog = true
+disable_specular_occlusion = true
