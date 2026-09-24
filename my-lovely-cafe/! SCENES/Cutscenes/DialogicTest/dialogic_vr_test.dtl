@@ -1,0 +1,21 @@
+You: My grandpa died several days ago
+You: Ma said he left me some things, I'm not sure why though we we're never very close.
+You: Maybe he was lonely?
+You: no point wondering.
+You: What's dead is dead
+"Grandpa Cat": Hey
+"Grandpa Cat": Hey Kid
+You: ??
+"Grandpa Cat": down here
+"Grandpa Cat": Man you aged like milk
+"Grandpa Cat": Don't remember me do ya?
+- nod
+	"Grandpa Cat": ...
+	"Grandpa Cat": man times done a number on you han'st she
+- ...
+	"Grandpa Cat": Still the quiet type, huh.
+[wait time="1.0"]
+"Grandpa Cat":  Either way, welcome home.
+[wait_input]
+[signal arg="HouseSpawnStart"]
+Narrator: Pull the trigger one more time to close it out.
