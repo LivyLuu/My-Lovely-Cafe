@@ -21,3 +21,4 @@ shape = SubResource("BoxShape3D_hh6dn")
 transform = Transform3D(1.145, 0, 0, 0, 1.145, 0, 0, 0, 1.145, -5.8786497, 1.0429322, -6.4999537)
 
 [connection signal="body_entered" from="Checkout" to="Checkout" method="_on_body_entered"]
+[connection signal="body_exited" from="Checkout" to="Checkout" method="_on_body_exited"]

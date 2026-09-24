@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dsnewwmxj3ey8"
-path="res://.godot/imported/Grey Box Home2.blend-8d8298241a135b315584952ee9e0c4a9.scn"
+valid=false
 
 [deps]
 
 source_file="res://ASSETS/3D/Environment/Cafe Interior/Grey Box Home2.blend"
-dest_files=["res://.godot/imported/Grey Box Home2.blend-8d8298241a135b315584952ee9e0c4a9.scn"]
 
 [params]
 

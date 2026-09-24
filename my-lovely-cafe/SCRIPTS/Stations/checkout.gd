@@ -6,6 +6,6 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _ready():
 	SignalBus.sell_items_checkout.connect(sell_items_in_collision)
-	
+
 func sell_items_in_collision():
 	print ("selling items in collision from checkout script!")

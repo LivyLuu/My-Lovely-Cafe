@@ -16,10 +16,14 @@
 [ext_resource type="Texture2D" uid="uid://db7leb75txeb2" path="res://ASSETS/2D/speech_bubble.png" id="9_hh6dn"]
 [ext_resource type="Texture2D" uid="uid://dtli0hxctnp15" path="res://ASSETS/2D/coffee_ico.png" id="10_lcw5u"]
 [ext_resource type="PackedScene" uid="uid://dw8id1l0s3lnn" path="res://! PREFABS/Environment/counter.tscn" id="15_xfgne"]
+[ext_resource type="PackedScene" uid="uid://ddcmqqev03o4o" path="res://! PREFABS/Characters/grandpa_cat.tscn" id="16_upc1c"]
 [ext_resource type="PackedScene" uid="uid://cqivpjcq0ya4h" path="res://! SCENES/! Game/CafeTiles/spawn.tscn" id="17_gwe36"]
 [ext_resource type="PackedScene" uid="uid://c4di77hp5e04g" path="res://! SCENES/! Game/checkout_station.tscn" id="17_lcw5u"]
+[ext_resource type="PackedScene" uid="uid://b7y8048afn1vj" path="res://! PREFABS/dialogue_box_editablerety.tscn" id="17_vkrpm"]
+[ext_resource type="Script" uid="uid://b0827lr2sis" path="res://SCRIPTS/Dialogue/dialogue_event.gd" id="18_epe7i"]
 [ext_resource type="PackedScene" uid="uid://bvfy22c28iyfi" path="res://! SCENES/! Game/CafeTiles/walkway.tscn" id="18_hw7wb"]
 [ext_resource type="PackedScene" uid="uid://bb05heqr85u2y" path="res://! SCENES/Stations/cash_register.tscn" id="18_pef44"]
+[ext_resource type="Script" uid="uid://ceuedwpotbi47" path="res://SCRIPTS/Dialogue/text_event.gd" id="19_ob17w"]
 [ext_resource type="PackedScene" uid="uid://c6w2gprg28abo" path="res://! SCENES/Stations/radio.tscn" id="20_hh6dn"]
 [ext_resource type="PackedScene" uid="uid://0jfnncekpoas" path="res://! SCENES/! Game/CafeTiles/ordering_station.tscn" id="20_l350j"]
 [ext_resource type="PackedScene" uid="uid://bfcju6pxct8lq" path="res://! SCENES/Props/bean_grinder.tscn" id="22_upc1c"]
@@ -37,6 +41,13 @@ sky_material = SubResource("ProceduralSkyMaterial_gwwsu")
 background_mode = 2
 sky = SubResource("Sky_yk7y5")
 tonemap_mode = 2
+
+[sub_resource type="Resource" id="Resource_rmk41"]
+script = ExtResource("19_ob17w")
+player_focus = null
+character_id = &"Grandfather Cat"
+events = Array[String](["", "", "", "", "", "", ""])
+metadata/_custom_type_script = "uid://ceuedwpotbi47"
 
 [node name="!Start" type="Node3D" unique_id=1824626723]
 script = ExtResource("1_gwwsu")
@@ -98,6 +109,13 @@ visible = false
 
 [node name="Counter" parent="ENVIRONMENT" unique_id=1533794548 instance=ExtResource("15_xfgne")]
 
+[node name="GrandpaCat" parent="ENVIRONMENT" unique_id=1147907184 instance=ExtResource("16_upc1c")]
+transform = Transform3D(-0.9163348, 0, 0.40041292, 0, 1, 0, -0.40041292, 0, -0.9163348, -7.626298, 1.2139505, -4.232138)
+
+[node name="DialogueBoxEDITABLE" parent="ENVIRONMENT" unique_id=749628244 instance=ExtResource("17_vkrpm")]
+transform = Transform3D(-0.860893, 0, 0.508786, 0, 1, 0, -0.508786, 0, -0.860893, -7.492201, 1.4117937, -4.397694)
+events = Array[ExtResource("18_epe7i")]([SubResource("Resource_rmk41"), null, null, null])
+
 [node name="XROrigin3D" parent="." unique_id=1179157175 instance=ExtResource("3_r8ipk")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -7.2292347, 0, -6.6518846)
 
@@ -108,7 +126,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.4
 
 [node name="Checkout Station" parent="STATIONS" unique_id=2032981734 instance=ExtResource("17_lcw5u")]
 
-[node name="Cash Register" parent="STATIONS" unique_id=237606051 instance=ExtResource("18_pef44")]
+[node name="Cash Register" parent="STATIONS" unique_id=1353885578 instance=ExtResource("18_pef44")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8998575, 1.0492336, -7.3009725)
 
 [node name="PROPS" type="Node" parent="." unique_id=390270501]
