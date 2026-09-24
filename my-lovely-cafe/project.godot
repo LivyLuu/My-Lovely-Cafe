@@ -33,7 +33,8 @@ shader_language/warnings/treat_warnings_as_errors=true
 
 directories/dch_directory={
 "Grandpa Cat": "res://DIALOGUE/Grandpa Cat.dch",
-"Narrator": "res://DIALOGUE/Narrator.dch"
+"Narrator": "res://DIALOGUE/Narrator.dch",
+"You": "res://DIALOGUE/You.dch"
 }
 directories/dtl_directory={
 "dialogic_vr_test": "res://! SCENES/Cutscenes/DialogicTest/dialogic_vr_test.dtl"
