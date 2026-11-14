@@ -96,6 +96,10 @@ folder_colors={
 "res://SCRIPTS/": "green"
 }
 
+[filesystem]
+
+import/blender/enabled=false
+
 [layer_names]
 
 2d_physics/layer_1="static world"

@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="FurLook" format=3 uid="uid://b8yvkgntxxb7t"]
+
+[ext_resource type="Script" uid="uid://ctsuggo81eup7" path="res://ASSETS/Shaders/fur_look.gd" id="1_furlook"]
+
+[resource]
+resource_name = "white long fur - hidden base"
+script = ExtResource("1_furlook")
+fur_layers = 12
+fur_length = 0.06
+gravity = 0.15
+strand_density = 480.0
+fur_density = 1.0
+min_strand_height = 0.6
+clumping = 0.15
+clump_size = 5.0
+tip_softness = 0.7
+silhouette_softness = 0.45
+strand_detail = 0.5
+fluff_amount = 0.15
+fluff_size = 0.02
+bump_strength = 0.17
+use_surface_texture = false
+fur_tint = Color(1, 0.97, 0.98, 1)
+match_base = 0.0
+root_tint = Color(0.97, 0.86, 0.93, 1)
+root_shade = 0.95
+tip_shade = 1.12
+strand_variation = 0.08
+softness = 0.9
+rim_color = Color(1, 0.88, 0.94, 1)
+rim_strength = 0.4
+smooth_normals = 1.0
+solid_core = 0.4
