@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bb05heqr85u2y"]
 
 [ext_resource type="PackedScene" uid="uid://b58g0qyd7sswt" path="res://ASSETS/3D/cash_register.fbx" id="1_3lbie"]
-[ext_resource type="Material" uid="uid://dit3lx4j3mxhw" path="res://ASSETS/Materials/m_white.tres" id="2_p48jp"]
+[ext_resource type="Material" uid="uid://dit3lx4j3mxhw" path="res://ASSETS/3D/Cats/Materials/m_white.tres" id="2_p48jp"]
 [ext_resource type="Script" uid="uid://ckbm3yilw5ht6" path="res://SCRIPTS/Stations/cash_register.gd" id="2_prt4x"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="3_p48jp"]
 

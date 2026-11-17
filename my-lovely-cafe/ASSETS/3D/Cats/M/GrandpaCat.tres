@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FurVariant" format=3 uid="uid://p4bdul1xh7p1"]
+
+[ext_resource type="Script" uid="uid://dadje84c87tuq" path="res://ASSETS/Shaders/fur_variant.gd" id="1_2hti3"]
+
+[sub_resource type="Resource" id="Resource_2hti3"]
+script = ExtResource("1_2hti3")
+
+[resource]
+script = ExtResource("1_2hti3")
+base_look = SubResource("Resource_2hti3")

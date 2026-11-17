@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://dvobm6vcfnqe8" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_s8akj"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="7_kuupj"]
 [ext_resource type="Animation" uid="uid://s1vqcxyqcvea" path="res://addons/godot-xr-tools/hands/animations/right/Grip 5.res" id="8_frj1a"]
-[ext_resource type="Material" uid="uid://bm41pa800v0up" path="res://ASSETS/Materials/m_glass.tres" id="9_1b1ti"]
+[ext_resource type="Material" uid="uid://bm41pa800v0up" path="res://ASSETS/3D/Cats/Materials/m_glass.tres" id="9_1b1ti"]
 [ext_resource type="PackedScene" uid="uid://bnvxqb33lltmj" path="res://addons/godot-xr-tools/interactables/interactable_hinge.tscn" id="10_7v0ry"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="11_jim8v"]
 [ext_resource type="Script" uid="uid://dn7grmvmgjiqv" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_snap.gd" id="12_656jv"]

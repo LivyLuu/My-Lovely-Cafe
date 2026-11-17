@@ -9,7 +9,10 @@ class_name FurLook
 
 const MAX_LAYERS := 24
 # Used by FinalFur to know which of its own sliders a Fur Look replaces.
-const SETTING_NAMES := ["fur_layers", "fur_length", "gravity", "comb_direction", "strand_density", "fur_density", "min_strand_height", "clumping", "clump_size", "tip_softness", "silhouette_softness", "strand_detail", "fluff_amount", "fluff_size", "bump_strength", "use_surface_texture", "pattern_texture", "pattern_tiling", "fur_tint", "match_base", "root_tint", "root_shade", "tip_shade", "strand_variation", "softness", "rim_color", "rim_strength", "smooth_normals", "hide_base_mesh", "solid_core", "lod_distance", "fade_distance"]
+const SETTING_NAMES := ["fur_layers", "fur_length", "gravity", "comb_direction", "strand_density", "fur_density", "min_strand_height", "clumping", "clump_size", "tip_softness", "silhouette_softness", "strand_detail", "fluff_amount", "fluff_size", "bump_strength", "use_surface_texture", "pattern_texture", "pattern_tiling", "height_map", "region_lengths", "fur_tint", "match_base", "root_tint", "root_shade", "tip_shade", "strand_variation", "softness", "rim_color", "rim_strength", "smooth_normals", "hide_base_mesh", "solid_core", "lod_distance", "fade_distance"]
+
+## Makes a copy of this preset, saved next to it under a name you pick. Edit the copy freely: this one is untouched.
+@export_tool_button("New Fur Variant", "Duplicate") var new_variant_button: Callable = _on_new_variant_pressed
 
 @export_group("Fur")
 ## Every layer is another pass of fill-rate on the GPU. 8-12 looks soft on Quest, 16+ is for PC.
@@ -113,6 +116,20 @@ const SETTING_NAMES := ["fur_layers", "fur_length", "gravity", "comb_direction",
 	set(value):
 		pattern_tiling = value
 		emit_changed()
+## Extra surfaces (separate materials in Blender) that grow fur too, each with its own length.
+## Key = the surface's name (its material name, e.g. "Chest Fur"), value = length multiplier:
+## 1.5 = 50% longer, 0.5 = half as long. Leave a surface out for no fur on it. Add the main fur
+## surface's name here too if you want to scale it. Everything still draws as ONE fur mesh.
+@export var region_lengths: Dictionary = {}:
+	set(value):
+		region_lengths = value
+		emit_changed()
+## Optional black-and-white image painted on the model's UV layout that controls where the fur grows.
+## White = the full fur set above, grey = shorter fur, black = no fur at all.
+@export var height_map: Texture2D:
+	set(value):
+		height_map = value
+		emit_changed()
 @export var fur_tint: Color = Color.WHITE:
 	set(value):
 		fur_tint = value
@@ -197,3 +214,62 @@ const SETTING_NAMES := ["fur_layers", "fur_length", "gravity", "comb_direction",
 		fade_distance = value
 		emit_changed()
 
+
+
+func _on_new_variant_pressed() -> void:
+	ask_for_variant(self, resource_path.get_base_dir(), resource_path.get_file().get_basename(), func(copy: FurLook) -> void:
+		var editor = Engine.get_singleton("EditorInterface")
+		editor.edit_resource(copy))
+
+
+# Editor only. Asks for a name, saves a duplicate of `source` as "<folder>/<name>.tres" (never over an
+# existing file), then calls `done` with the new FurLook. `source` is not changed.
+static func ask_for_variant(source: FurLook, folder: String, suggested_name: String, done: Callable) -> void:
+	if not Engine.is_editor_hint() or not Engine.has_singleton("EditorInterface"):
+		return
+	var editor = Engine.get_singleton("EditorInterface")
+	if folder.is_empty() or not DirAccess.dir_exists_absolute(folder):
+		folder = "res://"
+	var dialog := ConfirmationDialog.new()
+	dialog.title = "New Fur Variant"
+	dialog.ok_button_text = "Create"
+	var box := VBoxContainer.new()
+	var label := Label.new()
+	label.text = "Name for the new fur (saved in %s):" % folder
+	var field := LineEdit.new()
+	field.custom_minimum_size.x = 360
+	field.text = _free_name(folder, suggested_name if not suggested_name.is_empty() else "New Fur")
+	box.add_child(label)
+	box.add_child(field)
+	dialog.add_child(box)
+	var accept := func() -> void:
+		var clean := field.text.strip_edges().validate_filename()
+		if clean.is_empty():
+			clean = "New Fur"
+		var path := "%s/%s.tres" % [folder.trim_suffix("/"), _free_name(folder, clean)]
+		var copy: FurLook = source.duplicate()
+		if ResourceSaver.save(copy, path) == OK:
+			copy.take_over_path(path)
+			done.call(copy)
+		else:
+			push_error("Could not save the new fur variant to " + path)
+		dialog.queue_free()
+	dialog.confirmed.connect(accept)
+	dialog.canceled.connect(dialog.queue_free)
+	field.text_submitted.connect(func(_t: String) -> void:
+		dialog.hide()
+		accept.call())
+	editor.get_base_control().add_child(dialog)
+	dialog.popup_centered()
+	field.select_all()
+	field.grab_focus()
+
+
+# "White Long Fur" -> "White Long Fur 2" when that name is taken, and so on.
+static func _free_name(folder: String, wanted: String) -> String:
+	var name := wanted
+	var n := 2
+	while FileAccess.file_exists("%s/%s.tres" % [folder.trim_suffix("/"), name]):
+		name = "%s %d" % [wanted.rstrip("0123456789 "), n]
+		n += 1
+	return name

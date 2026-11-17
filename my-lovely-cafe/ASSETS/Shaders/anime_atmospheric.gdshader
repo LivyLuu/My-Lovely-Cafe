@@ -25,6 +25,17 @@ uniform float rim_strength : hint_range(0.0, 2.0) = 0.5;
 uniform float highlight_strength : hint_range(0.0, 2.0) = 0.0;
 uniform float highlight_size : hint_range(1.0, 128.0) = 48.0;
 
+// Real-time shadows from the world's main light (the sun / moon): the shadow shapes other objects
+// and the model's own limbs and ears throw onto the surface.
+//   OFF (default): the material is still lit by the real light (its direction, colour and
+//                  strength drive the toon shade), but the light's shadow map is ignored, so
+//                  no extra shadow shapes land on top of the toon shade.
+//   ON:            the light's shadow map darkens the material like any other lit surface.
+// This only covers directional lights. A point or spot light that has shadows turned on still
+// casts its shadows here: for those, Godot gives light() a single combined number (range
+// falloff times shadow) that can't be pulled apart.
+uniform bool receive_world_shadows = false;
+
 void fragment() {
 	ALBEDO = base_color.rgb * texture(albedo_texture, UV).rgb;
 	ROUGHNESS = 1.0;
@@ -36,6 +47,14 @@ void fragment() {
 }
 
 void light() {
+	// ATTENUATION is the light's range falloff multiplied by its shadow map. A directional light
+	// has no range falloff, so for the sun it is ONLY the shadow map: using 1.0 instead ignores
+	// the shadows while the light's direction and colour still shape the toon shade below.
+	float atten = ATTENUATION;
+	if (!receive_world_shadows && LIGHT_IS_DIRECTIONAL) {
+		atten = 1.0;
+	}
+
 	// Two-band toon diffuse: smoothstep instead of a hard if/else, so
 	// the band edge is soft (no jagged aliasing) at negligible extra cost.
 	float ndotl = dot(NORMAL, LIGHT);
@@ -43,11 +62,11 @@ void light() {
 
 	vec3 lit = ALBEDO;
 	vec3 shadowed = ALBEDO * shade_color.rgb;
-	DIFFUSE_LIGHT += mix(shadowed, lit, band) * ATTENUATION * LIGHT_COLOR;
+	DIFFUSE_LIGHT += mix(shadowed, lit, band) * atten * LIGHT_COLOR;
 
 	if (highlight_strength > 0.0) {
 		float spec = pow(clamp(dot(NORMAL, normalize(LIGHT + VIEW)), 0.0, 1.0), highlight_size);
 		float spec_band = smoothstep(0.5, 0.52, spec);
-		SPECULAR_LIGHT += spec_band * highlight_strength * LIGHT_COLOR * ATTENUATION;
+		SPECULAR_LIGHT += spec_band * highlight_strength * LIGHT_COLOR * atten;
 	}
 }

@@ -6,15 +6,23 @@ class_name LevelManager
 # share time it took and score when you end level as well!
 
 #region ----VARIABLES----
-@export var customer_scene: PackedScene
+@export_group("World")
+@export var Main_Menu: PackedScene
+@export var possible_orders: Array[MenuItem] = []
+
+@export_group("Level")
 @export var day_duration: float = 180.0
 @export var customers_required: int = 2
 @export var move_speed: float = 2.0
-@export var arrival_threshold: float = 0.05
-@export var possible_orders: Array[MenuItem] = []
-@export var customer_path: Array[Node3D] = []
+
+@export_group("Other")
 @export var spawn_interval_range: Vector2 = Vector2(8.0, 15.0)
+@export var arrival_threshold: float = 0.05
+@export var customer_path: Array[Node3D] = []
+@export_subgroup("Refference Scenes")
+@export var customer_scene: PackedScene
 @export var coffee_maker: CoffeeMaker
+
 #endregion --------------
 #region ----RECIEVER----
 

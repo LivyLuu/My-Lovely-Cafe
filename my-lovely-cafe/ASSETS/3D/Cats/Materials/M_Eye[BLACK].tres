@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b8rhlnttcbmcl"]
+
+[resource]
+specular_mode = 1
+disable_fog = true
+disable_specular_occlusion = true
+albedo_color = Color(0, 0, 0, 1)
+metallic = 1.0
+metallic_specular = 0.63

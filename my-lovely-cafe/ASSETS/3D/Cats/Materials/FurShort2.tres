@@ -72,7 +72,7 @@ void fragment() {
 width = 1000
 height = 1000
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ulvr4"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mungv"]
 render_priority = 0
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 1.0
@@ -88,9 +88,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_d6y72"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5ap2"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_ulvr4")
+next_pass = SubResource("ShaderMaterial_mungv")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.9285714285714286
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -105,9 +105,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_4fiqv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_111vd"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_d6y72")
+next_pass = SubResource("ShaderMaterial_a5ap2")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.8571428571428571
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -122,9 +122,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1o0sh"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wrmud"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_4fiqv")
+next_pass = SubResource("ShaderMaterial_111vd")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.7857142857142857
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -139,9 +139,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0l377"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q7edc"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_1o0sh")
+next_pass = SubResource("ShaderMaterial_wrmud")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.7142857142857143
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -156,9 +156,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsm8v"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clkje"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_0l377")
+next_pass = SubResource("ShaderMaterial_q7edc")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.6428571428571429
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -173,9 +173,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wk3no"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_atobf"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_nsm8v")
+next_pass = SubResource("ShaderMaterial_clkje")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.5714285714285714
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -190,9 +190,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0cvm"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fpjgy"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_wk3no")
+next_pass = SubResource("ShaderMaterial_atobf")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.5
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -207,9 +207,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rj0c0"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_43q2p"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_j0cvm")
+next_pass = SubResource("ShaderMaterial_fpjgy")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.42857142857142855
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -224,9 +224,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxy3h"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b3wik"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_rj0c0")
+next_pass = SubResource("ShaderMaterial_43q2p")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.35714285714285715
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -241,9 +241,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_f5tnt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_onbdr"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_kxy3h")
+next_pass = SubResource("ShaderMaterial_b3wik")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.2857142857142857
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -258,9 +258,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_av7qi"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vwjxd"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_f5tnt")
+next_pass = SubResource("ShaderMaterial_onbdr")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.21428571428571427
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -275,9 +275,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3x36"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eb4wd"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_av7qi")
+next_pass = SubResource("ShaderMaterial_vwjxd")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.14285714285714285
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -292,9 +292,9 @@ shader_parameter/fur_lean = Vector3(0.2, -0.4, 0)
 shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1i8x2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3xsca"]
 render_priority = 0
-next_pass = SubResource("ShaderMaterial_s3x36")
+next_pass = SubResource("ShaderMaterial_eb4wd")
 shader = SubResource("Shader_5diat")
 shader_parameter/shell_index = 0.07142857142857142
 shader_parameter/root_color = Color(0.7, 0.57143337, 0.294, 1)
@@ -310,5 +310,5 @@ shader_parameter/sheen_strength = 0.0
 shader_parameter/sheen_power = 6.254
 
 [resource]
-next_pass = SubResource("ShaderMaterial_1i8x2")
+next_pass = SubResource("ShaderMaterial_3xsca")
 albedo_color = Color(0.35, 0.25, 0.18, 1)

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dli75j2fadyfd"]
 
 [ext_resource type="PackedScene" uid="uid://dok785v77631k" path="res://ASSETS/3D/Environment/sky_orb.fbx" id="1_fh55f"]
-[ext_resource type="Shader" uid="uid://bbxi021xkh1sh" path="res://ASSETS/Materials/m_black.tres" id="2_q75rd"]
+[ext_resource type="Shader" uid="uid://bbxi021xkh1sh" path="res://ASSETS/3D/Cats/Materials/m_black.tres" id="2_q75rd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bkaso"]
 render_priority = 0

@@ -38,6 +38,10 @@ uniform float fluff_amount : hint_range(0.0, 1.0) = 0.0;
 uniform float fluff_frequency = 100.0;
 uniform float bump_strength : hint_range(0.0, 1.0) = 0.0;
 
+// Fur height map (mesh UVs): white = the full fur settings, grey = shorter fur, black = no fur.
+uniform sampler2D height_map : filter_linear_mipmap, repeat_disable, hint_default_white;
+uniform float use_height_map : hint_range(0.0, 1.0) = 0.0;
+
 uniform float silhouette_softness : hint_range(0.0, 1.0) = 0.65;
 // > 0 lights the fur with smoothed normals that Final_fur.gd stores in the vertex colour. The fur
 // still GROWS along the model's real normals, so the shape stays faithful; only the shading softens.
@@ -62,6 +66,7 @@ varying float shell_undercoat;
 varying float shell_puff;
 varying vec3 shell_origin;
 varying float shell_world_scale;
+varying float shell_height;
 
 vec2 hash22(vec2 p) {
 	vec3 p3 = fract(vec3(p.xyx) * vec3(0.1031, 0.1030, 0.0973));
@@ -106,6 +111,10 @@ void vertex() {
 
 	// Fluff clumps: low-frequency noise makes the fur longer in some places and shorter in
 	// others, so the outline bulges into soft lumps instead of staying a smooth hull.
+	shell_height = 1.0;
+	if (use_height_map > 0.5) {
+		shell_height = textureLod(height_map, UV, 0.0).r;
+	}
 	shell_puff = 0.5;
 	float length_scale = 1.0;
 	if (fluff_amount > 0.0) {
@@ -116,6 +125,11 @@ void vertex() {
 	// World "down" expressed in the mesh's local space (row-vector * matrix = inverse rotation).
 	vec3 down = normalize(vec3(0.0, -1.0, 0.0) * mat3(MODEL_MATRIX));
 	vec3 lean = down * gravity + comb;
+	// Per-region length (stored per vertex by the script) and the optional height map.
+	length_scale *= CUSTOM0.w;
+	if (use_height_map > 0.5) {
+		length_scale *= shell_height;
+	}
 	VERTEX += (NORMAL + lean * shell_t) * (fur_length * shell_t * length_scale);
 
 	// From here on NORMAL only affects lighting, so swap in the smoothed normal.
@@ -215,6 +229,10 @@ void fragment() {
 	// Tips fade with the hair's own height, or with the layer's height once hairs are faded out.
 	float tip_q = mix(t, q, strand_detail);
 	float alpha = cover * graze * (1.0 - tip_softness * tip_q * tip_q * (1.0 - core));
+	if (use_height_map > 0.5) {
+		// Black = bare (no fur, not even the undercoat); the mask fades in over the darkest greys.
+		alpha *= smoothstep(0.02, 0.15, texture(height_map, UV).r);
+	}
 	ALPHA = alpha;
 
 	// Roots can be tinted (e.g. pink or lilac) so the shadowed depths of the coat get a colour

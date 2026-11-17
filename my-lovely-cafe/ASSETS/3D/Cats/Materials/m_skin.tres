@@ -23,3 +23,4 @@ shader_parameter/rim_power = 3.0
 shader_parameter/rim_strength = 0.578000027455
 shader_parameter/highlight_strength = 0.4650000220875
 shader_parameter/highlight_size = 60.8110028410225
+shader_parameter/receive_world_shadows = false

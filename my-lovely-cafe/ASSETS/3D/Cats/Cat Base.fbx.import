@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://5kn76f5ry5w4"
-path="res://.godot/imported/CatBase.fbx-ee17c1e453d4b517894197ebbcdb15ec.scn"
+uid="uid://dgbjdets4x1el"
+path="res://.godot/imported/Cat Base.fbx-5049e78a6a0e8ae96619c9c7ed10090f.scn"
 
 [deps]
 
-source_file="res://ASSETS/3D/CatBase.fbx"
-dest_files=["res://.godot/imported/CatBase.fbx-ee17c1e453d4b517894197ebbcdb15ec.scn"]
+source_file="res://ASSETS/3D/Cats/Cat Base.fbx"
+dest_files=["res://.godot/imported/Cat Base.fbx-5049e78a6a0e8ae96619c9c7ed10090f.scn"]
 
 [params]
 

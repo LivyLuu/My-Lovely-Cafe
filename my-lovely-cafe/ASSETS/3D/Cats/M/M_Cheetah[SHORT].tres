@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://8wfj6aguuqwr"]
+
+[ext_resource type="Texture2D" uid="uid://bod457w5oqn21" path="res://ASSETS/Shaders/cheetah_print.png" id="1_smx07"]
+
+[resource]
+albedo_texture = ExtResource("1_smx07")
+uv1_scale = Vector3(4, 4, 1)

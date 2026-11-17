@@ -19,6 +19,9 @@ const NEAR_NODE := "FurShells"
 const FAR_NODE := "FurShellsFar"
 
 @export_tool_button("Rebuild Fur") var rebuild_fur: Callable = _rebuild
+## Copies the fur settings in use into a NEW preset file (saved beside the current preset, named by you)
+## and switches this cat to it, so you can change this cat's fur without touching any other cat.
+@export_tool_button("New Fur Variant", "Duplicate") var new_variant: Callable = _on_new_variant
 
 ## A reusable fur preset, for example "white long fur". When one is assigned it supplies every fur
 ## setting (except Surface Index), and this node's own sliders below are hidden. Edit the preset
@@ -139,6 +142,20 @@ const FAR_NODE := "FurShellsFar"
 @export var pattern_tiling: Vector2 = Vector2(4.0, 4.0):
 	set(value):
 		pattern_tiling = value
+		_queue_rebuild()
+## Extra surfaces (separate materials in Blender) that grow fur too, each with its own length.
+## Key = the surface's name (its material name, e.g. "Chest Fur"), value = length multiplier:
+## 1.5 = 50% longer, 0.5 = half as long. Leave a surface out for no fur on it. Add the main fur
+## surface's name here too if you want to scale it. Everything still draws as ONE fur mesh.
+@export var region_lengths: Dictionary = {}:
+	set(value):
+		region_lengths = value
+		_queue_rebuild()
+## Optional black-and-white image painted on the model's UV layout that controls where the fur grows.
+## White = the full fur set above, grey = shorter fur, black = no fur at all.
+@export var height_map: Texture2D:
+	set(value):
+		height_map = value
 		_queue_rebuild()
 @export var fur_tint: Color = Color.WHITE:
 	set(value):
@@ -295,33 +312,76 @@ func _rebuild() -> void:
 	var layer_count: int = s.fur_layers
 	var lod_dist: float = s.lod_distance
 	var fade_dist: float = s.fade_distance
-	var bounds := mesh.get_aabb()
+	var regions: Dictionary = s.region_lengths
+	var bounds := AABB()
+
+	# Copy only the fur surfaces (positions, normals, UVs, indices) into ONE mesh, so the whole coat is
+	# still a single draw call even when chest / ear / cheek surfaces have their own length. The first
+	# custom vertex attribute carries, as full floats (so every renderer reads exactly the same numbers;
+	# vertex colour is converted differently by the Compatibility renderer that Quest uses): xyz = the
+	# smoothed normal for lighting, w = that surface's length multiplier.
+	var surfaces := _fur_surfaces(regions)
+	var verts := PackedVector3Array()
+	var normals := PackedVector3Array()
+	var uvs := PackedVector2Array()
+	var indices := PackedInt32Array()
+	var region_len := PackedFloat32Array()
+	for entry in surfaces:
+		var arrays := mesh.surface_get_arrays(entry[0])
+		# Rigged cat: bake the mesh into the skeleton's rest pose, the shape the skinned mesh is drawn in.
+		_skin_to_rest_pose(arrays)
+		var sv: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+		var sn: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+		var suv = arrays[Mesh.ARRAY_TEX_UV]
+		var si = arrays[Mesh.ARRAY_INDEX]
+		var offset := verts.size()
+		verts.append_array(sv)
+		normals.append_array(sn)
+		if suv == null or suv.size() != sv.size():
+			var blank := PackedVector2Array()
+			blank.resize(sv.size())
+			uvs.append_array(blank)
+		else:
+			uvs.append_array(suv)
+		if si == null or si.is_empty():
+			for i in sv.size():
+				indices.append(offset + i)
+		else:
+			for i in si:
+				indices.append(offset + i)
+		for i in sv.size():
+			region_len.append(entry[1])
+	for i in verts.size():
+		bounds = AABB(verts[i], Vector3.ZERO) if i == 0 else bounds.expand(verts[i])
 	var body_size := bounds.get_longest_axis_size()
 
-	# Copy only the fur surface (positions, normals, UVs, indices) into its own mesh. When smoothing
-	# is on, the smoothed normals ride along in the first custom vertex attribute (full floats, so
-	# every renderer reads exactly the same numbers; vertex colour is converted differently by the
-	# Compatibility renderer that Quest uses) for the shader to light with.
-	var arrays := mesh.surface_get_arrays(surface_index)
-	arrays[Mesh.ARRAY_TANGENT] = null
-	arrays[Mesh.ARRAY_COLOR] = null
-	var format_flags := 0
-	if float(s.smooth_normals) > 0.0:
-		var welded := _welded_normals(arrays, body_size)
-		var packed := PackedFloat32Array()
-		packed.resize(welded.size() * 3)
-		for i in welded.size():
-			packed[i * 3] = welded[i].x
-			packed[i * 3 + 1] = welded[i].y
-			packed[i * 3 + 2] = welded[i].z
-		arrays[Mesh.ARRAY_CUSTOM0] = packed
-		format_flags = Mesh.ARRAY_CUSTOM_RGB_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT
+	var welded := _weld(verts, normals, region_len, body_size, surfaces)
+	var custom := PackedFloat32Array()
+	custom.resize(verts.size() * 4)
+	var use_smooth := float(s.smooth_normals) > 0.0
+	for i in verts.size():
+		var n: Vector3 = welded[0][i] if use_smooth else normals[i]
+		custom[i * 4] = n.x
+		custom[i * 4 + 1] = n.y
+		custom[i * 4 + 2] = n.z
+		custom[i * 4 + 3] = welded[1][i]
+	var fur_arrays := []
+	fur_arrays.resize(Mesh.ARRAY_MAX)
+	fur_arrays[Mesh.ARRAY_VERTEX] = verts
+	fur_arrays[Mesh.ARRAY_NORMAL] = normals
+	fur_arrays[Mesh.ARRAY_TEX_UV] = uvs
+	fur_arrays[Mesh.ARRAY_INDEX] = indices
+	fur_arrays[Mesh.ARRAY_CUSTOM0] = custom
 	var fur_mesh := ArrayMesh.new()
-	fur_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays, [], {}, format_flags)
+	fur_mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, fur_arrays, [], {},
+			Mesh.ARRAY_CUSTOM_RGBA_FLOAT << Mesh.ARRAY_FORMAT_CUSTOM0_SHIFT)
 
 	# Fur length is "% of body size", converted to this mesh's own local units.
 	var length_local: float = s.fur_length * body_size
-	var fur_bounds := bounds.grow(length_local * (1.0 + 0.6 * float(s.fluff_amount))) # fluff lumps stick out further
+	var longest := 1.0
+	for entry in surfaces:
+		longest = maxf(longest, entry[1])
+	var fur_bounds := bounds.grow(length_local * longest * (1.0 + 0.6 * float(s.fluff_amount))) # fluff lumps stick out further
 	var material := _make_material(s, length_local, body_size)
 	_apply_base_visibility(s.hide_base_mesh)
 
@@ -345,26 +405,53 @@ func _rebuild() -> void:
 # while the game is running. The blend with the original normals happens on the GPU.
 static var _smooth_cache := {}
 
-func _welded_normals(arrays: Array, body_size: float) -> PackedVector3Array:
-	var verts: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
-	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
-	var cache_key := "%d:%d:%d" % [mesh.get_instance_id(), surface_index, verts.size()]
+# Returns [welded normals, welded length multipliers]. Length multipliers are welded too, so a
+# long-fur region and the body next to it agree at their shared edge (no crack in the coat): where
+# surfaces meet, the multiplier that differs most from 1 wins, and the body triangles beside the
+# region carry the blend back down to normal length.
+func _weld(verts: PackedVector3Array, normals: PackedVector3Array, region_len: PackedFloat32Array,
+		body_size: float, surfaces: Array) -> Array:
+	var cache_key := "%d:%s:%d" % [mesh.get_instance_id(), str(surfaces), verts.size()]
 	if _smooth_cache.size() > 8:
 		_smooth_cache.clear()
 	if _smooth_cache.has(cache_key):
 		return _smooth_cache[cache_key]
 	var inv_cell := 1.0 / maxf(body_size * 0.0001, 0.0000001)
 	var sums := {}
+	var lens := {}
 	for i in verts.size():
 		var key := Vector3i((verts[i] * inv_cell).round())
 		sums[key] = sums.get(key, Vector3.ZERO) + normals[i]
+		if not lens.has(key) or absf(region_len[i] - 1.0) > absf(float(lens[key]) - 1.0):
+			lens[key] = region_len[i]
 	var welded := PackedVector3Array()
+	var welded_len := PackedFloat32Array()
 	welded.resize(verts.size())
+	welded_len.resize(verts.size())
 	for i in verts.size():
-		var summed: Vector3 = sums[Vector3i((verts[i] * inv_cell).round())]
+		var key := Vector3i((verts[i] * inv_cell).round())
+		var summed: Vector3 = sums[key]
 		welded[i] = summed.normalized() if summed.length_squared() > 0.0000001 else normals[i]
-	_smooth_cache[cache_key] = welded
-	return welded
+		welded_len[i] = lens[key]
+	var result := [welded, welded_len]
+	_smooth_cache[cache_key] = result
+	return result
+
+
+# Which surfaces grow fur, as [surface, length multiplier] pairs. The main one (Surface Index) always
+# does; any other surface grows fur when its name (the material name in Blender) is listed in the
+# Region Lengths setting with a multiplier above 0.
+func _fur_surfaces(regions: Dictionary) -> Array:
+	var out := []
+	if mesh == null:
+		return out
+	for i in mesh.get_surface_count():
+		var surface_name: String = (mesh as ArrayMesh).surface_get_name(i) if mesh is ArrayMesh else ""
+		if i == surface_index:
+			out.append([i, maxf(float(regions.get(surface_name, 1.0)), 0.0)])
+		elif regions.has(surface_name) and float(regions[surface_name]) > 0.0:
+			out.append([i, float(regions[surface_name])])
+	return out
 
 
 # Hides (or shows again) the base surface by swapping the material the RENDERER uses for it. The
@@ -385,7 +472,9 @@ func _apply_base_visibility(hidden: bool) -> void:
 		_base_hider = ShaderMaterial.new()
 		_base_hider.shader = BASE_HIDER_SHADER
 		_base_hider.render_priority = -100 # draws before the fur layers, so they test against its depth
-	RenderingServer.instance_set_surface_override_material(instance, surface_index, _base_hider.get_rid())
+	var active = fur_look if fur_look != null else self
+	for entry in _fur_surfaces(active.region_lengths): # every surface that grows fur is hidden, not just the main one
+		RenderingServer.instance_set_surface_override_material(instance, entry[0], _base_hider.get_rid())
 	_base_hidden_now = true
 	_watched_material = get_surface_override_material(surface_index)
 	_watched_mesh = mesh
@@ -407,6 +496,8 @@ func _make_material(s, length_local: float, body_size: float) -> ShaderMaterial:
 	material.set_shader_parameter("albedo_tex", texture)
 	material.set_shader_parameter("albedo_tiling", tiling)
 	material.set_shader_parameter("fur_tint", tint)
+	material.set_shader_parameter("height_map", s.height_map)
+	material.set_shader_parameter("use_height_map", 1.0 if s.height_map != null else 0.0)
 	material.set_shader_parameter("fur_length", length_local)
 	material.set_shader_parameter("gravity", s.gravity)
 	material.set_shader_parameter("comb", s.comb_direction)
@@ -461,6 +552,7 @@ func _setup_fur_node(node_name: String, fur_mesh: ArrayMesh, material: ShaderMat
 	fur.multimesh = multimesh
 
 	fur.material_override = material
+	fur.transform = _skinned_offset()
 	fur.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	fur.layers = layers
 	# Ranges are exactly adjacent (near ends where far begins) and use no hysteresis margin. A margin
@@ -491,3 +583,89 @@ func _clear_legacy_shell_chain() -> void:
 			or pass_material.shader.code.contains("shell_index")
 	if legacy:
 		base.next_pass = null
+
+
+# A rigged (skinned) mesh is drawn in its Skeleton3D's space, ignoring its own node transform, but the
+# fur is a plain child of this node, so it would inherit that ignored transform and end up rotated or
+# scaled differently from the cat (the importer often gives the mesh node a 100x / 90 degree transform).
+# This returns the offset that puts the fur where the skinned mesh is actually drawn. The fur is
+# placed for the skeleton's rest pose, so it does not bend with animation.
+func _skinned_offset() -> Transform3D:
+	var rig := get_node_or_null(skeleton) as Skeleton3D
+	if rig == null or get_skin() == null or not is_inside_tree() or not rig.is_inside_tree():
+		return Transform3D.IDENTITY
+	return global_transform.affine_inverse() * rig.global_transform
+
+
+# Moves the fur surface's vertices and normals from the mesh's own space into the skeleton's space,
+# using the rest pose and the mesh's skin (the same bone maths the GPU does for the real cat).
+# Returns false, and changes nothing, for a mesh that is not rigged.
+func _skin_to_rest_pose(arrays: Array) -> bool:
+	var rig := get_node_or_null(skeleton) as Skeleton3D
+	var rig_skin := get_skin()
+	if rig == null or rig_skin == null:
+		return false
+	var bones = arrays[Mesh.ARRAY_BONES]
+	var weights = arrays[Mesh.ARRAY_WEIGHTS]
+	var verts: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+	var normals: PackedVector3Array = arrays[Mesh.ARRAY_NORMAL]
+	if bones == null or weights == null or verts.is_empty() or normals.size() != verts.size():
+		return false
+	var per_vertex: int = bones.size() / verts.size()
+	if per_vertex < 1 or weights.size() != bones.size():
+		return false
+	var skin_xf: Array[Transform3D] = []
+	for i in rig_skin.get_bind_count():
+		var bone := rig_skin.get_bind_bone(i)
+		if bone < 0:
+			bone = rig.find_bone(rig_skin.get_bind_name(i))
+		skin_xf.append(rig.get_bone_global_rest(bone) * rig_skin.get_bind_pose(i) if bone >= 0 else Transform3D.IDENTITY)
+	var out_verts := PackedVector3Array()
+	var out_normals := PackedVector3Array()
+	out_verts.resize(verts.size())
+	out_normals.resize(verts.size())
+	for v in verts.size():
+		var p := Vector3.ZERO
+		var n := Vector3.ZERO
+		var total := 0.0
+		for k in per_vertex:
+			var w: float = weights[v * per_vertex + k]
+			if w <= 0.0:
+				continue
+			var xf: Transform3D = skin_xf[bones[v * per_vertex + k]]
+			p += (xf * verts[v]) * w
+			n += (xf.basis * normals[v]) * w
+			total += w
+		if total <= 0.0:
+			out_verts[v] = verts[v]
+			out_normals[v] = normals[v]
+		else:
+			out_verts[v] = p / total
+			out_normals[v] = n.normalized()
+	arrays[Mesh.ARRAY_VERTEX] = out_verts
+	arrays[Mesh.ARRAY_NORMAL] = out_normals
+	arrays[Mesh.ARRAY_BONES] = null
+	arrays[Mesh.ARRAY_WEIGHTS] = null
+	return true
+
+
+# Editor button: duplicate the fur settings this node is using into a new FurLook file and assign it.
+func _on_new_variant() -> void:
+	var source: FurLook = fur_look
+	var folder := ""
+	var suggested := name
+	if source != null and not source.resource_path.is_empty():
+		folder = source.resource_path.get_base_dir()
+		suggested = source.resource_path.get_file().get_basename()
+	else:
+		# No preset yet: turn this node's own sliders into one.
+		source = FurLook.new()
+		for setting in FurLook.SETTING_NAMES:
+			source.set(setting, get(setting))
+		var styles := "res://ASSETS/3D/Cats/Fur Styles"
+		folder = styles if DirAccess.dir_exists_absolute(styles) else (owner.scene_file_path.get_base_dir() if owner and not owner.scene_file_path.is_empty() else "res://")
+	FurLook.ask_for_variant(source, folder, suggested, func(copy: FurLook) -> void:
+		fur_look = copy
+		var editor = Engine.get_singleton("EditorInterface")
+		editor.mark_scene_as_unsaved()
+		editor.edit_node(self))
