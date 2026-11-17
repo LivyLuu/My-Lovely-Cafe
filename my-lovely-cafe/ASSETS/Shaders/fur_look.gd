@@ -117,7 +117,8 @@ const SETTING_NAMES := ["fur_layers", "fur_length", "gravity", "comb_direction",
 		pattern_tiling = value
 		emit_changed()
 ## Extra surfaces (separate materials in Blender) that grow fur too, each with its own length.
-## Key = the surface's name (its material name, e.g. "Chest Fur"), value = length multiplier:
+## Key = the surface's name or material name (e.g. "Chest Fur") or its number (0, 1, 2... in the mesh's
+## surface order; .glb files often lose names, so the number always works). Value = length multiplier:
 ## 1.5 = 50% longer, 0.5 = half as long. Leave a surface out for no fur on it. Add the main fur
 ## surface's name here too if you want to scale it. Everything still draws as ONE fur mesh.
 @export var region_lengths: Dictionary = {}:

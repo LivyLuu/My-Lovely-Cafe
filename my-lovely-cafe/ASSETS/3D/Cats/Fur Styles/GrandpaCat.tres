@@ -6,7 +6,7 @@
 resource_name = "white long fur - hidden base"
 script = ExtResource("1_agicu")
 fur_layers = 12
-fur_length = 0.06
+fur_length = 0.091
 gravity = 0.15
 strand_density = 480.0
 fur_density = 1.0

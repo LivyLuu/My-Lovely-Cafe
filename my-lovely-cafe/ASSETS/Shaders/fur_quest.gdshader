@@ -52,6 +52,8 @@ uniform float base_hidden : hint_range(0.0, 1.0) = 0.0;
 // How far up the coat (0..1 of its height) the layers stay fully opaque. Beyond that they fade
 // into the normal wispy, transparent layers. 0 = off.
 uniform float core_depth : hint_range(0.0, 1.0) = 0.0;
+// 1 for animated (skinned) cats, whose layers are baked into the mesh; 0 for MultiMesh layers.
+uniform float layered_mesh : hint_range(0.0, 1.0) = 0.0;
 
 uniform vec4 root_tint : source_color = vec4(1.0);
 uniform float root_shade : hint_range(0.0, 1.0) = 0.72;
@@ -104,9 +106,20 @@ float contrast(float v) {
 }
 
 void vertex() {
-	shell_t = INSTANCE_CUSTOM.x;
-	shell_undercoat = INSTANCE_CUSTOM.y; // 1.0 on the innermost layer: a solid dark undercoat
-	shell_origin = VERTEX;
+	// Static cats: each MultiMesh instance is one layer (INSTANCE_CUSTOM). Animated cats: every layer is
+	// baked into one skinned mesh, so the layer data rides in the vertex data instead (see FinalFur.gd).
+	vec3 origin = VERTEX; // fluff noise is sampled here, so it must not move when the cat animates
+	float region_length = CUSTOM0.w;
+	if (layered_mesh > 0.5) {
+		region_length = CUSTOM0.x;
+		shell_t = CUSTOM0.y;
+		shell_undercoat = CUSTOM0.z;
+		origin = CUSTOM1.xyz;
+	} else {
+		shell_t = INSTANCE_CUSTOM.x;
+		shell_undercoat = INSTANCE_CUSTOM.y; // 1.0 on the innermost layer: a solid dark undercoat
+	}
+	shell_origin = origin;
 	shell_world_scale = length(MODEL_MATRIX[0].xyz); // object units -> world units, for the bump height
 
 	// Fluff clumps: low-frequency noise makes the fur longer in some places and shorter in
@@ -118,7 +131,7 @@ void vertex() {
 	shell_puff = 0.5;
 	float length_scale = 1.0;
 	if (fluff_amount > 0.0) {
-		shell_puff = contrast(vnoise3(VERTEX * fluff_frequency));
+		shell_puff = contrast(vnoise3(origin * fluff_frequency));
 		length_scale = 1.0 + fluff_amount * (shell_puff - 0.5) * 1.2;
 	}
 
@@ -126,7 +139,7 @@ void vertex() {
 	vec3 down = normalize(vec3(0.0, -1.0, 0.0) * mat3(MODEL_MATRIX));
 	vec3 lean = down * gravity + comb;
 	// Per-region length (stored per vertex by the script) and the optional height map.
-	length_scale *= CUSTOM0.w;
+	length_scale *= region_length;
 	if (use_height_map > 0.5) {
 		length_scale *= shell_height;
 	}
